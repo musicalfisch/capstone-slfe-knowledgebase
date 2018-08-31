@@ -14,3 +14,6 @@
 
 **Production Mode**
 1. `npm build`
+
+**Running Server**
+1. `MONGODB_URI=[mongodbURI] npm run server`
