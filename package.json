@@ -1,0 +1,29 @@
+{
+  "name": "sfle-knowledgebase",
+  "version": "1.0.0",
+  "description": "**Get Started**",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"mpm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dickwyn/sfle-knowledgebase.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dickwyn/sfle-knowledgebase/issues"
+  },
+  "homepage": "https://github.com/dickwyn/sfle-knowledgebase#readme",
+  "dependencies": {
+    "concurrently": "^4.0.1",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
