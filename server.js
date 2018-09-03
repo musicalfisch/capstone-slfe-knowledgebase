@@ -2,6 +2,8 @@ const  express = require('express');
 const  mongoose = require('mongoose');
 const  bodyParser = require('body-parser');
 
+const port = process.env.PORT || 5000;
+
 const enterprises = require('./routes/api/enterprises');
 
 const app = express();
@@ -25,8 +27,6 @@ app.get('/api/customers', (req, res) => {
 
     res.json(customers);
 });
-
-const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
 
