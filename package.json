@@ -1,25 +1,29 @@
 {
-  "name": "capstone-slfe-knowledgebase-backend",
+  "name": "sfle-knowledgebase",
   "version": "1.0.0",
-  "description": "Backend for capstone-slfe-knowledgebase",
+  "description": "**Get Started**",
   "main": "server.js",
   "scripts": {
+    "client-install": "cd client && npm install",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/panza8484/capstone-slfe-knowledgebase.git"
   },
-  "author": "Manuel Aguirre",
-  "license": "ISC",
+  "author": "",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/panza8484/capstone-slfe-knowledgebase/issues"
   },
   "homepage": "https://github.com/panza8484/capstone-slfe-knowledgebase#readme",
   "dependencies": {
+    "concurrently": "^4.0.1",
+    "express": "^4.16.3"
     "body-parser": "^1.18.3",
-    "express": "^4.16.3",
     "mongoose": "^5.2.12"
   },
   "devDependencies": {

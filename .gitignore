@@ -1,4 +1,6 @@
 
+# Created by https://www.gitignore.io/api/node,windows,visualstudiocode
+=======
 
 ### macOS ###
 # General
@@ -134,4 +136,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
->>>>>>> 9d156493b0d2418601273c0829a53f6df71433dc
