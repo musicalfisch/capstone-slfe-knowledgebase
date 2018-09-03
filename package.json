@@ -12,17 +12,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dickwyn/sfle-knowledgebase.git"
+    "url": "git+https://github.com/panza8484/capstone-slfe-knowledgebase.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dickwyn/sfle-knowledgebase/issues"
+    "url": "https://github.com/panza8484/capstone-slfe-knowledgebase/issues"
   },
-  "homepage": "https://github.com/dickwyn/sfle-knowledgebase#readme",
+  "homepage": "https://github.com/panza8484/capstone-slfe-knowledgebase#readme",
   "dependencies": {
     "concurrently": "^4.0.1",
     "express": "^4.16.3"
+    "body-parser": "^1.18.3",
+    "mongoose": "^5.2.12"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
