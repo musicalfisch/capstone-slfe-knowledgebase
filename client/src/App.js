@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Data from './components/data';
 import SectionTitle from './components/SectionTitle';
 
 class App extends Component {
@@ -8,7 +7,6 @@ class App extends Component {
     return (
       <div className="App">
         <SectionTitle label="SLFE CAPSTONE"/>
-        <Data />
       </div>
     );
   }
