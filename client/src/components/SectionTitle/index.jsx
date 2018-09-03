@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 const Legend = styled.legend`
   display: inline-flex;
   font-size: 40px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #000;
+  padding: 2em 0em 2em;
+  background-color: #212121;
+  color: #fff;
   width: 100%;
+  font-family: Arial, Helvetica, sans-serif
 
   ::before {
     display: inline;

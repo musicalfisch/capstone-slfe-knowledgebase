@@ -16,7 +16,9 @@ This project is in collaboration with the ASU School of Sustainability and Leuph
 3. Browsersync can be accessed through `localhost:5000`
 
 **Production Mode**
-1. `npm build`
+1. `git add .`
+2. `git commit -am "new commit"`
+3. `git push heroku master`
 
 ## License
 
