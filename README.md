@@ -1,5 +1,7 @@
 # SFLE Knowledgebase
 
+This project is in collaboration with the ASU School of Sustainability and Leuphana University in Lueneburg, Germany. 
+
 ## Running the Project
 
 **Get Started**
@@ -10,11 +12,12 @@
 
 **Development Mode**
 
-1. `$ npm run dev`
+1. `$ npm run dev` || `MONGODB_URI=[mongodbURI] npm run server`
 3. Browsersync can be accessed through `localhost:5000`
 
 **Production Mode**
 1. `npm build`
 
-**Running Server**
-1. `MONGODB_URI=[mongodbURI] npm run server`
+## License
+
+The contents of this repository are covered under the [MIT License](https://github.com/panza8484/capstone-slfe-knowledgebase/blob/master/LICENSE).
