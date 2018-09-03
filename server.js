@@ -1,7 +1,7 @@
 const  express = require('express');
 const  mongoose = require('mongoose');
 const  bodyParser = require('body-parser');
-
+const path = require('path');
 const enterprises = require('./routes/api/enterprises');
 
 const app = express();
@@ -18,15 +18,13 @@ mongoose
 // Use Routes
 app.use('/api/enterprises', enterprises);
 
-app.get('/api/customers', (req, res) => {
-    const customers = [
-        {id: 1, firstName: 'John', lastName: 'Do'}
-    ];
-
-    res.json(customers);
-});
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
-
