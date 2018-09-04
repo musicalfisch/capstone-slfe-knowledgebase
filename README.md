@@ -13,6 +13,10 @@ This project is in collaboration with the ASU School of Sustainability and Leuph
 **Development Mode**
 
 1. `$ npm run dev` || `MONGODB_URI=[mongodbURI] npm run server`
+2. For testing on `localhost`, create a file named `.env` in the root directory and set the database credentials as below:
+```
+MONGODB_URI=[mongodbURI
+```
 3. Browsersync can be accessed through `localhost:5000`
 
 **Production Mode**
