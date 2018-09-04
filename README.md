@@ -13,7 +13,7 @@ These services must be installed:
 - [NPM](https://www.npmjs.com/get-npm)
 - [MongoDB](http://www.mongodb.org/)
 
-**Get Started**
+**Installation**
 
 Clone or fork this repository to your local machine:
 ```
