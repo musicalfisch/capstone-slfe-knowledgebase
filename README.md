@@ -4,16 +4,35 @@ This project is in collaboration with the ASU School of Sustainability and Leuph
 
 ## Running the Project
 
-**Get Started**
+**Prerequisites**
 
-1. Clone or download this repository
-2. `$ npm install` on the directory
-3. `$ npm run client-install` on the directory
+These services must be installed:
+- [Git](https://git-scm.com/downloads)
+- [Heroku](https://devcenter.heroku.com/articles/heroku-cli)
+- [Node.js](https://nodejs.org/en/download/)
+- [NPM](https://www.npmjs.com/get-npm)
+- [MongoDB](http://www.mongodb.org/)
+
+**Installation**
+
+Clone or fork this repository to your local machine:
+```
+$ git clone https://github.com/panza8484/capstone-slfe-knowledgebase.git
+```
+Install the depencies with the following commands:
+```
+$ npm install
+$ npm run client-install
+```
 
 **Development Mode**
 
+For testing on `localhost`, create a file named `.env` in the root directory and set the database credentials as below:
+```
+MONGODB_URI=[mongodbURI]
+```
 1. `$ npm run dev` || `MONGODB_URI=[mongodbURI] npm run server`
-3. Browsersync can be accessed through `localhost:5000`
+2. Browsersync can be accessed through `localhost:5000`
 
 **Production Mode**
 1. `git add .`
