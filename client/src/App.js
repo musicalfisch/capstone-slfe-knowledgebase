@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
-import SectionTitle from './components/SectionTitle';
+import SectionTitle from './components/PageComponents/SectionTitle';
+import SearchBar from './components/PageComponents/SearchBar';
+import Header from './components/PageComponents/Header';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <SectionTitle label="SLFE CAPSTONE"/>
+      <Header />
+      <div style={{marginTop: '20px'}} >
+      <SearchBar/>
       </div>
-    );
+      </div>
+    ); 
   }
 }
 
