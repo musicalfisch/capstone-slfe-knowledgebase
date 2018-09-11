@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/main.css';
 import explore from './components/Pages/explore';
 import about from './components/Pages/about';
 import { Switch, BrowserRouter, Route } from 'react-router-dom'

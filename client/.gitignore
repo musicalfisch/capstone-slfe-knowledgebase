@@ -133,3 +133,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 >>>>>>> 9d156493b0d2418601273c0829a53f6df71433dc
+
+### Sass ###
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
