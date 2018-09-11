@@ -5,7 +5,6 @@ import H3 from '../H3';
 import image from './test2.jpg'
 import PropTypes from 'prop-types';
 
-
 const headerBackground = styled.h3`
   display: inline-flex;
   width: 100%;
