@@ -15,8 +15,7 @@ const Page = styled.div`
   background-color: #CCCCCC;
 `;
 
-class explore extends Component {
-  render() {
+export default function explore() {
     return (
       <div style={{display: 'flex', width:'100%'}} >
       <Page>
@@ -31,7 +30,4 @@ class explore extends Component {
     </Page>
   </div>
     );
-  }
 }
-
-export default explore;
