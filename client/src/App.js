@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import SectionTitle from './components/PageComponents/SectionTitle';
 import SearchBar from './components/PageComponents/SearchBar';
 import Header from './components/PageComponents/Header';

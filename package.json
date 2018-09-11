@@ -25,10 +25,7 @@
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "express": "^4.16.3",
-    "material-ui": "^0.20.2",
-    "material-ui-search-bar": "^0.4.2",
-    "mongoose": "^5.2.12",
-    "react-router-dom": "^4.3.1"
+    "mongoose": "^5.2.12"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
