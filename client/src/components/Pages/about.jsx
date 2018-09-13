@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import SectionTitle from '../PageComponents/SectionTitle';
 import Header from '../PageComponents/Header';
 
-class about extends Component {
-  render() {
+export default function about() {
     return (
       <div >
         About Page
       </div>
     );
-  }
 }
-
-export default about;
