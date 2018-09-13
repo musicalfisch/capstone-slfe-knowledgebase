@@ -1,11 +1,15 @@
 const  express = require('express');
 const  mongoose = require('mongoose');
 const  bodyParser = require('body-parser');
+const dotenv = require('dotenv');
 const path = require('path');
 const port = process.env.PORT || 5000;
 const enterprises = require('./routes/api/enterprises');
 
 const app = express();
+
+// activate configuration variable
+dotenv.config();
 
 //Bodyparser Middleware
 app.use(bodyParser.json());
