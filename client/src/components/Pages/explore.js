@@ -4,8 +4,6 @@ import Header from '../PageComponents/Header';
 import SearchBar from '../PageComponents/SearchBar';
 import styled from 'styled-components';
 
-
-
 const Page = styled.div`
   display: inline-flex;
   flex-direction: column;
