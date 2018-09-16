@@ -7,7 +7,7 @@ export default function ResultCard({ url, title, summary, rating, link })
     <div>
       <div id="result-card">
         <div className="img">
-          <img src={'url'} alt="Italian Trulli" />
+          <img src={url} alt="Italian Trulli" />
         </div>
         <div className="details">
           <div className="title">{ title }</div>

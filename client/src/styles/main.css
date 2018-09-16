@@ -30,8 +30,8 @@ body {
 
 .wrapper {
   display: grid;
-  grid-template-columns: 20% auto 2%;
-  grid-column-gap: 2em; }
+  grid-template-columns: 20% auto;
+  grid-column-gap: 1em; }
 
 .filter {
   background-color: gray; }
@@ -63,4 +63,4 @@ body {
   font-size: 1.5em; }
 
 #result-card .summary {
-  font-size: 0.8em; }
+  font-size: 0.9em; }

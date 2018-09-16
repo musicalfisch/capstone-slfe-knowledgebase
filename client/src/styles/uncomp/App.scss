@@ -35,8 +35,8 @@ body {
 
 .wrapper {
   display: grid;
-  grid-template-columns: 20% auto 2%;
-  grid-column-gap: 2em;
+  grid-template-columns: 20% auto;
+  grid-column-gap: 1em;
 }
 
 .filter {
