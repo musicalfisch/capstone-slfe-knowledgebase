@@ -32,17 +32,3 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.result-page .wrapper {
-  display: grid;
-  grid-template-columns: 20% auto;
-  grid-column-gap: 1em;
-}
-
-.result-page .filter {
-  background-color: gray;
-}
-
-.result-page .results { 
-  background-color: gainsboro;
-}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../PageComponents/Navbar';
+import Footer from '../PageComponents/Footer';
 import ResultCard from '../PageComponents/ResultCard';
 
 export default function result() {
@@ -8,7 +9,7 @@ export default function result() {
         <Navbar />
         <div className="wrapper">
           <div className="filter">
-            <h3>Filters</h3>
+            <h3>Filter</h3>
           </div>
           <div className="results">
             <ResultCard   
@@ -62,6 +63,7 @@ export default function result() {
             </ResultCard>
           </div>
         </div>
+        <Footer />
       </div>
     );
 }
