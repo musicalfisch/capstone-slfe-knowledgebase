@@ -33,16 +33,16 @@ body {
   to { transform: rotate(360deg); }
 }
 
-.wrapper {
+.result-page .wrapper {
   display: grid;
   grid-template-columns: 20% auto;
   grid-column-gap: 1em;
 }
 
-.filter {
+.result-page .filter {
   background-color: gray;
 }
 
-.results { 
+.result-page .results { 
   background-color: gainsboro;
 }

@@ -28,15 +28,15 @@ body {
   to {
     transform: rotate(360deg); } }
 
-.wrapper {
+.result-page .wrapper {
   display: grid;
   grid-template-columns: 20% auto;
   grid-column-gap: 1em; }
 
-.filter {
+.result-page .filter {
   background-color: gray; }
 
-.results {
+.result-page .results {
   background-color: gainsboro; }
 
 #result-card {
@@ -64,3 +64,45 @@ body {
 
 #result-card .summary {
   font-size: 0.9em; }
+
+.navbar .wrapper {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-areas: "logo nav";
+  background-color: #00796B; }
+  @media (max-width: 600px) {
+    .navbar .wrapper {
+      grid-template-areas: "logo logo";
+      background-color: red; } }
+
+.navbar .logo {
+  grid-area: logo;
+  justify-self: start;
+  align-self: center;
+  margin: 0.5em 0em 0.5em 1.5em; }
+
+.navbar .nav {
+  grid-area: nav;
+  justify-self: end;
+  align-self: center;
+  margin: 0em 0em;
+  padding: 1em; }
+
+.navbar .nav a {
+  text-transform: uppercase;
+  font-size: 1.1em;
+  font-weight: 700;
+  margin: 0em 1em;
+  text-decoration: none; }
+
+.navbar .nav a:link {
+  color: #FFFFFF; }
+
+.navbar .nav a:visited {
+  color: #FFFFFF; }
+
+.navbar .nav a:hover {
+  color: #009688; }
+
+.navbar .nav a:active {
+  color: #009688; }

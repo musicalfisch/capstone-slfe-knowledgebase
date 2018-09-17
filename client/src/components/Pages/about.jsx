@@ -5,7 +5,15 @@ import Header from '../PageComponents/Header';
 export default function about() {
     return (
       <div >
-        About Page
+        <div id="checkboxes">
+          <label>some label</label>
+          <ul>
+            <li>Test</li>
+            <li>Test</li>
+            <li>Test</li>
+            <li>Test</li>
+          </ul>
+        </div>
       </div>
     );
 }

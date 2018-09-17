@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Header from '../PageComponents/Header';
+import Navbar from '../PageComponents/Navbar';
 import ResultCard from '../PageComponents/ResultCard';
 
 export default function result() {
     return (
-      <div >
-        <Header />
+      <div class="result-page">
+        <Navbar />
         <div className="wrapper">
           <div className="filter">
             <h3>Filters</h3>

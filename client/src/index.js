@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/main.css';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 import explore from './components/Pages/explore';
 import about from './components/Pages/about';
 import result from './components/Pages/result.jsx';
