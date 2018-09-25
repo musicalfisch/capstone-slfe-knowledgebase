@@ -139,3 +139,37 @@ footer {
 
 .result-page .results {
   background-color: gainsboro; }
+
+.solution-summary {
+  margin: 0rem 2rem;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-areas: "title title"  "summary chart"; }
+
+.solution-summary .title {
+  grid-area: title;
+  background-color: red; }
+
+.solution-summary .summary {
+  grid-area: summary;
+  padding: 2rem;
+  background-color: #FFC107; }
+
+.solution-summary .chart {
+  grid-area: chart;
+  padding: 2rem;
+  background-color: #BDBDBD; }
+
+.solution-details {
+  margin: 0rem 2rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "odd even"; }
+
+.solution-details .odd {
+  grid-area: odd;
+  background-color: paleturquoise; }
+
+.solution-details .even {
+  grid-area: even;
+  background-color: lightcoral; }
