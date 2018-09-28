@@ -1,4 +1,5 @@
 import React from 'react';
+import image from '../Navbar/slfe-logo.png';
 
 export default function Navbar()
 {
@@ -6,7 +7,7 @@ export default function Navbar()
     <div className="navbar">
         <div class="logo">
             <a href="#" class="logo--link">
-                <img class="logo--image" src="https://via.placeholder.com/150x50/eeeeee/333333/?text=Logo" />
+                <img class="logo--image" src="https://i.imgur.com/L2kMZ75.png" />
             </a>
         </div>
         <div class="nav">

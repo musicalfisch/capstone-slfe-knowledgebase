@@ -1,25 +1,53 @@
 .solution-summary {
     margin: 0rem 2rem;
     display: grid;	
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 33% 33% 33%;
     grid-template-areas: 
-        "title title" 
-        "summary chart";
+        "title title title" 
+        "summary images chart";
 }
 
 .solution-summary .title {
+    margin: 1.5rem 0rem 0rem;
     grid-area: title;
-    background-color: red;
+    background-color: $text-icons;
+}
+
+.solution-summary .images {
+    margin: 1.5rem 0rem 0rem;
+    grid-area: images;
+    background-color: $accent-color;
 }
 
 .solution-summary .summary {
     grid-area: summary;
-    padding: 2rem;
-    background-color: $accent-color;
+    background-color: $text-icons;
 }
 
 .solution-summary .chart {
     grid-area: chart;
-    padding: 2rem;
-    background-color: $divider-color;
+    background-color: $text-icons;
+}
+
+.tabs {
+    margin: 0rem 2rem 3.5rem;
+}
+
+.tab-list {
+    border-bottom: 1px solid $divider-color;
+    padding-left: 0;
+    font-size: 1.2em;
+}
+
+.tab-list-item {
+    display: inline-block;
+    list-style: none;
+    margin-bottom: -1px;
+    padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+    background-color: $accent-color;
+    border: solid $divider-color;
+    border-width: 0px 0px 5px 0px;
 }
