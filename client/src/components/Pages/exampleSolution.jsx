@@ -4,6 +4,7 @@ import Footer from '../PageComponents/Footer';
 import Summary from '../PageComponents/SolutionSummary';
 import Details from '../PageComponents/SolutionDetail';
 import Tabs from '../PageComponents/TabDisplay';
+import Radar from 'react-d3-radar';
 
 export default function solution() {
     return (
@@ -46,6 +47,39 @@ export default function solution() {
             </div>
             <div label="Future">
               Nothing to see here, this tab is <em>extinct</em>!
+            </div>
+            <div label="Evaluation">
+                <Radar
+                    width={500}
+                    height={500}
+                    padding={70}
+                    domainMax={10}
+                    highlighted={null}
+                    data={{
+                        variables: [
+                        {key: 'resilience', label: 'Product'},
+                        {key: 'strength', label: 'Environmental'},
+                        {key: 'adaptability', label: 'Social'},
+                        {key: 'creativity', label: 'Management'},
+                        {key: 'openness', label: 'Economics'},
+                        {key: 'confidence', label: 'Ownership'},
+                        ],
+                        sets: [
+                        {
+                            key: 'me',
+                            label: 'My Scores',
+                            values: {
+                            resilience: 4,
+                            strength: 6,
+                            adaptability: 7,
+                            creativity: 2,
+                            openness: 8,
+                            confidence: 1,
+                            },
+                        }
+                    ],
+                    }}
+                    />
             </div>
           </Tabs>
         </div>

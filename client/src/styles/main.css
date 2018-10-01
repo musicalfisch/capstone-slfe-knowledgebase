@@ -143,20 +143,28 @@ footer {
 .solution-summary {
   margin: 0rem 2rem;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
-  grid-template-areas: "title title title"  "summary images chart"; }
+  grid-template-columns: 60% 40%;
+  grid-template-areas: "title title"  "images summary"; }
 
 .solution-summary .title {
-  margin: 1.5rem 0rem 0rem;
+  margin: 0rem 0rem 0rem;
   grid-area: title;
   background-color: #FFFFFF; }
 
 .solution-summary .images {
-  margin: 1.5rem 0rem 0rem;
+  border: 2px solid #FFC107;
+  margin: 0rem 0rem 0rem;
   grid-area: images;
-  background-color: #FFC107; }
+  background-color: #FFFFFF; }
+
+.solution-summary img {
+  width: 100%;
+  height: auto; }
 
 .solution-summary .summary {
+  border: 2px solid #FFC107;
+  align-self: stretch;
+  justify-self: center;
   grid-area: summary;
   background-color: #FFFFFF; }
 
@@ -170,18 +178,43 @@ footer {
 .tab-list {
   border-bottom: 1px solid #BDBDBD;
   padding-left: 0;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  font-weight: 700;
+  display: table;
+  width: 100%; }
 
 .tab-list-item {
-  display: inline-block;
+  display: table-cell;
+  text-align: center;
   list-style: none;
   margin-bottom: -1px;
-  padding: 0.5rem 0.75rem; }
+  padding: 0.5rem 2rem; }
 
 .tab-list-active {
-  background-color: #FFC107;
-  border: solid #BDBDBD;
+  color: #009688;
+  border: solid #009688;
   border-width: 0px 0px 5px 0px; }
+
+table {
+  border-collapse: collapse; }
+
+table, tr, td {
+  border: 0.5px solid #B2DFDB; }
+
+th {
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 1.2rem; }
+
+tr td.item {
+  font-weight: 700; }
+
+tr, td {
+  padding: 0.5rem;
+  text-align: left; }
+
+tr:nth-child(even) {
+  background-color: #B2DFDB; }
 
 .solution-details {
   margin: 0rem 2rem;

@@ -1,25 +1,34 @@
 .solution-summary {
     margin: 0rem 2rem;
     display: grid;	
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 60% 40%;
     grid-template-areas: 
-        "title title title" 
-        "summary images chart";
+        "title title" 
+        "images summary";
 }
 
 .solution-summary .title {
-    margin: 1.5rem 0rem 0rem;
+    margin: 0rem 0rem 0rem;
     grid-area: title;
     background-color: $text-icons;
 }
 
 .solution-summary .images {
-    margin: 1.5rem 0rem 0rem;
+    border: 2px solid $accent-color;
+    margin: 0rem 0rem 0rem;
     grid-area: images;
-    background-color: $accent-color;
+    background-color: $text-icons;
+}
+
+.solution-summary img {
+    width: 100%;
+    height: auto;
 }
 
 .solution-summary .summary {
+    border: 2px solid $accent-color;
+    align-self: stretch;
+    justify-self: center;
     grid-area: summary;
     background-color: $text-icons;
 }
@@ -37,17 +46,48 @@
     border-bottom: 1px solid $divider-color;
     padding-left: 0;
     font-size: 1.2em;
+    font-weight: 700;
+    display: table;
+    width: 100%;
 }
 
 .tab-list-item {
-    display: inline-block;
+    display: table-cell;
+    text-align: center;
     list-style: none;
     margin-bottom: -1px;
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 2rem;
 }
 
 .tab-list-active {
-    background-color: $accent-color;
-    border: solid $divider-color;
+    color: $primary-color;
+    border: solid $primary-color;
     border-width: 0px 0px 5px 0px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, tr, td {
+    border: 0.5px solid $light-primary-color;
+}
+
+th {
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+}
+
+tr td.item {
+    font-weight: 700;
+}
+
+tr, td {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: $light-primary-color;
 }

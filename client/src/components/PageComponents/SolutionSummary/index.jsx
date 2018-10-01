@@ -8,55 +8,57 @@ export default function SolutionSummary()
             <div className="title">
                 <h1>Peace of Land</h1>
             </div>
-            <div className="summary">
-                <h2>At a glance</h2>
-                <p>Solution type: Food Forest</p>
-                <p>Primary domain: Services</p>
-                <p>Legal entity: Cooperative (Private Limited Company)</p>
-                <p>Operational area: Very small</p>
-                <p>Climate zone: Temperature</p>
-                <p>City type: Rural</p>
-                <p>Founded: 1800</p>
-                <p>Economic network: N/A</p>
-                <p>Other networks: N/A</p>
-                <p>Basic description: Urban gardening project with focus on permaculture</p>
-            </div>
             <div className="images">
-
+                <img src="http://chooseweb.s3.amazonaws.com/raw/kublai5.jpg" alt="peace of land image"/>
             </div>
-            <div className="chart">
-                <h2>Evalution</h2>
-                <Radar
-                    width={500}
-                    height={500}
-                    padding={70}
-                    domainMax={10}
-                    highlighted={null}
-                    data={{
-                        variables: [
-                        {key: 'resilience', label: 'Product'},
-                        {key: 'strength', label: 'Environmental'},
-                        {key: 'adaptability', label: 'Social'},
-                        {key: 'creativity', label: 'Management'},
-                        {key: 'openness', label: 'Economics'},
-                        {key: 'confidence', label: 'Ownership'},
-                        ],
-                        sets: [
-                        {
-                            key: 'me',
-                            label: 'My Scores',
-                            values: {
-                            resilience: 4,
-                            strength: 6,
-                            adaptability: 7,
-                            creativity: 2,
-                            openness: 8,
-                            confidence: 1,
-                            },
-                        }
-                    ],
-                    }}
-                    />
+            <div className="summary">
+                <table >
+                    <tbody>
+                        <tr>
+                            <th colspan="2" class="title">At a glance</th>
+                        </tr>
+                        <tr>
+                            <td class="item">Type</td>
+                            <td>Food Forest</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Domain</td>
+                            <td>Services</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Entity</td>
+                            <td>Cooperative (LLC)</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Area</td>
+                            <td>Very small</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Climate</td>
+                            <td>Temperature</td>
+                        </tr>
+                        <tr>
+                            <td class="item">City</td>
+                            <td>Rural</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Founded</td>
+                            <td>1800</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Economic</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Other</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Description</td>
+                            <td>Urban gardening project with focus on permaculture</td>
+                        </tr>
+                    </tbody>
+                </table>              
             </div>
         </div>
     );
