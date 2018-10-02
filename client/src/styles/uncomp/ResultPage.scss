@@ -1,0 +1,14 @@
+.result-page .wrapper {
+  margin: 3rem 0rem;
+  display: grid;
+  grid-template-columns: 20% auto;
+  grid-column-gap: 1em;
+}
+  
+.result-page .filter {
+  background-color: gray;
+}
+
+.result-page .results { 
+  background-color: gainsboro;
+}

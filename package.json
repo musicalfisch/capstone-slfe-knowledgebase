@@ -26,7 +26,9 @@
     "concurrently": "^4.0.1",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
-    "mongoose": "^5.2.12"
+    "mongoose": "^5.2.12",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"

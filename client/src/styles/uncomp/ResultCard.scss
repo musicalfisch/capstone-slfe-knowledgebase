@@ -1,0 +1,31 @@
+#result-card {
+    display: grid;
+    grid-template-columns: 2% 17% 2% 77% 2%;
+    margin: 0.5em 0em 1em;
+    grid-template-rows: auto;
+    grid-template-areas: " . img . details . ";
+}
+
+#result-card .img {
+    grid-area: img;
+    background-color: orange;
+}
+
+#result-card .img img {
+    max-width: 100%;
+}
+
+#result-card .details {
+    display: grid;
+    grid-area: details;
+    background-color: blue;
+    color: white;
+}
+
+#result-card .title {
+    font-size: 1.5em;
+}
+
+#result-card .summary {
+    font-size: 0.9em;
+}

@@ -7,10 +7,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Header />
-      <div style={{marginTop: '20px'}} >
-      <SearchBar/>
-      </div>
+        <Header />
+        <div style={{marginTop: '20px'}} >
+          <SearchBar/>
+        </div>
       </div>
     ); 
   }
