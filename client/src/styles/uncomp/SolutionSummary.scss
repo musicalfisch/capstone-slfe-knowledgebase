@@ -1,0 +1,64 @@
+.solution-summary {
+    margin: 0rem 2rem;
+    display: grid;	
+    grid-template-columns: 60% 40%;
+    grid-template-areas: 
+        "title title" 
+        "images summary";
+}
+
+.solution-summary .title {
+    margin: 0rem 0rem 0rem;
+    grid-area: title;
+    background-color: $text-icons;
+}
+
+.solution-summary .images {
+    margin: 0rem 0rem 0rem;
+    grid-area: images;
+    background-color: $text-icons;
+}
+
+.solution-summary img {
+    width: 100%;
+    height: auto;
+}
+
+.solution-summary .summary {
+    align-self: stretch;
+    justify-self: center;
+    grid-area: summary;
+    background-color: $text-icons;
+}
+
+.solution-summary .chart {
+    grid-area: chart;
+    background-color: $text-icons;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, tr, td {
+    border: 0.5px solid $light-primary-color;
+}
+
+th {
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+}
+
+tr td.item {
+    font-weight: 700;
+}
+
+tr, td {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: $light-primary-color;
+}

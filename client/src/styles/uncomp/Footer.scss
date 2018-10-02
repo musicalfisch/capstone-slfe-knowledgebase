@@ -1,0 +1,40 @@
+footer {
+    padding: 2em 0em 3em;
+    background-color: $primary-color;
+}
+
+.footer {
+    display: grid;
+    border: none;
+    
+}
+
+.footer .copyright {
+    justify-self: center;
+}
+
+.footer p {
+    color: $light-primary-color;
+}
+
+.footer .links {
+    justify-self: center;
+}
+
+.footer .links a {
+    text-transform: lowercase;
+    font-size: 0.9em;
+    margin: 0em 1em;
+    text-decoration: none;
+}
+
+.footer .links a:link,
+.footer .links a:visited {
+    color: $light-primary-color;
+}
+
+.footer .links a:hover,
+.footer .links a:active {
+    color: $text-icons;
+    border-bottom: 3px $text-icons dotted;
+}

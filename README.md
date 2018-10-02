@@ -1,4 +1,4 @@
-# SFLE Knowledgebase
+# SLFE Knowledgebase
 
 This project is in collaboration with the ASU School of Sustainability and Leuphana University in Lueneburg, Germany. 
 

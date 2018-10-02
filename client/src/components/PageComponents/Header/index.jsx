@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import header from './header.jpeg';
 import H3 from '../H3';
 import image from './test2.jpg'
 import PropTypes from 'prop-types';
@@ -50,32 +49,30 @@ const handleClick = ()=> {
 export default function Header({subTitle})
 {
   return(
-<div style={{ width: '100%', height: '150px'}}>
-  <Section>
-    <div style={{ display: 'flex', flexDirection:'column',alignItems:'center',marginTop:'10px'}}>
-    <H3> SLFE </H3>
-    <H3> KNOWLEDGE BASE </H3>
-  </div>
-  <subSection>
-    <form style={{marginTop: '10px'}}>
-    <a
-      href='/About'
-      style={{marginRight: '15px', textDecoration: 'none', color: 'white', fontWeight: 'bold'}}
-      >About</a>
-    <a
-      href='/Partners'
-      style={{marginRight: '15px', textDecoration: 'none', color: 'white', fontWeight: 'bold'}}>Partners</a>
-    <a
-      href='/Explore'
-      style={{marginRight: '15px', textDecoration: 'none', color: 'white', fontWeight: 'bold'}}>Explore</a>
-  </form>
-</subSection>
-  </Section>
-
-  <div style={{height: '60px', width: '100%', backgroundImage: `url(${image})`}}>
-  <H2>{subTitle} </H2>
-</div>
-</div>
+    <div style={{ width: '100%', height: '150px'}}>
+      <Section>
+        <div style={{ display: 'flex', flexDirection:'column',alignItems:'center',marginTop:'10px'}}>
+          <H3> SLFE Knowledgebase</H3>
+        </div>
+        <subSection>
+          <form style={{marginTop: '10px'}}>
+            <a
+              href='/About'
+              style={{marginRight: '15px', textDecoration: 'none', color: 'white', fontWeight: 'bold'}}
+              >About</a>
+            <a
+              href='/Partners'
+              style={{marginRight: '15px', textDecoration: 'none', color: 'white', fontWeight: 'bold'}}>Partners</a>
+            <a
+              href='/Explore'
+              style={{marginRight: '15px', textDecoration: 'none', color: 'white', fontWeight: 'bold'}}>Explore</a>
+          </form>
+        </subSection>
+      </Section>
+      <div style={{height: '60px', width: '100%', backgroundImage: `url(${image})`}}>
+        <H2>{subTitle} </H2>
+      </div>
+    </div>
   );
 };
 
