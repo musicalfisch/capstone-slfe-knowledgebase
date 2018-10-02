@@ -4,9 +4,12 @@ import './styles/main.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import explore from './components/Pages/explore.jsx';
 import about from './components/Pages/about';
+import enterpriseDataTest from './components/Pages/enterpriseDataTest'
 import result from './components/Pages/result.jsx';
 import solution from './components/Pages/exampleSolution.jsx';
 import { Switch, BrowserRouter, Route } from 'react-router-dom'
+import { Provider } from 'react-redux';
+import store from './store';
 //import registerServiceWorker from './registerServiceWorker';
 
 render(
