@@ -14,7 +14,6 @@
 }
 
 .solution-summary .images {
-    border: 2px solid $accent-color;
     margin: 0rem 0rem 0rem;
     grid-area: images;
     background-color: $text-icons;
@@ -26,7 +25,6 @@
 }
 
 .solution-summary .summary {
-    border: 2px solid $accent-color;
     align-self: stretch;
     justify-self: center;
     grid-area: summary;
@@ -36,33 +34,6 @@
 .solution-summary .chart {
     grid-area: chart;
     background-color: $text-icons;
-}
-
-.tabs {
-    margin: 0rem 2rem 3.5rem;
-}
-
-.tab-list {
-    border-bottom: 1px solid $divider-color;
-    padding-left: 0;
-    font-size: 1.2em;
-    font-weight: 700;
-    display: table;
-    width: 100%;
-}
-
-.tab-list-item {
-    display: table-cell;
-    text-align: center;
-    list-style: none;
-    margin-bottom: -1px;
-    padding: 0.5rem 2rem;
-}
-
-.tab-list-active {
-    color: $primary-color;
-    border: solid $primary-color;
-    border-width: 0px 0px 5px 0px;
 }
 
 table {

@@ -152,7 +152,6 @@ footer {
   background-color: #FFFFFF; }
 
 .solution-summary .images {
-  border: 2px solid #FFC107;
   margin: 0rem 0rem 0rem;
   grid-area: images;
   background-color: #FFFFFF; }
@@ -162,7 +161,6 @@ footer {
   height: auto; }
 
 .solution-summary .summary {
-  border: 2px solid #FFC107;
   align-self: stretch;
   justify-self: center;
   grid-area: summary;
@@ -171,29 +169,6 @@ footer {
 .solution-summary .chart {
   grid-area: chart;
   background-color: #FFFFFF; }
-
-.tabs {
-  margin: 0rem 2rem 3.5rem; }
-
-.tab-list {
-  border-bottom: 1px solid #BDBDBD;
-  padding-left: 0;
-  font-size: 1.2em;
-  font-weight: 700;
-  display: table;
-  width: 100%; }
-
-.tab-list-item {
-  display: table-cell;
-  text-align: center;
-  list-style: none;
-  margin-bottom: -1px;
-  padding: 0.5rem 2rem; }
-
-.tab-list-active {
-  color: #009688;
-  border: solid #009688;
-  border-width: 0px 0px 5px 0px; }
 
 table {
   border-collapse: collapse; }
@@ -232,3 +207,27 @@ tr:nth-child(even) {
 
 .solution-page .content {
   margin: 2rem 8rem 2rem; }
+
+.tabs {
+  margin: 0rem 2rem 3.5rem; }
+
+.tab-list {
+  padding: 0;
+  display: table;
+  border-bottom: 1px solid #BDBDBD;
+  font-size: 1.2em;
+  font-weight: 700;
+  width: 100%; }
+
+.tab-list-item {
+  padding: 0;
+  display: table-cell;
+  text-align: center;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 2rem; }
+
+.tab-list-active {
+  color: #009688;
+  border: solid #009688;
+  border-width: 0px 0px 5px 0px; }

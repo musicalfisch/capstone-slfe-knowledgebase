@@ -15,7 +15,7 @@ export default function SolutionSummary()
                 <table >
                     <tbody>
                         <tr>
-                            <th colspan="2" class="title">At a glance</th>
+                            <th colspan="2" class="title">Summary</th>
                         </tr>
                         <tr>
                             <td class="item">Type</td>

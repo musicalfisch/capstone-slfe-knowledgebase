@@ -3,7 +3,7 @@ import Navbar from '../PageComponents/Navbar';
 import Footer from '../PageComponents/Footer';
 import Summary from '../PageComponents/SolutionSummary';
 import Details from '../PageComponents/SolutionDetail';
-import Tabs from '../PageComponents/TabDisplay';
+import Tabs from '../PageComponents/SolutionTab';
 import Radar from 'react-d3-radar';
 
 export default function solution() {

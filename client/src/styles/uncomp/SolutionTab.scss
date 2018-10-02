@@ -1,0 +1,27 @@
+.tabs {
+    margin: 0rem 2rem 3.5rem;
+}
+
+.tab-list {
+    padding: 0;
+    display: table;
+    border-bottom: 1px solid $divider-color;
+    font-size: 1.2em;
+    font-weight: 700;
+    width: 100%;
+}
+
+.tab-list-item {
+    padding: 0;
+    display: table-cell;
+    text-align: center;
+    list-style: none;
+    margin-bottom: -1px;
+    padding: 0.5rem 2rem;
+}
+
+.tab-list-active {
+    color: $primary-color; 
+    border: solid $primary-color;
+    border-width: 0px 0px 5px 0px;
+}
