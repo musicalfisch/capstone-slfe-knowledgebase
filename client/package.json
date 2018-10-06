@@ -18,12 +18,9 @@
     "react-dom": "^16.4.2",
     "react-fontawesome": "^1.6.1",
     "react-radar-chart": "^1.0.21",
-<<<<<<< HEAD
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
-=======
->>>>>>> bbf02c5fe3ef874a03dfcd8aaf57874af3141341
     "react-star-rating-component": "^1.4.1",
     "reactstrap": "^6.4.0",
     "redux": "^4.0.0",
