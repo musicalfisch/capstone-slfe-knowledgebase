@@ -8,10 +8,26 @@ const Enterprise = require('../../models/enterprise');
 // @desc   Get all enterprises
 // @access Public
 router.get('/', (req, res) => {
-  Item.find()
+  Item.find({})
     .sort({id: 1})
     .then(enterprises => res.json(enterprises))
 });
+
+router.get('/domains', (req, res)=>{
+  Item
+    .distinct("Primary_Domain", 
+              {"Primary_Domain": {$nin: ["", null]}
+              }
+            )
+    .then(domains => res.json(domains))
+});
+
+router.get('/solutions', (req, res)=>{
+  Item.distinct("Solution_Type", {"Solution_Type": {$nin: ["", null]}})
+    .then(domains => res.json(domains))
+});
+
+
 
 router.post('/', (req, res) => {
   const newEnt = new Enterprise({
