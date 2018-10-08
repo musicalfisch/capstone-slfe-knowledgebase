@@ -16,9 +16,9 @@ render(
   <BrowserRouter>
     <Switch>
       <Route exact path='/' component={explore}/>
-      <Route path='/About' component={about} />
-      <Route path='/Result' component={result} />
-      <Route path='/Solution' component={solution} />
+      <Route path='/about' component={about} />
+      <Route path='/result' component={result} />
+      <Route path='/solution' component={solution} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root'));
