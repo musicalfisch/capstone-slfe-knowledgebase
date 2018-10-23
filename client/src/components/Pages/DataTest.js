@@ -49,18 +49,15 @@ class DataTest extends Component{
   }
 
   render(){
-    const { enterprises } = this.props.enterpriseData;
-
-    if(!enterprises.length){
-      console.log("data is loading")
-      return(<div><h1 style= {{position: 'absolute', top: '50%', left: '50%'}}>Data is loading</h1></div>)
-    }
-    else{
-      //console.log("data done loading!\nEnterprise holds:", enterprises)
-      this.dataHolder = enterprises;
-      console.log("dataHolder holds:\n",this.dataHolder); 
-    }
+    
+    const { field } = this.props.enterpriseData;
+    if(field.length){  
       
+    }
+
+
+
+    
     let filtArr = [];
     var filt1 = '{"Solution_Type": "food forest"}';
     var filt2 = '{"Primary_Domain": "Services"}';
@@ -73,10 +70,7 @@ class DataTest extends Component{
 
     return(
       <div>
-        {/* <CheckboxFilters/> */}
-        {/* <DataTable2 array = {this.dataHolder}/> */}
         <CheckBox/>
-        <button onClick={() => this.changeClicked(this.dataHolder,filtArr)}>Change the data</button>
       </div>
     )
   }
@@ -96,14 +90,3 @@ export default connect(
   mapStateToProps,
   {getEnterprises}
 ) (DataTest);
-
-
-/*
-Have to filter by an array
-
-category type
-solution type
-
-
-
-*/

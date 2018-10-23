@@ -1,9 +1,11 @@
-import {GET_ENTERPRISES, GET_DOMAINS, GET_SOLUTIONS, RESPONSE_LOADING} from '../actions/types';
+import {GET_ENTERPRISES, GET_DOMAINS, GET_SOLUTIONS, GET_BYID, GET_FIELD, RESPONSE_LOADING} from '../actions/types';
 
 const initialState = {
   enterprises: [],
   domains: [],
   solutions: [],
+  singleSolution: [],
+  field: [],
   loading: false
 };
 
@@ -25,6 +27,18 @@ export default function( state = initialState, action){
       return{
         ...state,
         solutions: action.payload,
+        loading: false
+    };
+    case GET_BYID:
+      return{
+        ...state,
+        singleSolution: action.payload,
+        loading: false
+    };
+    case GET_FIELD:
+      return{
+        ...state,
+        field: action.payload,
         loading: false
     };
     case RESPONSE_LOADING:

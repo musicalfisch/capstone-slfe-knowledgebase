@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { GET_ENTERPRISES, GET_DOMAINS, GET_SOLUTIONS, RESPONSE_LOADING} from './types';
+import { GET_ENTERPRISES, GET_DOMAINS, GET_SOLUTIONS, GET_BYID, GET_FIELD,  RESPONSE_LOADING} from './types';
 
 export const getEnterprises = () => dispatch => {  //add integration for query here
   dispatch(setResponseLoading());
-  axios
+  return axios
   .get('/api/enterprises/')
   .then(res =>
     dispatch({
@@ -15,7 +15,7 @@ export const getEnterprises = () => dispatch => {  //add integration for query h
 
 export const getDomains = () => dispatch => {  //add integration for query here
   dispatch(setResponseLoading());
-  axios
+  return axios
   .get('/api/enterprises/domains')
   .then(res =>
     dispatch({
@@ -27,11 +27,35 @@ export const getDomains = () => dispatch => {  //add integration for query here
 
 export const getSolutions = () => dispatch => {  //add integration for query here
   dispatch(setResponseLoading());
-  axios
+  return axios
   .get('/api/enterprises/solutions')
   .then(res =>
     dispatch({
       type: GET_SOLUTIONS,
+      payload: res.data
+    })
+  )
+};
+
+export const getField = (field, n) => dispatch => {  //add integration for query here
+  dispatch(setResponseLoading());
+  return axios
+  .get(`/api/enterprises/f/${field}/${n}`)
+  .then(res =>
+    dispatch({
+      type: GET_FIELD,
+      payload: res.data
+    })
+  )
+};
+
+export const getByID = (id) => dispatch => {  //add integration for query here
+  dispatch(setResponseLoading());
+  return axios
+  .get(`/api/enterprises/i/${id}`)
+  .then(res =>
+    dispatch({
+      type: GET_BYID,
       payload: res.data
     })
   )
