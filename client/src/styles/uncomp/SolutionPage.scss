@@ -1,3 +1,18 @@
 .solution-page .content {
     margin: 2rem 8rem 2rem;
 }
+
+.solution-page .container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: "info radar-chart";
+}
+
+.solution-page .evaluation-info {
+    margin: 3rem 0rem 0rem;
+    grid-area: info;
+}
+
+.solution-page .evaluation-radar-chart {
+    grid-area: radar-chart;
+}
