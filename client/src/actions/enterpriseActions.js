@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ENTERPRISES, GET_DOMAINS, GET_SOLUTIONS, GET_BYID, GET_FIELD,  RESPONSE_LOADING} from './types';
+import { GET_ENTERPRISES, GET_DOMAINS, GET_SOLUTIONS, GET_BYID, GET_FIELD,  RESPONSE_LOADING, GET_CUSTOM} from './types';
 
 export const getEnterprises = () => dispatch => {  //add integration for query here
   dispatch(setResponseLoading());
@@ -60,6 +60,18 @@ export const getByID = (id) => dispatch => {  //add integration for query here
     })
   )
 };
+
+export const getCustom = (field, value) => dispatch => {
+  dispatch(setResponseLoading());
+  return axios
+    .get(`/api/enterprises/q/${field}/${value}`)
+    .then( res => 
+      dispatch({
+      type: GET_CUSTOM, 
+      payload: res.data
+      })
+    )
+}
 
 export const setResponseLoading = () => {
   return{

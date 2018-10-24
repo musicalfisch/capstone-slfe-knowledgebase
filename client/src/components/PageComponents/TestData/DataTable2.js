@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Linkify from 'react-linkify';
 
 class DataTable2 extends Component{
   constructor(props){
@@ -31,7 +32,8 @@ class DataTable2 extends Component{
     }
 
     return(
-      <div>
+      
+        <Linkify>
         <table style={table}>
                 <thead>
                   <tr>
@@ -46,7 +48,6 @@ class DataTable2 extends Component{
                   </tr>
                 </thead>
                 <tbody >
-
                 {this.props.array.map((solution) => 
                   <tr key={solution._id}>
                     <td style={td}>{solution.ID}</td>
@@ -58,10 +59,10 @@ class DataTable2 extends Component{
                     <td style={td}>{solution.References}</td>
                   </tr>
                   )}
-                  
                 </tbody>
         </table>
-      </div>
+        </Linkify>
+      
     )
   }
 };

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getEnterprises} from '../../actions/enterpriseActions';
 import propTypes from 'prop-types';
 import CheckBox from '../PageComponents/TestData/CheckBox';
+import Header from '../PageComponents/Header'
 
 class DataTest extends Component{
   constructor(){
@@ -68,8 +69,15 @@ class DataTest extends Component{
     filtArr.push(x);
     filtArr.push(y);
 
+    const backg = {
+      width:'100%',
+      height: '100%',
+      backgroundColor: "#72ada6"
+    }
+
     return(
-      <div>
+      <div style={backg}>
+        <Header/>
         <CheckBox/>
       </div>
     )

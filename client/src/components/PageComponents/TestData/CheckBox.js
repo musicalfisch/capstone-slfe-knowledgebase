@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getEnterprises, getDomains, getSolutions, getByID, getField } from '../../../actions/enterpriseActions';
+import { getEnterprises, getDomains, getSolutions, getByID, getField, getCustom} from '../../../actions/enterpriseActions';
 import propTypes from 'prop-types';
 import DataTable2 from './DataTable2';
+import Linkify from 'react-linkify';
 
 class CheckBox extends Component{
   constructor(){
@@ -42,6 +43,12 @@ class CheckBox extends Component{
       })
     });
 
+    field = this.props.getCustom("Primary Domain", "Distribution");
+    field.then((data) =>{
+      this.setState({
+        array: data.payload
+      })
+    })
     
 
   }
@@ -66,7 +73,8 @@ class CheckBox extends Component{
       borderRadius: "5px",
       diplay: "inline-block",
       clear: "both",
-      float: "left"
+      float: "left",
+      backgroundColor: "white"
     }
 
     return(
@@ -93,8 +101,8 @@ class CheckBox extends Component{
       <img src="https://s3-us-west-1.amazonaws.com/slfe-image-storage/img.png" alt="testing this"/>
       <DataTable2 array = {enterprises}/>
       <h1>GetByID: "5b85bed93a50c440b96151f8"</h1>
-      <pre>
-        {JSON.stringify(singleSolution, null, "\t")}
+      <pre style={{position:'relative'}}>
+        {JSON.stringify(singleSolution, null, 2)} 
       </pre>
       <h1>GetField: "Researcher" with n=1</h1>
       <pre>
@@ -116,9 +124,25 @@ class CheckBox extends Component{
         )}
       </pre>
 
-      <h1>
-        {/* fieldData is: {this.state.field[0]} */}
-      </h1>
+      <h1>getCustom("Primary Domain", "Distribution")</h1><h4>To get every solution where Primary Domain = Distribution</h4>
+      <Linkify>
+        {this.state.array.map((s, index) =>
+          <label key={index}> 
+            ID: {s.ID}
+            <br/>
+            Name: {s.Name}
+            <br/>
+            Primary Domain: {s['Primary Domain']}
+            <br/>
+            Solution Type: {s['Solution Type']}
+            <br/>
+            References: {s.References}
+            <br/>
+            <br/>
+          </label>  
+          
+        )}
+      </Linkify>
     </div>
     )
   }
@@ -140,5 +164,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  {getEnterprises, getSolutions, getDomains, getByID, getField}
+  {getEnterprises, getSolutions, getDomains, getByID, getField, getCustom}
 ) (CheckBox);

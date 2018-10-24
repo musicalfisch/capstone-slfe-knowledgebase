@@ -51,8 +51,15 @@ router.get('/f/:field/:n', (req, res)=>{
     Enterprise.find({}, q)
     .then(solutions => res.json(solutions))
   }
-    
 });
+
+router.get('/q/:field/:value', (req, res)=>{
+  var query = {};
+  query[req.params.field] = req.params.value;
+
+  Enterprise.find(query)
+    .then(result => res.json(result))
+})
 
 // router.post('/', (req, res) => {
 //   const newEnt = new Enterprise({
