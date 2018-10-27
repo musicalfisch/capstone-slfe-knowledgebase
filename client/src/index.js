@@ -10,6 +10,7 @@ import { Switch, BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import store from './store';
 import DataTest from './components/Pages/DataTest';
+import map from './components/Pages/map.jsx'
 //import registerServiceWorker from './registerServiceWorker';
 
 render(
@@ -19,6 +20,7 @@ render(
       <Route path='/about' component={about} />
       <Route path='/result' component={result} />
       <Route path='/solution' component={solution} />
+      <Route path='/map' component={map} />
       <Provider store={store}>
         <Route path='/test' component={DataTest} />
       </Provider>
