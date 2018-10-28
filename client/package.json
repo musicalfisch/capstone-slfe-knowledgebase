@@ -19,6 +19,7 @@
     "react-dom": "^16.4.2",
     "react-fontawesome": "^1.6.1",
     "react-light-accordion": "^0.1.4",
+    "react-linkify": "^0.2.2",
     "react-radar-chart": "^1.0.21",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
