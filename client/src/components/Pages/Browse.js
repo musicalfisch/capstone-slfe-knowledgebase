@@ -19,6 +19,15 @@ const Page = styled.div`
   width: 100%;
 `;
 
+const InnerPage = styled.div`
+  display: flex;
+  align-items: space-around;
+  flex-direction: row;
+  min-width: fit-content;
+  height: 100%;
+  width: 100%;
+`;
+
 const Section = styled.div `
   display: inline-flex;
   justify-content: space-betwen;
@@ -39,6 +48,8 @@ constructor(props){
     itemList: null,
     solutions: null,
     filteredSolutions: null,
+    solutionTypes: null,
+    locations: null,
   };
 
   }
@@ -63,6 +74,19 @@ constructor(props){
         filteredSolutions: this.getItems2()
       })
     })
+    const solutionTypes = this.props.getField('Solution Type', '0');
+    solutionTypes.then((data) => {
+      this.setState({
+        solutionTypes: data.payload,
+      });
+    })
+    const locations = this.props.getField('Location', '0');
+    locations.then((data) => {
+      this.setState({
+        locations: data.payload,
+      });
+    })
+
 
 
   }
@@ -70,13 +94,38 @@ constructor(props){
     console.log("EVENT: ", event)
     console.log("CHECKED: ", checked)
     //console.log("name: ", name)
+    const x = QueryString.parse(this.props.location.search);
     if(event.target.checked){
-
-    this.props.history.push(`/browse?${event.target.filterType}=${event.target.name}`);
+      if(this.props.location.search){
+        this.props.history.push(`/browse${this.props.location.search}&${event.target.filterType}=${event.target.name}`);
+      }
+      else{
+        this.props.history.push(`/browse?${event.target.filterType}=${event.target.name}`);
+      }
     window.location.reload();
     }
     else{
-      this.props.history.push('/browse');
+      if(x.length === 1){
+        this.props.history.push('/browse');
+      }
+      else{
+        var result = [];
+
+        for (var param in x) {
+          console.log("?????");
+            console.log(x);
+            if(x[param] === event.target.name){
+              console.log('excluding: ', x[param]);
+            }
+            else{
+              result[param]= x[param];
+            }
+
+        }
+        console.log(result);
+        console.log('RESULT: ',QueryString.stringify(result));
+        this.props.history.push(`/browse?${QueryString.stringify(result)}`);
+      }
       window.location.reload();
     }
   }
@@ -87,7 +136,7 @@ constructor(props){
       const x = QueryString.parse(this.props.location.search);
       for(var i = 0; i < this.state.domains.length; i++){
         checkboxes.push(
-          <div style={{marginLeft: '15px'}}>
+          <div style={{marginBottom: '10px', marginLeft: '15px'}}>
           <CheckBox
             name={this.state.domains[i]}
             onChange={this.handleCheckBox}
@@ -101,52 +150,175 @@ constructor(props){
         </div>
         );
       }
-      return(
-        <div>
-        <h4> Primary Domains </h4>
-        {checkboxes}
-        </div>
-      )
-      console.log('&&&HERE&&&', this.state.domains);
-
     }
+    if(this.state.solutionTypes){
+      var checkboxes2 = [];
+      const x = QueryString.parse(this.props.location.search);
+      for(var i = 0; i < this.state.solutionTypes.length; i++){
+        checkboxes2.push(
+          <div style={{marginBottom: '10px', marginLeft: '10px'}}>
+          <CheckBox
+            name={this.state.solutionTypes[i]}
+            onChange={this.handleCheckBox}
+            filterType={"solutionType"}
+            checked={x.solutionType === this.state.solutionTypes[i] }
+            enabled={true}
+            >
+          </CheckBox>
+          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          {this.state.solutionTypes[i]}
+        </div>
+        </div>
+        );
+      }
+    }
+    if(this.state.solutionTypes){
+      var checkboxes2 = [];
+      const x = QueryString.parse(this.props.location.search);
+      for(var i = 0; i < this.state.solutionTypes.length; i++){
+        checkboxes2.push(
+          <div style={{marginBottom: '10px', marginLeft: '10px'}}>
+          <CheckBox
+            name={this.state.solutionTypes[i]}
+            onChange={this.handleCheckBox}
+            filterType={"solutionType"}
+            checked={x.solutionType === this.state.solutionTypes[i] }
+            enabled={true}
+            >
+          </CheckBox>
+          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          {this.state.solutionTypes[i]}
+        </div>
+        </div>
+        );
+      }
+    }
+    if(this.state.locations){
+      var checkboxes3 = [];
+      const x = QueryString.parse(this.props.location.search);
+      for(var i = 0; i < this.state.locations.length; i++){
+        checkboxes3.push(
+          <div style={{marginBottom: '10px', marginLeft: '10px'}}>
+          <CheckBox
+            name={this.state.locations[i]}
+            onChange={this.handleCheckBox}
+            filterType={"location"}
+            checked={x.location === this.state.locations[i] }
+            enabled={true}
+            >
+          </CheckBox>
+          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          {this.state.locations[i]}
+        </div>
+        </div>
+        );
+      }
+    }
+
+    return(
+      <div>
+      <h4> Primary Domains </h4>
+      {checkboxes}
+      <h4> Solution Types </h4>
+      {checkboxes2}
+      <h4> Locations </h4>
+      {checkboxes3}
+      </div>
+    )
 
   }
   getItems2 = () => {
 
+    var multipleFilters = false;
     const x = QueryString.parse(this.props.location.search);
-    var filteredData = [];
+
+    var filteredData = this.state.solutions;
+
     if(x.primaryDomain){
+      multipleFilters = true;
       console.log(x);
       console.log(this.props.enterprise);
       if(this.state.solutions){
-        for(var i = 0; i < this.state.solutions.length; i++){
-          if(this.state.solutions[i]['Primary Domain'] === x.primaryDomain){
-            console.log(this.state.solutions[i]['Primary Domain']);
-            filteredData.push(this.state.solutions[i])
+        for(var i = 0; i < filteredData.length; i++){
+          console.log("###", filteredData[i]['Primary Domain'] !== x.primaryDomain)
+          if(filteredData[i]['Primary Domain'] != x.primaryDomain){
+            filteredData.splice(i,1);
+            i = i-1;
           }
-
         }
       }
-      console.log(filteredData);
-      return this.getItems(filteredData);
     }
-    else if(x.solutionType){
+     if(x.solutionType){
+       if(multipleFilters){
+         if(this.state.solutions){
+           for(var i = 0; i < filteredData.length; i++){
+             if(filteredData[i]['Solution Type'] != x.solutionType){
+               console.log("BEFORE DELETE", filteredData.length);
+               console.log("DELETING ENTRY: ", filteredData[i])
+               filteredData.splice(i, 1);
+               i = i -1;
+               console.log("AFTER DELETE", filteredData.length);
+             }
+           }
+         }
+       }
+       else{
+         if(this.state.solutions){
+           console.log("&&&&&&&#######");
+           for(var i = 0; i < filteredData.length; i++){
+             if(filteredData[i]['Solution Type'] !== x.solutionType){
+               console.log(this.state.solutions[i]['Solution Type']);
+               filteredData.splice(i, 1);
+               i = i -1;
+             }
+           }
+         }
+       }
+       multipleFilters = true;
+
+    }
+     if(x.location){
+       if(multipleFilters){
+         if(this.state.solutions){
+           for(var i = 0; i < filteredData.length; i++){
+             console.log('>>>>>>>',filteredData[i]['Location']);
+             if(filteredData[i]['Location'] !== x.location){
+               console.log("JDJDJDJDJDJD");
+               filteredData.splice(i, 1);
+               i = i -1;
+             }
+           }
+
+           console.log("THIRD FILTER: ", filteredData);
+         }
+       }
+       else{
+         if(this.state.solutions){
+           for(var i = 0; i < filteredData.length; i++){
+             if(filteredData[i]['Location'] !== x.location){
+               filteredData.splice(i, 1);
+               i = i -1;
+             }
+
+           }
+         }
+       }
+    }
+    else if(x.keyWordSearch){
       if(this.state.solutions){
         for(var i = 0; i < this.state.solutions.length; i++){
-          if(this.state.solutions[i]['Solution Type'] === x.solutionType){
-            console.log(this.state.solutions[i]['Solution Type']);
+          console.log( x.keyWordSearch)
+          console.log( this.state.solutions[i]['Keyword Descriptors']);
+          console.log(this.state.solutions[i]['Keyword Descriptors'].indexOf(x.keyWordSearch));
+          if(this.state.solutions[i]['Keyword Descriptors'].toLowerCase().match(x.keyWordSearch.toLowerCase())  ){
             filteredData.push(this.state.solutions[i])
           }
 
         }
       }
-      console.log(filteredData);
-      return this.getItems(filteredData);
     }
-    else{
-      return this.getItems(this.state.solutions);
-    }
+
+    return this.getItems(filteredData);
   }
 
   getItems = (filteredData) => {
@@ -175,22 +347,24 @@ constructor(props){
 
   render()
   {
+    console.log(QueryString.parse(this.props.location.search));
     const checkboxes = this.getCheckBoxs();
     console.log("IN RENDER");
 
     return (
       <Page >
       <Header subTitle='RESULTS' />
-      <div>
+      <InnerPage>
+      <div style={{minWidth: '200px'}}>
         {checkboxes}
       </div>
     { this.state.filteredSolutions &&
        <Paginate todos={this.state.filteredSolutions} />
      }
-
       <div style={{padding: '250px'}}/>
       <div style={{display: 'flex', flexDirection: 'row'}} >
     </div>
+  </InnerPage>
       </Page>
     );
   }
