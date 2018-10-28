@@ -304,14 +304,15 @@ constructor(props){
          }
        }
     }
-    else if(x.keyWordSearch){
+     if(x.keyWordSearch){
       if(this.state.solutions){
         for(var i = 0; i < this.state.solutions.length; i++){
           console.log( x.keyWordSearch)
           console.log( this.state.solutions[i]['Keyword Descriptors']);
           console.log(this.state.solutions[i]['Keyword Descriptors'].indexOf(x.keyWordSearch));
-          if(this.state.solutions[i]['Keyword Descriptors'].toLowerCase().match(x.keyWordSearch.toLowerCase())  ){
-            filteredData.push(this.state.solutions[i])
+          if(!this.state.solutions[i]['Keyword Descriptors'].toLowerCase().match(x.keyWordSearch.toLowerCase())  ){
+            filteredData.splice(i, 1);
+            i = i - 1;
           }
 
         }
