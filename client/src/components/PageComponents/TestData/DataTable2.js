@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import Linkify from 'react-linkify';
 
 class DataTable2 extends Component{
   constructor(props){
     super(props)
     this.state = {
-      array: this.props.array,
-      update: true
+      array:[],
+      update: true,
     }
   }
 
   componentDidMount(){
     this.setState = {
       array: this.props.array,
-      update: false
+      update: false,
     }
   }
 
@@ -31,32 +32,37 @@ class DataTable2 extends Component{
     }
 
     return(
-      <div>
+      
+        <Linkify>
         <table style={table}>
                 <thead>
                   <tr>
+                    <th style={th}><strong>ID</strong></th>
                     <th style={th}><strong>Name</strong></th>
                     <th style={th}><strong>Organization</strong></th>
                     <th style={th}><strong>Basic Description</strong></th>
                     <th style={th}><strong>Primary Domain</strong></th>
                     <th style={th}><strong>Solution Type</strong></th>
+                    <th style={th}><strong>References</strong></th>
+
                   </tr>
                 </thead>
                 <tbody >
-                  
-                {this.props.array.map(({_id, Name, Organization, Basic_Description_, Primary_Domain, Solution_Type}) => (
-                  <tr key={_id}>
-                    <td style={td}>{Name}</td>
-                    <td style={td}>{Organization}</td>
-                    <td style={td}>{Basic_Description_}</td>
-                    <td style={td}>{Primary_Domain}</td>
-                    <td style={td}>{Solution_Type}</td>
+                {this.props.array.map((solution) => 
+                  <tr key={solution._id}>
+                    <td style={td}>{solution.ID}</td>
+                    <td style={td}>{solution.Name}</td>
+                    <td style={td}>{solution["Responsible Organization"]}</td>
+                    <td style={td}>{solution["General Description"]}</td>
+                    <td style={td}>{solution["Primary Domain"]}</td>
+                    <td style={td}>{solution["Solution Type"]}</td>
+                    <td style={td}>{solution.References}</td>
                   </tr>
-                ))}
-                  
+                  )}
                 </tbody>
         </table>
-      </div>
+        </Linkify>
+      
     )
   }
 };
