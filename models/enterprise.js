@@ -44,7 +44,12 @@ const entSchema = new Schema({
   "Future Outlook": String,
   Researcher: String,
   "Last Updated": String,
-  "Update History": String
+  "Update History": String,
+  mainImage: String,
+  otherImages: [],
+  lat: String,
+  long: String,
+  isFeatured: Boolean
 },
 {
   versionKey: false

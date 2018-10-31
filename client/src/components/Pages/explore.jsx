@@ -12,7 +12,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { connect } from 'react-redux';
 import { getEnterprises, getField } from '../../actions/enterpriseActions';
 import { getDomains } from '../../actions/enterpriseActions';
-import ReactTable from "react-table";
 
 
 const Page = styled.div`

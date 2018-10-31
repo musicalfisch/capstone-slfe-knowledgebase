@@ -27,6 +27,11 @@ router.get('/solutions', (req, res)=>{
     .then(solutions => res.json(solutions))
 });
 
+router.get('/latlong', (req, res)=>{
+  Enterprise.find({},{lat:1,long:1})
+  .then(result => res.json(result))
+})
+
 router.get('/i/:id/', (req, res)=>{
   Enterprise.findById(req.params.id, function(err, enterprise){
     if(err){
