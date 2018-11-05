@@ -73,6 +73,16 @@ export const getCustom = (field, value) => dispatch => {
     )
 }
 
+export const getLatLong = () => dispatch =>{
+  return axios
+    .get('/api/enterprises/latlong')
+    .then(res =>
+      dispatch({
+        type: GET_FIELD,
+        payload: res.data
+      }))
+}
+
 export const setResponseLoading = () => {
   return{
     type: RESPONSE_LOADING

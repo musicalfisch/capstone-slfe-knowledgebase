@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const entSchema = new Schema({
   ID: Number,
   Name: String,
-  Organization: String,
   "Responsible Organization": String,
   "Short Description": String,
   "General Description": String,
@@ -15,6 +14,9 @@ const entSchema = new Schema({
   "Organizational Entity Type": String,
   "Keyword Descriptors": String,
   Location: String,
+  Country: String, 
+  State: String,
+  City: String,
   "Scope of Activities": String,
   "Operational Area": String,
   "Climate Zone": String,
@@ -23,8 +25,9 @@ const entSchema = new Schema({
   "Economic Networks": String,
   Associations: String,
   "Number of Employees": String,
-  "Annual Revenue": String,
   References: String,
+  "Annual Revenue": String,
+  "Number of Workers": String,
   "Product Description": String,
   "Customers Description": String,
   "Workforce Description": String,
@@ -44,7 +47,12 @@ const entSchema = new Schema({
   "Future Outlook": String,
   Researcher: String,
   "Last Updated": String,
-  "Update History": String
+  "Update History": String,
+  Lattitude: String,
+  Longitude: String,
+  mainImage: String,
+  otherImages: [],
+  isFeatured: Boolean
 },
 {
   versionKey: false

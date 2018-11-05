@@ -16,17 +16,15 @@ import DataTest from './components/Pages/DataTest';
 render(
   <BrowserRouter>
     <Provider store={store}>
-    <Switch>
-
-      <Route path='/browse' component={Browse} />
-      <Route path='/about' component={about} />
+      <Switch>
+        <Route path='/browse' component={Browse} />
+        <Route path='/about' component={about} />
         <Route exact path='/' component={explore}/>
-
-      <Route path='/result' component={result} />
-      <Route path='/solution' component={solution} />
-
-    </Switch>
-      </Provider>
+        <Route path='/result' component={result} />
+        <Route path='/solution' component={solution} />
+        <Route path='/test' component={DataTest}/>
+      </Switch>
+    </Provider>
   </BrowserRouter>,
   document.getElementById('root'));
 //registerServiceWorker();

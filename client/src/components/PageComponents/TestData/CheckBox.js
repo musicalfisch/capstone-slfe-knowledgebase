@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getEnterprises, getDomains, getSolutions, getByID, getField, getCustom} from '../../../actions/enterpriseActions';
+import { getEnterprises, getDomains, getSolutions, getByID, getField, getCustom, getLatLong} from '../../../actions/enterpriseActions';
 import propTypes from 'prop-types';
 import DataTable2 from './DataTable2';
 import Linkify from 'react-linkify';
@@ -12,6 +12,7 @@ class CheckBox extends Component{
       array: [],
       field: [],
       field2:[],
+      LL:[],
       reload: false
     }
   }
@@ -47,6 +48,13 @@ class CheckBox extends Component{
     field.then((data) =>{
       this.setState({
         array: data.payload
+      })
+    })
+
+    var latlong = this.props.getLatLong();
+    latlong.then((data)=>{
+      this.setState({
+        LL: data.payload
       })
     })
     
@@ -114,6 +122,18 @@ class CheckBox extends Component{
         )}
       </pre>
 
+      <pre>
+        <h1>getLatLong test</h1>
+        {this.state.LL.map((r, index) => 
+          <label key={index}>
+            <b>Id is:</b> {r._id} <br/>
+            {r.lat},
+            {r.long}
+            <br/>
+          </label>
+        )}
+      </pre>
+
       <h1>GetField: "Researcher" with n=0</h1>
       <pre>
         {this.state.field2.map((value,index) => 
@@ -164,5 +184,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  {getEnterprises, getSolutions, getDomains, getByID, getField, getCustom}
+  {getEnterprises, getSolutions, getDomains, getByID, getField, getCustom, getLatLong}
 ) (CheckBox);
