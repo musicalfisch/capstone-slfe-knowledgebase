@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getEnterprises, getDomains, getSolutions, getByID, getField, getCustom } from '../../../actions/enterpriseActions';
+import { getEnterprises, getDomains, getSolutions, getByID, getField, getCustom, getLatLong} from '../../../actions/enterpriseActions';
 import propTypes from 'prop-types';
 import DataTable2 from './DataTable2';
 import Linkify from 'react-linkify';
@@ -11,7 +11,8 @@ class CheckBox extends Component {
     this.state = {
       array: [],
       field: [],
-      field2: [],
+      field2:[],
+      LL:[],
       reload: false
     }
   }
@@ -48,6 +49,13 @@ class CheckBox extends Component {
       })
     })
 
+    var latlong = this.props.getLatLong();
+    latlong.then((data)=>{
+      this.setState({
+        LL: data.payload
+      })
+    })
+    
 
   }
 
@@ -144,6 +152,64 @@ class CheckBox extends Component {
           )}
         </Linkify>
       </div>
+      <img src="https://s3-us-west-1.amazonaws.com/slfe-image-storage/img.png" alt="testing this"/>
+      <DataTable2 array = {enterprises}/>
+      <h1>GetByID: "5b85bed93a50c440b96151f8"</h1>
+      <pre style={{position:'relative'}}>
+        {JSON.stringify(singleSolution, null, 2)} 
+      </pre>
+      <h1>GetField: "Researcher" with n=1</h1>
+      <pre>
+        {this.state.field.map((r, index) => 
+          <label key={index}>
+            {r.Researcher}
+            <br/>
+          </label>
+        )}
+      </pre>
+
+      <pre>
+        <h1>getLatLong test</h1>
+        {this.state.LL.map((r, index) => 
+          <label key={index}>
+            <b>Id is:</b> {r._id} <br/>
+            {r.lat},
+            {r.long}
+            <br/>
+          </label>
+        )}
+      </pre>
+
+      <h1>GetField: "Researcher" with n=0</h1>
+      <pre>
+        {this.state.field2.map((value,index) => 
+          <label key={index}>
+            {value}
+            <br/>
+          </label>
+        )}
+      </pre>
+
+      <h1>getCustom("Primary Domain", "Distribution")</h1><h4>To get every solution where Primary Domain = Distribution</h4>
+      <Linkify>
+        {this.state.array.map((s, index) =>
+          <label key={index}> 
+            ID: {s.ID}
+            <br/>
+            Name: {s.Name}
+            <br/>
+            Primary Domain: {s['Primary Domain']}
+            <br/>
+            Solution Type: {s['Solution Type']}
+            <br/>
+            References: {s.References}
+            <br/>
+            <br/>
+          </label>  
+          
+        )}
+      </Linkify>
+    </div>
     )
   }
 
@@ -164,5 +230,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { getEnterprises, getSolutions, getDomains, getByID, getField, getCustom }
-)(CheckBox);
+  {getEnterprises, getSolutions, getDomains, getByID, getField, getCustom, getLatLong}
+) (CheckBox);
