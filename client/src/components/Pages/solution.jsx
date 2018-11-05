@@ -35,7 +35,7 @@ class solution extends Component {
                         <div label="Overview">
                             <h4>Product Description</h4>
                             <p>
-                                { singleSolution["Product Description"] }
+                                { singleSolution["General Description"] }
                             </p>
                             <h4>Economic Networks</h4>
                             <p>

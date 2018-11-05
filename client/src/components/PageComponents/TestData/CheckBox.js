@@ -67,12 +67,12 @@ class CheckBox extends Component {
     //const { field } = this.props.enterpriseData;
 
 
-    if (!domains.length || !solutions.length || !enterprises.length || !singleSolution.length) {
-      console.log("data loading\n");
-    }
-    else {
-      console.log("done loading!")
-    }
+    //if (!domains.length || !solutions.length || !enterprises.length || !singleSolution.length) {
+    //  console.log("data loading\n");
+    //}
+    //else {
+    //  console.log("done loading!")
+    //}
 
     const bord = {
       border: "2px solid black",
@@ -151,7 +151,7 @@ class CheckBox extends Component {
 
           )}
         </Linkify>
-      </div>
+      
       <img src="https://s3-us-west-1.amazonaws.com/slfe-image-storage/img.png" alt="testing this"/>
       <DataTable2 array = {enterprises}/>
       <h1>GetByID: "5b85bed93a50c440b96151f8"</h1>
