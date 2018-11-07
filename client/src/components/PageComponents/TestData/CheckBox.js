@@ -5,8 +5,8 @@ import propTypes from 'prop-types';
 import DataTable2 from './DataTable2';
 import Linkify from 'react-linkify';
 
-class CheckBox extends Component{
-  constructor(){
+class CheckBox extends Component {
+  constructor() {
     super();
     this.state = {
       array: [],
@@ -17,13 +17,11 @@ class CheckBox extends Component{
     }
   }
 
-  componentWillMount(){
+  componentWillMount() {
     this.props.getDomains();
     this.props.getSolutions();
     this.props.getByID("5bcf97463a50c440b9d616c8");
-
-
-
+    
     // you can call the api this way too if you need to call the same route more than once. 
     // in this case getField has two fields (FieldName, n) 
     //    where fieldName is the field you want to get 
@@ -31,21 +29,21 @@ class CheckBox extends Component{
     //    if 0, the data will be filtered so that there are no repeats, empty strings, or null
     //    if 1, the api will return every value in the db regardless of empty strings, null, or repeats
     let field2 = this.props.getField("Researcher", 0);
-    field2.then((data)=>{
+    field2.then((data) => {
       this.setState({
         field2: data.payload
       })
     });
 
     let field = this.props.getField("Researcher", 1);
-    field.then((data)=>{
+    field.then((data) => {
       this.setState({
         field: data.payload
       })
     });
 
     field = this.props.getCustom("Primary Domain", "Distribution");
-    field.then((data) =>{
+    field.then((data) => {
       this.setState({
         array: data.payload
       })
@@ -61,7 +59,7 @@ class CheckBox extends Component{
 
   }
 
-  render(){
+  render() {
     const { enterprises } = this.props.enterpriseData;
     const { domains } = this.props.enterpriseData;
     const { solutions } = this.props.enterpriseData;
@@ -69,12 +67,12 @@ class CheckBox extends Component{
     //const { field } = this.props.enterpriseData;
 
 
-    if(!domains.length || !solutions.length || !enterprises.length || !singleSolution.length){
-      console.log("data loading\n");
-    }
-    else{
-      console.log("done loading!")
-    }
+    //if (!domains.length || !solutions.length || !enterprises.length || !singleSolution.length) {
+    //  console.log("data loading\n");
+    //}
+    //else {
+    //  console.log("done loading!")
+    //}
 
     const bord = {
       border: "2px solid black",
@@ -85,27 +83,75 @@ class CheckBox extends Component{
       backgroundColor: "white"
     }
 
-    return(
+    return (
       <div >
-        <div style= {bord}>
-            <h1>Primary Domains</h1>
-            {domains.map((value, index) =>
-              <label key={index}>
-                {value}
-                <input type="checkbox" />
-                <br/>
-              </label>
-              )}
-            <h1>Solution Types</h1>
-            {solutions.map((value, index) =>
-              <label key={index}>
-                {value}
-                <input type="checkbox" />
-                <br/>
-              </label>
-              )}
-      </div>
+        <div style={bord}>
+          <h1>Primary Domains</h1>
+          {domains.map((value, index) =>
+            <label key={index}>
+              {value}
+              <input type="checkbox" />
+              <br />
+            </label>
+          )}
+          <h1>Solution Types</h1>
+          {solutions.map((value, index) =>
+            <label key={index}>
+              {value}
+              <input type="checkbox" />
+              <br />
+            </label>
+          )}
+        </div>
 
+        <img src="https://s3-us-west-1.amazonaws.com/slfe-image-storage/img.png" alt="testing this" />
+        <DataTable2 array={enterprises} />
+
+        <h1>GetByID: "5b85bed93a50c440b96151f8"</h1>
+        <pre style={{ position: 'relative' }}>
+          {JSON.stringify(singleSolution, null, 2)}
+        </pre>
+
+        <h1>GetField: "Researcher" with n=1</h1>
+        <pre>
+          {this.state.field.map((r, index) =>
+            <label key={index}>
+              {r.Researcher}
+              <br />
+            </label>
+          )}
+        </pre>
+
+        <h1>GetField: "Researcher" with n=0</h1>
+        <pre>
+          {this.state.field2.map((value, index) =>
+            <label key={index}>
+              {value}
+              <br />
+            </label>
+          )}
+        </pre>
+
+        <h1>getCustom("Primary Domain", "Distribution")</h1><h4>To get every solution where Primary Domain = Distribution</h4>
+        <Linkify>
+          {this.state.array.map((s, index) =>
+            <label key={index}>
+              ID: {s.ID}
+              <br />
+              Name: {s.Name}
+              <br />
+              Primary Domain: {s['Primary Domain']}
+              <br />
+              Solution Type: {s['Solution Type']}
+              <br />
+              References: {s.References}
+              <br />
+              <br />
+            </label>
+
+          )}
+        </Linkify>
+      
       <img src="https://s3-us-west-1.amazonaws.com/slfe-image-storage/img.png" alt="testing this"/>
       <DataTable2 array = {enterprises}/>
       <h1>GetByID: "5b85bed93a50c440b96151f8"</h1>
