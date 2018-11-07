@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import { getEnterprises, getField } from '../../actions/enterpriseActions';
 import { connect } from 'react-redux';
 import CheckBox from 'rc-checkbox';
+import Navbar from '../PageComponents/Navbar'
+import Footer from '../PageComponents/Footer';
 
 const Page = styled.div`
   display: flex;
@@ -379,7 +381,9 @@ constructor(props){
 
     return (
       <Page >
-      <Header subTitle='RESULTS' />
+        <div style={{marginBottom: '50px', width: '100%'}}>
+      <Navbar/>
+    </div>
       <InnerPage>
       <div style={{minWidth: '200px'}}>
         {checkboxes}
@@ -387,10 +391,10 @@ constructor(props){
     { this.state.filteredSolutions &&
        <Paginate todos={this.state.filteredSolutions} />
      }
-      <div style={{padding: '250px'}}/>
-      <div style={{display: 'flex', flexDirection: 'row'}} >
-    </div>
   </InnerPage>
+  <div style={{ marginTop: '50px', width: '100%'}}>
+  <Footer/>
+</div>
       </Page>
     );
   }
