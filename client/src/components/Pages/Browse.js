@@ -332,7 +332,7 @@ constructor(props){
           console.log( x.keyWordSearch)
           console.log( this.state.solutions[i]['Keyword Descriptors']);
           console.log(this.state.solutions[i]['Keyword Descriptors'].indexOf(x.keyWordSearch));
-          if(!this.state.solutions[i]['Keyword Descriptors'].toLowerCase().match(x.keyWordSearch.toLowerCase())  ){
+          if(!this.state.solutions[i]['Keyword Descriptors'].toLowerCase().match(x.keyWordSearch.toLowerCase()) && !this.state.solutions[i]['Name'].toLowerCase().match(x.keyWordSearch.toLowerCase()) ){
             filteredData.splice(i, 1);
             i = i - 1;
           }
