@@ -242,23 +242,41 @@ constructor(props){
     }
 
     return(
+
       <div style = {{marginLeft: '5px'}}>
         <div style={{ borderStyle: 'double', overflow:'scroll', height: '250px'}}>
+          <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between'}}>
+        <div>
       <h4> Primary Domains </h4>
       {checkboxes}
     </div>
+    <button style={{marginTop: '20px', width: '100px'}} onClick={this.resetFilters} >
+      Reset Filters
+    </button>
+    <div>
 
-      <div style={{display: 'grid', borderStyle: 'double', overflow:'scroll', height: '250px'}}>
+    </div>
+    </div>
+
+    </div>
+
+      <div style={{display: 'grid', borderStyle: 'double', overflow:'scroll', height: '500px'}}>
       <h4> Solution Types </h4>
       {checkboxes2}
   </div>
-      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '250px'}}>
+      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
       <h4> Locations </h4>
       {checkboxes3}
     </div>
+
+
     </div>
     )
 
+  }
+  resetFilters = () => {
+    this.props.history.push(`/browse`);
+    window.location.reload();
   }
   getItems2 = () => {
 
