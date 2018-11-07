@@ -150,7 +150,7 @@ constructor(props){
         }
         this.props.history.push(`/browse?${QueryString.stringify(result)}`);
       }
-      //window.location.reload();
+      window.location.reload();
     }
   }
   getCheckBoxs = () => {
