@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import { getEnterprises, getField } from '../../actions/enterpriseActions';
 import { connect } from 'react-redux';
 import CheckBox from 'rc-checkbox';
+import Navbar from '../PageComponents/Navbar'
+import Footer from '../PageComponents/Footer';
 
 const Page = styled.div`
   display: flex;
@@ -240,23 +242,41 @@ constructor(props){
     }
 
     return(
+
       <div style = {{marginLeft: '5px'}}>
         <div style={{ borderStyle: 'double', overflow:'scroll', height: '250px'}}>
+          <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between'}}>
+        <div>
       <h4> Primary Domains </h4>
       {checkboxes}
     </div>
+    <button style={{marginTop: '20px', width: '100px'}} onClick={this.resetFilters} >
+      Reset Filters
+    </button>
+    <div>
 
-      <div style={{display: 'grid', borderStyle: 'double', overflow:'scroll', height: '250px'}}>
+    </div>
+    </div>
+
+    </div>
+
+      <div style={{display: 'grid', borderStyle: 'double', overflow:'scroll', height: '500px'}}>
       <h4> Solution Types </h4>
       {checkboxes2}
   </div>
-      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '250px'}}>
+      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
       <h4> Locations </h4>
       {checkboxes3}
     </div>
+
+
     </div>
     )
 
+  }
+  resetFilters = () => {
+    this.props.history.push(`/browse`);
+    window.location.reload();
   }
   getItems2 = () => {
 
@@ -379,7 +399,9 @@ constructor(props){
 
     return (
       <Page >
-      <Header subTitle='RESULTS' />
+        <div style={{marginBottom: '50px', width: '100%'}}>
+      <Navbar/>
+    </div>
       <InnerPage>
       <div style={{minWidth: '200px'}}>
         {checkboxes}
@@ -387,10 +409,10 @@ constructor(props){
     { this.state.filteredSolutions &&
        <Paginate todos={this.state.filteredSolutions} />
      }
-      <div style={{padding: '250px'}}/>
-      <div style={{display: 'flex', flexDirection: 'row'}} >
-    </div>
   </InnerPage>
+  <div style={{ marginTop: '50px', width: '100%'}}>
+  <Footer/>
+</div>
       </Page>
     );
   }
