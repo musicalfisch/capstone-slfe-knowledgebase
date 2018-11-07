@@ -89,11 +89,35 @@ constructor(props){
 
   }
   handleCheckBox = (event, checked) => {
-    //console.log("name: ", name)
+    console.log("name: ", event)
     const x = QueryString.parse(this.props.location.search);
     if(event.target.checked){
+
       if(this.props.location.search){
-        this.props.history.push(`/browse${this.props.location.search}&${event.target.filterType}=${event.target.name}`);
+        let result = [];
+        var duplicate = false;
+        for (var param in x) {
+          if(x[param] === event.target.name && param === event.target.filterType){
+            result[param] = event.target.name;
+            duplicate = true;
+          }
+          if(x[param] != event.target.name && param === event.target.filterType){
+            result[param] = event.target.name;
+            duplicate = true;
+          }
+          if(x[param] != event.target.name && param != event.target.filterType){
+            result[param] = x[param];
+          }
+          else{
+            result[event.target.filterType] = event.target.name;
+          }
+        }
+        if(duplicate){
+          this.props.history.push(`/browse?${QueryString.stringify(result)}`);
+        }
+        else{
+          this.props.history.push(`/browse${this.props.location.search}&${event.target.filterType}=${event.target.name}`);
+        }
       }
       else{
         this.props.history.push(`/browse?${event.target.filterType}=${event.target.name}`);
@@ -105,14 +129,21 @@ constructor(props){
         this.props.history.push('/browse');
       }
       else{
+
         var result = [];
 
         for (var param in x) {
-            console.log(x);
-            if(x[param] === event.target.name){
+            console.log('&&&&', x[param], param);
+
+            if(x[param] === event.target.name && param === event.target.filterType){
               console.log('excluding: ', x[param]);
             }
+            else if(x[param] != event.target.name && param === event.target.filterType){
+              console.log("LLLAAAALAAAA");
+              result[param] = event.target.name;
+            }
             else{
+              console.log("***PUSING RESULT***: ", x[param]);
               result[param]= x[param];
             }
 
@@ -301,7 +332,7 @@ constructor(props){
           console.log( x.keyWordSearch)
           console.log( this.state.solutions[i]['Keyword Descriptors']);
           console.log(this.state.solutions[i]['Keyword Descriptors'].indexOf(x.keyWordSearch));
-          if(!this.state.solutions[i]['Keyword Descriptors'].toLowerCase().match(x.keyWordSearch.toLowerCase())  ){
+          if(!this.state.solutions[i]['Keyword Descriptors'].toLowerCase().match(x.keyWordSearch.toLowerCase()) && !this.state.solutions[i]['Name'].toLowerCase().match(x.keyWordSearch.toLowerCase()) ){
             filteredData.splice(i, 1);
             i = i - 1;
           }
