@@ -57,8 +57,6 @@ constructor(props){
 
     const fields = this.props.getField('Primary Domain', '0');
     fields.then((data) => {
-      console.log("???????!");
-      console.log('GET FIELD: ', data);
       this.setState({
         domains: data.payload,
       });
@@ -91,8 +89,6 @@ constructor(props){
 
   }
   handleCheckBox = (event, checked) => {
-    console.log("EVENT: ", event)
-    console.log("CHECKED: ", checked)
     //console.log("name: ", name)
     const x = QueryString.parse(this.props.location.search);
     if(event.target.checked){
@@ -112,7 +108,6 @@ constructor(props){
         var result = [];
 
         for (var param in x) {
-          console.log("?????");
             console.log(x);
             if(x[param] === event.target.name){
               console.log('excluding: ', x[param]);
@@ -122,8 +117,6 @@ constructor(props){
             }
 
         }
-        console.log(result);
-        console.log('RESULT: ',QueryString.stringify(result));
         this.props.history.push(`/browse?${QueryString.stringify(result)}`);
       }
       window.location.reload();
@@ -216,31 +209,36 @@ constructor(props){
     }
 
     return(
-      <div>
+      <div style = {{marginLeft: '5px'}}>
+        <div style={{ borderStyle: 'double', overflow:'scroll', height: '250px'}}>
       <h4> Primary Domains </h4>
       {checkboxes}
+    </div>
+
+      <div style={{display: 'grid', borderStyle: 'double', overflow:'scroll', height: '250px'}}>
       <h4> Solution Types </h4>
       {checkboxes2}
+  </div>
+      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '250px'}}>
       <h4> Locations </h4>
       {checkboxes3}
-      </div>
+    </div>
+    </div>
     )
 
   }
   getItems2 = () => {
 
     var multipleFilters = false;
+
     const x = QueryString.parse(this.props.location.search);
 
     var filteredData = this.state.solutions;
 
     if(x.primaryDomain){
       multipleFilters = true;
-      console.log(x);
-      console.log(this.props.enterprise);
       if(this.state.solutions){
         for(var i = 0; i < filteredData.length; i++){
-          console.log("###", filteredData[i]['Primary Domain'] !== x.primaryDomain)
           if(filteredData[i]['Primary Domain'] != x.primaryDomain){
             filteredData.splice(i,1);
             i = i-1;
@@ -253,21 +251,16 @@ constructor(props){
          if(this.state.solutions){
            for(var i = 0; i < filteredData.length; i++){
              if(filteredData[i]['Solution Type'] != x.solutionType){
-               console.log("BEFORE DELETE", filteredData.length);
-               console.log("DELETING ENTRY: ", filteredData[i])
                filteredData.splice(i, 1);
                i = i -1;
-               console.log("AFTER DELETE", filteredData.length);
              }
            }
          }
        }
        else{
          if(this.state.solutions){
-           console.log("&&&&&&&#######");
            for(var i = 0; i < filteredData.length; i++){
              if(filteredData[i]['Solution Type'] !== x.solutionType){
-               console.log(this.state.solutions[i]['Solution Type']);
                filteredData.splice(i, 1);
                i = i -1;
              }
@@ -281,9 +274,7 @@ constructor(props){
        if(multipleFilters){
          if(this.state.solutions){
            for(var i = 0; i < filteredData.length; i++){
-             console.log('>>>>>>>',filteredData[i]['Location']);
              if(filteredData[i]['Location'] !== x.location){
-               console.log("JDJDJDJDJDJD");
                filteredData.splice(i, 1);
                i = i -1;
              }
@@ -326,14 +317,20 @@ constructor(props){
     const items = [];
     if(filteredData){
       for (var i = 0; i < filteredData.length; i++) {
-        console.log(filteredData[i]);
        const lab = filteredData[i]["Name"];
+
+       let s = filteredData[i]._id;
+       console.log("111111111111111111111111111111");
+       console.log("???!!!: ", s);
+       console.log(filteredData[i]);
       items.push(
-        <div style={{ marginBottom: '50px', cursor: 'pointer'}}>
+        <div
+          onClick = { () => { this.props.history.push(`/solution/${s}`)}}
+          style={{ marginBottom: '50px', cursor: 'pointer'}}>
          <ResultItem
            text={filteredData[i]["General Description"]}
            label={filteredData[i]["Name"]}
-           img=''
+           img={filteredData[i]["mainImage"]}
            location={filteredData[i]["Location"]}
           />
    </div>
@@ -341,16 +338,13 @@ constructor(props){
        }
     }
 
-    console.log("HERE", items);
     return items;
 
   }
 
   render()
   {
-    console.log(QueryString.parse(this.props.location.search));
     const checkboxes = this.getCheckBoxs();
-    console.log("IN RENDER");
 
     return (
       <Page >

@@ -24,7 +24,7 @@ class SolutionSummary extends Component {
 
                 </div>
                 <div className="images">
-                    <img src="http://chooseweb.s3.amazonaws.com/raw/kublai5.jpg" alt="peace of land image" />
+                    <img src={this.props.img} alt="No image in record" style={{width: '500px', height:'350px'}} />
                 </div>
                 <div className="summary">
                     <table >
@@ -82,6 +82,7 @@ class SolutionSummary extends Component {
 
 SolutionSummary.PropTypes = {
     getByID: PropTypes.func.isRequired,
+    img: PropTypes.string,
 }
 
 const mapStateToProps = (state) => ({
