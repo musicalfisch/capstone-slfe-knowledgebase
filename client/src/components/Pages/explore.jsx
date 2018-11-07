@@ -13,7 +13,6 @@ import { connect } from 'react-redux';
 import { getEnterprises, getField } from '../../actions/enterpriseActions';
 import { getDomains } from '../../actions/enterpriseActions';
 
-
 const Page = styled.div`
   display: inline-flex;
   align-items: flex-start;
@@ -32,7 +31,6 @@ class explore extends Component {
   constructor(props){
 
     super(props)
-    console.log(this);
      this.state =
      {
        textChange: null,
@@ -60,7 +58,6 @@ if(this.state.domains)
       style={{ cursor: 'pointer'}}>
      <CategoryType
        history={this.props.history}
-      // styleObject={{ display:'flex', flexDirection:'row', justifyContent:'space-between',alignItems:'center',width:'200px', height:'120px', backgroundColor: '#ffff'}}
       styleObject={{ display:'flex', flexDirection:'column', justifyContent:'space-between',alignItems:'center',width:'120px', height:'120px', backgroundColor: '#ffff'}}
        image={sampleImage} label={this.state.domains[i]}
        type="primaryDomain"
@@ -87,7 +84,6 @@ getSolutionItems = () => {
       <CategoryType
         history={this.props.history}
         styleObject={{ display:'flex', flexDirection:'row', justifyContent:'center', textAlign: 'center',alignItems:'center',width:'120px', height:'120px', backgroundColor: '#ffff'}}
-      //  styleObject={{ display:'flex', flexDirection:'column',alignItems:'center',width:'120px', height:'120px', backgroundColor: '#ffff'}}
         type="solutionType"
         image=''
         label={this.state.solutionTypes[i]}/>
@@ -108,11 +104,7 @@ getSolutionItems = () => {
        <div style={{ padding: '5px'}}>
          <a
            style={{color:'blue'}}
-           href={`/Item?itemName=${this.state.popularSolutions[i].Name}&itemKey=${this.state.popularSolutions[i]._id}`}
-           //onClick= { () => { this.props.history.push(`/Item?itemName=${dataMock[i].itemName}&itemKey=${dataMock[i].itemKey}`)}}
-
-
-         //  styleObject={{ display:'flex', flexDirection:'column',alignItems:'center',width:'120px', height:'120px', backgroundColor: '#ffff'}}
+           href={`/solution/${this.state.popularSolutions[i]._id}`}
        >{this.state.popularSolutions[i].Name}
      </a>
        </div>
@@ -127,14 +119,12 @@ getSolutionItems = () => {
   componentWillMount(){
     const domains = this.props.getDomains();
     domains.then((data) => {
-      console.log('WILL MOUNT!!!!', data);
       this.setState({
         domains: data.payload,
       });
     })
     const poulars = this.props.getEnterprises();
     poulars.then((data) => {
-      console.log("POPUYLARS !!!!", data);
       this.setState({
         popularSolutions: data.payload,
       });
@@ -145,22 +135,11 @@ getSolutionItems = () => {
         solutionTypes: data.payload,
       });
     })
-  //  console.log('bo w', x);
-    // .then((result)=> {
-    //   console.log('LOGGIN DOMAINS IN ASYNC', result)
-    // });
-    /*this.setState({
-      domains: this.props.getDomains(),
-      dataArray: this.props.getEnterprises()
-    });*/
     while(this.state.dataArray.loading == false){
-      console.log("Data loading")
       if(this.state.dataArray.loading == true){
-        console.log("data done loading...breaking");
         break;
       }
     }
-    console.log("DATA ARRAY IS: ", this.state.dataArray);
   }
 
   mapData(array){
@@ -168,21 +147,7 @@ getSolutionItems = () => {
   }
 
 render(){
-  console.log("IN RENDER ******", this.state);
   const enterprises = this.props.enterprise;
-
-  /*if(!enterprises.length){
-    console.log("data is loading")
-    return(<div><h1 style= {{position: 'absolute', top: '50%', left: '50%'}}>Data is loading</h1></div>)
-  }*/
-
-  /*if(this.props.getEnterprises.loading === true){
-    console.log('????HERE!');
-  }*/
-  console.log('xxxxx');
-  console.log(this.state.domains);
-  console.log(this.state.dataArray);
-  console.log(enterprises);
 
   const categoryList = this.getCategoryItems();
   const solutionList = this.getSolutionItems();
@@ -255,5 +220,3 @@ export default connect(
   mapStateToProps,
   {getEnterprises, getDomains, getField}
 ) (explore);
-
-//export default explore;
