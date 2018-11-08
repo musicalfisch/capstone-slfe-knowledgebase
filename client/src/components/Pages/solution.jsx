@@ -20,6 +20,7 @@ class solution extends Component {
         console.log("Component will mount")
         const { match } = this.props
         this.props.getByID(match.params.id)
+        document.title = "Solution " + match.params.id;
     }
 
     render() {
