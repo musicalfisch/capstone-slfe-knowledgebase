@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactTable from "react-table";
+//import ReactTable from "react-table";
 
 export default class CategoryType extends Component {
   constructor(props){
