@@ -10,10 +10,8 @@ export default function Navbar()
             </a>
         </div>
         <div class="nav">
-            <a href="/">Explore</a>
-            <a href="/browse">Browse</a>
+            <a href="/browse">Result</a>
             <a href="/about">About</a>
-            <a href="/partners">Partners</a>
             <a href="#"><i class="fa fa-sign-in"></i></a>
         </div>
     </div>
