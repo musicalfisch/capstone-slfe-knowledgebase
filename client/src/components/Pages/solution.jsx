@@ -30,7 +30,7 @@ class solution extends Component {
             <div class="solution-page">
                 <Navbar />
                 <div className="content">
-                    <Summary id={this.props.match.params.id} />
+                    <Summary img={singleSolution['mainImage']} id={this.props.match.params.id} />
                     <Tabs>
                         <div label="Overview">
                             <h4>Product Description</h4>
@@ -109,22 +109,22 @@ class solution extends Component {
                                 <div class="evaluation-info">
                                     <Accordion atomic={true}>
                                         <AccordionItem title="Product">
-                                            
+
                                         </AccordionItem>
                                         <AccordionItem title="Environmental">
-                                            
+
                                         </AccordionItem>
                                         <AccordionItem title="Social">
-                                            
+
                                         </AccordionItem>
                                         <AccordionItem title="Management">
-                                            
+
                                         </AccordionItem>
                                         <AccordionItem title="Economics">
-                                            
+
                                         </AccordionItem>
                                         <AccordionItem title="Ownership">
-                                            
+
                                         </AccordionItem>
                                     </Accordion>
                                 </div>
