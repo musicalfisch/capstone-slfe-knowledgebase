@@ -213,9 +213,10 @@ constructor(props){
             checked={x.primaryDomain === this.state.domains[i] }
             enabled={true}
             >
-
           </CheckBox>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.domains[i]}
+        </div>
         </div>
         );
       }
@@ -235,14 +236,14 @@ constructor(props){
             enabled={true}
             >
           </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.solutionTypes[i]}
         </div>
         </div>
         );
       }
     }
-    
+
     if(this.state.OrgEntTypes){
       var checkboxes3 = [];
       this.state.OrgEntTypes.sort();
@@ -258,14 +259,14 @@ constructor(props){
             enabled={true}
             >
           </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.OrgEntTypes[i]}
         </div>
         </div>
         );
       }
     }
-    
+
     if(this.state.climateZones){
       var checkboxes4 = [];
       this.state.climateZones.sort();
@@ -281,7 +282,7 @@ constructor(props){
             enabled={true}
             >
           </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.climateZones[i]}
         </div>
         </div>
@@ -303,7 +304,7 @@ constructor(props){
             enabled={true}
             >
           </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.scopes[i]}
         </div>
         </div>
@@ -325,7 +326,7 @@ constructor(props){
             enabled={true}
             >
           </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.secondaryDomains[i]}
         </div>
         </div>
@@ -347,7 +348,7 @@ constructor(props){
             enabled={true}
             >
           </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.countries[i]}
         </div>
         </div>
@@ -369,7 +370,7 @@ constructor(props){
             enabled={true}
             >
           </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.states[i]}
         </div>
         </div>
@@ -391,7 +392,7 @@ constructor(props){
             enabled={true}
             >
           </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.cities[i]}
         </div>
         </div>
@@ -402,57 +403,74 @@ constructor(props){
     return(
 
       <div style = {{marginLeft: '5px'}}>
-        <div style={{ borderStyle: 'double', overflow:'scroll', height: '250px'}}>
           <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between'}}>
-        <div>
-      <h4> Primary Domains </h4>
-      {checkboxes}
-    </div>
-    <button style={{marginTop: '20px', width: '100px'}} onClick={this.resetFilters} >
-      Reset Filters
-    </button>
-    <div>
-
-    </div>
-    </div>
-
-    </div>
-
-      <div style={{display: 'grid', borderStyle: 'double', overflow:'scroll', height: '500px'}}>
-      <h4> Secondary Domains </h4>
-      {checkboxes6}
-  </div>
-      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
-      <h4> Solution Type </h4>
-      {checkboxes2}
-    </div>
-      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
-      <h4> Organization Entity Type </h4>
-      {checkboxes3}
-    </div>
-      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
-      <h4> Climate Zone </h4>
-      {checkboxes4}
-    </div>
-      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
-      <h4> Scope of Activities </h4>
-      {checkboxes5}
-    </div>
-      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
-      <h4> Country </h4>
-      {checkboxes7}
-    </div>
-      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
-      <h4> State </h4>
-      {checkboxes8}
-    </div>
-      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
-      <h4> City </h4>
-      {checkboxes9}
-    </div>
-      
-
-
+            {
+              typeof checkboxes !== "undefined" && checkboxes.length > 0 &&
+              <div style={{fontSize: "12px"}}>
+                <h4> Primary Domains </h4>
+                {checkboxes}
+              </div>
+            }
+            <button style={{marginTop: '20px', width: '100px'}} onClick={this.resetFilters} >
+              Reset Filters
+            </button>
+          </div>
+      {
+        typeof checkboxes6 !== "undefined" && checkboxes6.length > 0 &&
+        <div style={{ fontSize: '12px', display: 'grid', overflow:'scroll', height: '500px'}}>
+          <h4> Secondary Domains </h4>
+          {checkboxes6}
+        </div>
+      }
+      {
+        typeof checkboxes2 !== "undefined" && checkboxes2.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', height: `${checkboxes2.length*15}px`}}>
+          <h4> Solution Type </h4>
+          {checkboxes2}
+        </div>
+      }
+      {
+        typeof checkboxes3 !== "undefined" && checkboxes3.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', height: `${checkboxes3.length*15}px`}}>
+          <h4> Organization Entity Type </h4>
+          {checkboxes3}
+        </div>
+      }
+      {
+        typeof checkboxes4 !== "undefined" && checkboxes4.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', height: `${checkboxes4.length*15}px`}}>
+          <h4> Climate Zone </h4>
+          {checkboxes4}
+        </div>
+      }
+      {
+        typeof checkboxes5 !== "undefined" && checkboxes5.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll'}}>
+          <h4> Scope of Activities </h4>
+          {checkboxes5}
+        </div>
+      }
+      {
+        typeof checkboxes7 !== "undefined" && checkboxes7.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll'}}>
+          <h4> Country </h4>
+          {checkboxes7}
+        </div>
+      }
+      {
+        typeof checkboxes8 !== "undefined" && checkboxes8.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', height: '350px'}}>
+          <h4> State </h4>
+          {checkboxes8}
+        </div>
+      }
+      {
+        typeof checkboxes9 !== "undefined" && checkboxes9.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', height: '350px'}}>
+          <h4> City </h4>
+          {checkboxes9}
+        </div>
+      }
     </div>
     )
 
@@ -646,12 +664,12 @@ constructor(props){
         {
           for(var k = i+1; k < filteredData.length; k++)
           {
-            if (filteredData[i].Name.toLowerCase() > filteredData[k].Name.toLowerCase()) 
+            if (filteredData[i].Name.toLowerCase() > filteredData[k].Name.toLowerCase())
             {
               var temp = filteredData[i];
               filteredData[i] = filteredData[k];
               filteredData[k] = temp;
-            } 
+            }
           }
         }
     return this.getItems(filteredData);
