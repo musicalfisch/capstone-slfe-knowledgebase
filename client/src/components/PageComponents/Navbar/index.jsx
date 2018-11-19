@@ -1,5 +1,4 @@
-import React from 'react';
-import image from '../Navbar/slfe-logo.png';
+import React from 'react'
 
 export default function Navbar()
 {
@@ -11,12 +10,10 @@ export default function Navbar()
             </a>
         </div>
         <div class="nav">
-            <a href="/explore">Explore</a>
-            <a href="/result">Result</a>
+            <a href="/browse">Result</a>
             <a href="/about">About</a>
-            <a href="/partners">Partners</a>
             <a href="#"><i class="fa fa-sign-in"></i></a>
         </div>
     </div>
   )
-};
+}

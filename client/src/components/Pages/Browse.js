@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import { getEnterprises, getField } from '../../actions/enterpriseActions';
 import { connect } from 'react-redux';
 import CheckBox from 'rc-checkbox';
+import Navbar from '../PageComponents/Navbar'
+import Footer from '../PageComponents/Footer';
 
 const Page = styled.div`
   display: flex;
@@ -57,8 +59,6 @@ constructor(props){
 
     const fields = this.props.getField('Primary Domain', '0');
     fields.then((data) => {
-      console.log("???????!");
-      console.log('GET FIELD: ', data);
       this.setState({
         domains: data.payload,
       });
@@ -133,13 +133,35 @@ constructor(props){
 
   }
   handleCheckBox = (event, checked) => {
-    console.log("EVENT: ", event)
-    console.log("CHECKED: ", checked)
-    //console.log("name: ", name)
+    console.log("name: ", event)
     const x = QueryString.parse(this.props.location.search);
     if(event.target.checked){
+
       if(this.props.location.search){
-        this.props.history.push(`/browse${this.props.location.search}&${event.target.filterType}=${event.target.name}`);
+        let result = [];
+        var duplicate = false;
+        for (var param in x) {
+          if(x[param] === event.target.name && param === event.target.filterType){
+            result[param] = event.target.name;
+            duplicate = true;
+          }
+          if(x[param] != event.target.name && param === event.target.filterType){
+            result[param] = event.target.name;
+            duplicate = true;
+          }
+          if(x[param] != event.target.name && param != event.target.filterType){
+            result[param] = x[param];
+          }
+          else{
+            result[event.target.filterType] = event.target.name;
+          }
+        }
+        if(duplicate){
+          this.props.history.push(`/browse?${QueryString.stringify(result)}`);
+        }
+        else{
+          this.props.history.push(`/browse${this.props.location.search}&${event.target.filterType}=${event.target.name}`);
+        }
       }
       else{
         this.props.history.push(`/browse?${event.target.filterType}=${event.target.name}`);
@@ -151,21 +173,25 @@ constructor(props){
         this.props.history.push('/browse');
       }
       else{
+
         var result = [];
 
         for (var param in x) {
-          console.log("?????");
-            console.log(x);
-            if(x[param] === event.target.name){
+            console.log('&&&&', x[param], param);
+
+            if(x[param] === event.target.name && param === event.target.filterType){
               console.log('excluding: ', x[param]);
             }
+            else if(x[param] != event.target.name && param === event.target.filterType){
+              console.log("LLLAAAALAAAA");
+              result[param] = event.target.name;
+            }
             else{
+              console.log("***PUSING RESULT***: ", x[param]);
               result[param]= x[param];
             }
 
         }
-        console.log(result);
-        console.log('RESULT: ',QueryString.stringify(result));
         this.props.history.push(`/browse?${QueryString.stringify(result)}`);
       }
       window.location.reload();
@@ -374,43 +400,79 @@ constructor(props){
     }
 
     return(
-      <div>
-      <h4> Primary Domain </h4>
+
+      <div style = {{marginLeft: '5px'}}>
+        <div style={{ borderStyle: 'double', overflow:'scroll', height: '250px'}}>
+          <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between'}}>
+        <div>
+      <h4> Primary Domains </h4>
       {checkboxes}
-      <h4> Secondary Domain </h4>
+    </div>
+    <button style={{marginTop: '20px', width: '100px'}} onClick={this.resetFilters} >
+      Reset Filters
+    </button>
+    <div>
+
+    </div>
+    </div>
+
+    </div>
+
+      <div style={{display: 'grid', borderStyle: 'double', overflow:'scroll', height: '500px'}}>
+      <h4> Secondary Domains </h4>
       {checkboxes6}
+  </div>
+      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
       <h4> Solution Type </h4>
       {checkboxes2}
+    </div>
+      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
       <h4> Organization Entity Type </h4>
       {checkboxes3}
+    </div>
+      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
       <h4> Climate Zone </h4>
       {checkboxes4}
+    </div>
+      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
       <h4> Scope of Activities </h4>
       {checkboxes5}
+    </div>
+      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
       <h4> Country </h4>
       {checkboxes7}
+    </div>
+      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
       <h4> State </h4>
       {checkboxes8}
+    </div>
+      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
       <h4> City </h4>
       {checkboxes9}
-      </div>
+    </div>
+      
+
+
+    </div>
     )
 
+  }
+  resetFilters = () => {
+    this.props.history.push(`/browse`);
+    window.location.reload();
   }
   getItems2 = () => {
 
     var multipleFilters = false;
+
     const x = QueryString.parse(this.props.location.search);
 
     var filteredData = this.state.solutions;
 
     if(x.primaryDomain){
       multipleFilters = true;
-      console.log(x);
-      console.log(this.props.enterprise);
       if(this.state.solutions){
         for(var i = 0; i < filteredData.length; i++){
-          console.log("###", filteredData[i]['Primary Domain'] !== x.primaryDomain)
           if(filteredData[i]['Primary Domain'] != x.primaryDomain){
             filteredData.splice(i,1);
             i = i-1;
@@ -521,21 +583,16 @@ constructor(props){
          if(this.state.solutions){
            for(var i = 0; i < filteredData.length; i++){
              if(filteredData[i]['Solution Type'] != x.solutionType){
-               console.log("BEFORE DELETE", filteredData.length);
-               console.log("DELETING ENTRY: ", filteredData[i])
                filteredData.splice(i, 1);
                i = i -1;
-               console.log("AFTER DELETE", filteredData.length);
              }
            }
          }
        }
        else{
          if(this.state.solutions){
-           console.log("&&&&&&&#######");
            for(var i = 0; i < filteredData.length; i++){
              if(filteredData[i]['Solution Type'] !== x.solutionType){
-               console.log(this.state.solutions[i]['Solution Type']);
                filteredData.splice(i, 1);
                i = i -1;
              }
@@ -549,9 +606,7 @@ constructor(props){
        if(multipleFilters){
          if(this.state.solutions){
            for(var i = 0; i < filteredData.length; i++){
-             console.log('>>>>>>>',filteredData[i]['Location']);
              if(filteredData[i]['Location'] !== x.location){
-               console.log("JDJDJDJDJDJD");
                filteredData.splice(i, 1);
                i = i -1;
              }
@@ -578,7 +633,7 @@ constructor(props){
           console.log( x.keyWordSearch)
           console.log( this.state.solutions[i]['Keyword Descriptors']);
           console.log(this.state.solutions[i]['Keyword Descriptors'].indexOf(x.keyWordSearch));
-          if(!this.state.solutions[i]['Keyword Descriptors'].toLowerCase().match(x.keyWordSearch.toLowerCase())  ){
+          if(!this.state.solutions[i]['Keyword Descriptors'].toLowerCase().match(x.keyWordSearch.toLowerCase()) && !this.state.solutions[i]['Name'].toLowerCase().match(x.keyWordSearch.toLowerCase()) ){
             filteredData.splice(i, 1);
             i = i - 1;
           }
@@ -606,14 +661,20 @@ constructor(props){
     const items = [];
     if(filteredData){
       for (var i = 0; i < filteredData.length; i++) {
-        console.log(filteredData[i]);
        const lab = filteredData[i]["Name"];
+
+       let s = filteredData[i]._id;
+       console.log("111111111111111111111111111111");
+       console.log("???!!!: ", s);
+       console.log(filteredData[i]);
       items.push(
-        <div style={{ marginBottom: '50px', cursor: 'pointer'}}>
+        <div
+          onClick = { () => { this.props.history.push(`/solution/${s}`)}}
+          style={{ marginBottom: '50px', cursor: 'pointer'}}>
          <ResultItem
            text={filteredData[i]["General Description"]}
            label={filteredData[i]["Name"]}
-           img=''
+           img={filteredData[i]["mainImage"]}
            location={filteredData[i]["Location"]}
           />
    </div>
@@ -621,20 +682,19 @@ constructor(props){
        }
     }
 
-    console.log("HERE", items);
     return items;
 
   }
 
   render()
   {
-    console.log(QueryString.parse(this.props.location.search));
     const checkboxes = this.getCheckBoxs();
-    console.log("IN RENDER");
 
     return (
       <Page >
-      <Header subTitle='RESULTS' />
+        <div style={{marginBottom: '50px', width: '100%'}}>
+      <Navbar/>
+    </div>
       <InnerPage>
       <div style={{minWidth: '200px'}}>
         {checkboxes}
@@ -642,10 +702,10 @@ constructor(props){
     { this.state.filteredSolutions &&
        <Paginate todos={this.state.filteredSolutions} />
      }
-      <div style={{padding: '250px'}}/>
-      <div style={{display: 'flex', flexDirection: 'row'}} >
-    </div>
   </InnerPage>
+  <div style={{ marginTop: '50px', width: '100%'}}>
+  <Footer/>
+</div>
       </Page>
     );
   }

@@ -12,10 +12,7 @@ export default function Footer()
                     <p>Copyright © {currentYear} SFLE Knowledgebase</p>
                 </div> 
                 <div className="links">
-                    <a href="/">Contact</a>
-                    <a href="/">About</a>
-                    <a href="/">License</a>
-                    <a href="/">Research</a>
+                    <a href="/about">About</a>
                 </div>
             </div>
         </footer>
