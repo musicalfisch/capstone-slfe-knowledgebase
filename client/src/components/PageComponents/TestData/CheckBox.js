@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getEnterprises, getDomains, getSolutions, getByID, getField, getCustom, getLatLong} from '../../../actions/enterpriseActions';
+import {getDomainEntries} from '../../../actions/domainActions';
 import propTypes from 'prop-types';
 import DataTable2 from './DataTable2';
 import Linkify from 'react-linkify';
@@ -13,6 +14,7 @@ class CheckBox extends Component {
       field: [],
       field2:[],
       LL:[],
+      domain: [],
       reload: false
     }
   }
@@ -20,7 +22,7 @@ class CheckBox extends Component {
   componentWillMount() {
     this.props.getDomains();
     this.props.getSolutions();
-    this.props.getByID("5bcf97463a50c440b9d616c8");
+    this.props.getByID("5bdd0493eec25d51595255d1");
     
     // you can call the api this way too if you need to call the same route more than once. 
     // in this case getField has two fields (FieldName, n) 
@@ -53,6 +55,12 @@ class CheckBox extends Component {
     latlong.then((data)=>{
       this.setState({
         LL: data.payload
+      })
+    })
+    var domainEntries = this.props.getDomainEntries();
+    domainEntries.then((data)=>{
+      this.setState({
+        domain: data.payload
       })
     })
     
@@ -106,6 +114,15 @@ class CheckBox extends Component {
 
         <img src="https://s3-us-west-1.amazonaws.com/slfe-image-storage/img.png" alt="testing this" />
         <DataTable2 array={enterprises} />
+
+        <h1>getDomainEntries()</h1>
+        <pre>{this.state.domain.map((r, index) => 
+                <label key={index}>
+                <img src={r.image}/>{r.name}
+                <br/>
+                </label>
+
+               )}</pre>
 
         <h1>GetByID: "5b85bed93a50c440b96151f8"</h1>
         <pre style={{ position: 'relative' }}>
@@ -226,9 +243,10 @@ CheckBox.propTypes = {
 
 const mapStateToProps = (state) => ({
   enterpriseData: state.enterpriseData,
+  domainData: state.domainData
 });
 
 export default connect(
   mapStateToProps,
-  {getEnterprises, getSolutions, getDomains, getByID, getField, getCustom, getLatLong}
+  {getEnterprises, getSolutions, getDomains, getByID, getField, getCustom, getLatLong, getDomainEntries}
 ) (CheckBox);
