@@ -23,7 +23,6 @@ const Page = styled.div`
 
 const InnerPage = styled.div`
   display: flex;
-  align-items: space-around;
   flex-direction: row;
   min-width: fit-content;
   height: 100%;
@@ -407,67 +406,67 @@ constructor(props){
             {
               typeof checkboxes !== "undefined" && checkboxes.length > 0 &&
               <div style={{fontSize: "12px"}}>
-                <h4> Primary Domains </h4>
+                <h4 style={{marginLeft: '10px'}}> Primary Domains </h4>
                 {checkboxes}
               </div>
             }
-            <button style={{marginTop: '20px', width: '100px'}} onClick={this.resetFilters} >
+            <button style={{ marginTop: '20px', width: '100px'}} onClick={this.resetFilters} >
               Reset Filters
             </button>
           </div>
       {
         typeof checkboxes6 !== "undefined" && checkboxes6.length > 0 &&
-        <div style={{ fontSize: '12px', display: 'grid', overflow:'scroll', height: '500px'}}>
-          <h4> Secondary Domains </h4>
+        <div style={{fontSize: '12px', display: 'grid', overflow:'scroll', height: '500px'}}>
+          <h4 style={{marginLeft: '10px'}}> Secondary Domains </h4>
           {checkboxes6}
         </div>
       }
       {
         typeof checkboxes2 !== "undefined" && checkboxes2.length > 0 &&
         <div style={{ fontSize: '12px', overflow:'scroll', height: `${checkboxes2.length*15}px`}}>
-          <h4> Solution Type </h4>
+          <h4 style={{marginLeft: '10px'}}> Solution Type </h4>
           {checkboxes2}
         </div>
       }
       {
         typeof checkboxes3 !== "undefined" && checkboxes3.length > 0 &&
-        <div style={{ fontSize: '12px', overflow:'scroll', height: `${checkboxes3.length*15}px`}}>
-          <h4> Organization Entity Type </h4>
+        <div style={{ fontSize: '12px', overflow:'scroll', maxHeight: `250px`}}>
+          <h4 style={{marginLeft: '10px'}}> Organization Entity Type </h4>
           {checkboxes3}
         </div>
       }
       {
         typeof checkboxes4 !== "undefined" && checkboxes4.length > 0 &&
-        <div style={{ fontSize: '12px', overflow:'scroll', height: `${checkboxes4.length*15}px`}}>
-          <h4> Climate Zone </h4>
+        <div style={{ fontSize: '12px', overflow:'scroll', maxHeight: `250px`}}>
+          <h4 style={{marginLeft: '10px'}}> Climate Zone </h4>
           {checkboxes4}
         </div>
       }
       {
         typeof checkboxes5 !== "undefined" && checkboxes5.length > 0 &&
-        <div style={{ fontSize: '12px', overflow:'scroll'}}>
-          <h4> Scope of Activities </h4>
+        <div style={{ fontSize: '12px', overflow:'scroll', maxHeight: `250px`}}>
+          <h4 style={{marginLeft: '10px'}}> Scope of Activities </h4>
           {checkboxes5}
         </div>
       }
       {
         typeof checkboxes7 !== "undefined" && checkboxes7.length > 0 &&
-        <div style={{ fontSize: '12px', overflow:'scroll'}}>
-          <h4> Country </h4>
+        <div style={{ fontSize: '12px', overflow:'scroll', maxHeight: `250px`}}>
+          <h4 style={{marginLeft: '10px'}}> Country </h4>
           {checkboxes7}
         </div>
       }
       {
         typeof checkboxes8 !== "undefined" && checkboxes8.length > 0 &&
         <div style={{ fontSize: '12px', overflow:'scroll', height: '350px'}}>
-          <h4> State </h4>
+          <h4 style={{marginLeft: '10px'}}> State </h4>
           {checkboxes8}
         </div>
       }
       {
         typeof checkboxes9 !== "undefined" && checkboxes9.length > 0 &&
         <div style={{ fontSize: '12px', overflow:'scroll', height: '350px'}}>
-          <h4> City </h4>
+          <h4 style={{marginLeft: '10px'}}> City </h4>
           {checkboxes9}
         </div>
       }
