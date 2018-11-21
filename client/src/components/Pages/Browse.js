@@ -23,7 +23,6 @@ const Page = styled.div`
 
 const InnerPage = styled.div`
   display: flex;
-  align-items: space-around;
   flex-direction: row;
   min-width: fit-content;
   height: 100%;
@@ -80,10 +79,52 @@ constructor(props){
         solutionTypes: data.payload,
       });
     })
+    const cities = this.props.getField('City', '0');
+    cities.then((data) => {
+      this.setState({
+        cities: data.payload,
+      });
+    })
+    const states = this.props.getField('State', '0');
+    states.then((data) => {
+      this.setState({
+        states: data.payload,
+      });
+    })
+    const countries = this.props.getField('Country', '0');
+    countries.then((data) => {
+      this.setState({
+        countries: data.payload,
+      });
+    })
+    const secondaryDomains = this.props.getField('Secondary Domain', '0');
+    secondaryDomains.then((data) => {
+      this.setState({
+        secondaryDomains: data.payload,
+      });
+    })
     const locations = this.props.getField('Location', '0');
     locations.then((data) => {
       this.setState({
         locations: data.payload,
+      });
+    })
+    const OrgEntTypes = this.props.getField('Organizational Entity Type', '0');
+    OrgEntTypes.then((data) => {
+      this.setState({
+        OrgEntTypes: data.payload,
+      });
+    })
+    const scopes = this.props.getField('Scope of Activities', '0');
+    scopes.then((data) => {
+      this.setState({
+        scopes: data.payload,
+      });
+    })
+    const climateZones = this.props.getField('Climate Zone', '0');
+    climateZones.then((data) => {
+      this.setState({
+        climateZones: data.payload,
       });
     })
 
@@ -159,6 +200,7 @@ constructor(props){
 
     if(this.state.domains){
       var checkboxes = [];
+      this.state.domains.sort();
       const x = QueryString.parse(this.props.location.search);
       for(var i = 0; i < this.state.domains.length; i++){
         checkboxes.push(
@@ -170,15 +212,17 @@ constructor(props){
             checked={x.primaryDomain === this.state.domains[i] }
             enabled={true}
             >
-
           </CheckBox>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.domains[i]}
         </div>
+        </div>
         );
       }
     }
     if(this.state.solutionTypes){
       var checkboxes2 = [];
+      this.state.solutionTypes.sort();
       const x = QueryString.parse(this.props.location.search);
       for(var i = 0; i < this.state.solutionTypes.length; i++){
         checkboxes2.push(
@@ -191,50 +235,164 @@ constructor(props){
             enabled={true}
             >
           </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
           {this.state.solutionTypes[i]}
         </div>
         </div>
         );
       }
     }
-    if(this.state.solutionTypes){
-      var checkboxes2 = [];
-      const x = QueryString.parse(this.props.location.search);
-      for(var i = 0; i < this.state.solutionTypes.length; i++){
-        checkboxes2.push(
-          <div style={{marginBottom: '10px', marginLeft: '10px'}}>
-          <CheckBox
-            name={this.state.solutionTypes[i]}
-            onChange={this.handleCheckBox}
-            filterType={"solutionType"}
-            checked={x.solutionType === this.state.solutionTypes[i] }
-            enabled={true}
-            >
-          </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
-          {this.state.solutionTypes[i]}
-        </div>
-        </div>
-        );
-      }
-    }
-    if(this.state.locations){
+
+    if(this.state.OrgEntTypes){
       var checkboxes3 = [];
+      this.state.OrgEntTypes.sort();
       const x = QueryString.parse(this.props.location.search);
-      for(var i = 0; i < this.state.locations.length; i++){
+      for(var i = 0; i < this.state.OrgEntTypes.length; i++){
         checkboxes3.push(
           <div style={{marginBottom: '10px', marginLeft: '10px'}}>
           <CheckBox
-            name={this.state.locations[i]}
+            name={this.state.OrgEntTypes[i]}
             onChange={this.handleCheckBox}
-            filterType={"location"}
-            checked={x.location === this.state.locations[i] }
+            filterType={"OrgEntType"}
+            checked={x.OrgEntType === this.state.OrgEntTypes[i] }
             enabled={true}
             >
           </CheckBox>
-          <div style={{display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
-          {this.state.locations[i]}
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          {this.state.OrgEntTypes[i]}
+        </div>
+        </div>
+        );
+      }
+    }
+
+    if(this.state.climateZones){
+      var checkboxes4 = [];
+      this.state.climateZones.sort();
+      const x = QueryString.parse(this.props.location.search);
+      for(var i = 0; i < this.state.climateZones.length; i++){
+        checkboxes4.push(
+          <div style={{marginBottom: '10px', marginLeft: '10px'}}>
+          <CheckBox
+            name={this.state.climateZones[i]}
+            onChange={this.handleCheckBox}
+            filterType={"climateZone"}
+            checked={x.climateZone === this.state.climateZones[i] }
+            enabled={true}
+            >
+          </CheckBox>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          {this.state.climateZones[i]}
+        </div>
+        </div>
+        );
+      }
+    }
+    if(this.state.scopes){
+      var checkboxes5 = [];
+      this.state.scopes.sort();
+      const x = QueryString.parse(this.props.location.search);
+      for(var i = 0; i < this.state.scopes.length; i++){
+        checkboxes5.push(
+          <div style={{marginBottom: '10px', marginLeft: '10px'}}>
+          <CheckBox
+            name={this.state.scopes[i]}
+            onChange={this.handleCheckBox}
+            filterType={"scope"}
+            checked={x.scope === this.state.scopes[i] }
+            enabled={true}
+            >
+          </CheckBox>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          {this.state.scopes[i]}
+        </div>
+        </div>
+        );
+      }
+    }
+    if(this.state.secondaryDomains){
+      var checkboxes6 = [];
+      this.state.secondaryDomains.sort();
+      const x = QueryString.parse(this.props.location.search);
+      for(var i = 0; i < this.state.secondaryDomains.length; i++){
+        checkboxes6.push(
+          <div style={{marginBottom: '10px', marginLeft: '10px'}}>
+          <CheckBox
+            name={this.state.secondaryDomains[i]}
+            onChange={this.handleCheckBox}
+            filterType={"secondaryDomain"}
+            checked={x.secondaryDomain === this.state.secondaryDomains[i] }
+            enabled={true}
+            >
+          </CheckBox>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          {this.state.secondaryDomains[i]}
+        </div>
+        </div>
+        );
+      }
+    }
+    if(this.state.countries){
+      var checkboxes7 = [];
+      this.state.countries.sort();
+      const x = QueryString.parse(this.props.location.search);
+      for(var i = 0; i < this.state.countries.length; i++){
+        checkboxes7.push(
+          <div style={{marginBottom: '10px', marginLeft: '10px'}}>
+          <CheckBox
+            name={this.state.countries[i]}
+            onChange={this.handleCheckBox}
+            filterType={"country"}
+            checked={x.country === this.state.countries[i] }
+            enabled={true}
+            >
+          </CheckBox>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          {this.state.countries[i]}
+        </div>
+        </div>
+        );
+      }
+    }
+    if(this.state.states){
+      var checkboxes8 = [];
+      this.state.states.sort();
+      const x = QueryString.parse(this.props.location.search);
+      for(var i = 0; i < this.state.states.length; i++){
+        checkboxes8.push(
+          <div style={{marginBottom: '10px', marginLeft: '10px'}}>
+          <CheckBox
+            name={this.state.states[i]}
+            onChange={this.handleCheckBox}
+            filterType={"state"}
+            checked={x.state === this.state.states[i] }
+            enabled={true}
+            >
+          </CheckBox>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          {this.state.states[i]}
+        </div>
+        </div>
+        );
+      }
+    }
+    if(this.state.cities){
+      var checkboxes9 = [];
+      this.state.cities.sort();
+      const x = QueryString.parse(this.props.location.search);
+      for(var i = 0; i < this.state.cities.length; i++){
+        checkboxes9.push(
+          <div style={{marginBottom: '10px', marginLeft: '10px'}}>
+          <CheckBox
+            name={this.state.cities[i]}
+            onChange={this.handleCheckBox}
+            filterType={"city"}
+            checked={x.city === this.state.cities[i] }
+            enabled={true}
+            >
+          </CheckBox>
+          <div style={{fontSize:'12px', display: 'block', marginTop: '-20px', marginLeft: '20px'}}>
+          {this.state.cities[i]}
         </div>
         </div>
         );
@@ -244,32 +402,74 @@ constructor(props){
     return(
 
       <div style = {{marginLeft: '5px'}}>
-        <div style={{ borderStyle: 'double', overflow:'scroll', height: '250px'}}>
           <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between'}}>
-        <div>
-      <h4> Primary Domains </h4>
-      {checkboxes}
-    </div>
-    <button style={{marginTop: '20px', width: '100px'}} onClick={this.resetFilters} >
-      Reset Filters
-    </button>
-    <div>
-
-    </div>
-    </div>
-
-    </div>
-
-      <div style={{display: 'grid', borderStyle: 'double', overflow:'scroll', height: '500px'}}>
-      <h4> Solution Types </h4>
-      {checkboxes2}
-  </div>
-      <div style={{ borderStyle: 'double',  overflow:'scroll', height: '500px'}}>
-      <h4> Locations </h4>
-      {checkboxes3}
-    </div>
-
-
+            {
+              typeof checkboxes !== "undefined" && checkboxes.length > 0 &&
+              <div style={{fontSize: "12px"}}>
+                <h4 style={{marginLeft: '10px'}}> Primary Domains </h4>
+                {checkboxes}
+              </div>
+            }
+            <button style={{ marginTop: '20px', width: '100px'}} onClick={this.resetFilters} >
+              Reset Filters
+            </button>
+          </div>
+      {
+        typeof checkboxes6 !== "undefined" && checkboxes6.length > 0 &&
+        <div style={{fontSize: '12px', display: 'grid', overflow:'scroll', height: '500px'}}>
+          <h4 style={{marginLeft: '10px'}}> Secondary Domains </h4>
+          {checkboxes6}
+        </div>
+      }
+      {
+        typeof checkboxes2 !== "undefined" && checkboxes2.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', height: `${checkboxes2.length*15}px`}}>
+          <h4 style={{marginLeft: '10px'}}> Solution Type </h4>
+          {checkboxes2}
+        </div>
+      }
+      {
+        typeof checkboxes3 !== "undefined" && checkboxes3.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', maxHeight: `250px`}}>
+          <h4 style={{marginLeft: '10px'}}> Organization Entity Type </h4>
+          {checkboxes3}
+        </div>
+      }
+      {
+        typeof checkboxes4 !== "undefined" && checkboxes4.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', maxHeight: `250px`}}>
+          <h4 style={{marginLeft: '10px'}}> Climate Zone </h4>
+          {checkboxes4}
+        </div>
+      }
+      {
+        typeof checkboxes5 !== "undefined" && checkboxes5.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', maxHeight: `250px`}}>
+          <h4 style={{marginLeft: '10px'}}> Scope of Activities </h4>
+          {checkboxes5}
+        </div>
+      }
+      {
+        typeof checkboxes7 !== "undefined" && checkboxes7.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', maxHeight: `250px`}}>
+          <h4 style={{marginLeft: '10px'}}> Country </h4>
+          {checkboxes7}
+        </div>
+      }
+      {
+        typeof checkboxes8 !== "undefined" && checkboxes8.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', height: '350px'}}>
+          <h4 style={{marginLeft: '10px'}}> State </h4>
+          {checkboxes8}
+        </div>
+      }
+      {
+        typeof checkboxes9 !== "undefined" && checkboxes9.length > 0 &&
+        <div style={{ fontSize: '12px', overflow:'scroll', height: '350px'}}>
+          <h4 style={{marginLeft: '10px'}}> City </h4>
+          {checkboxes9}
+        </div>
+      }
     </div>
     )
 
@@ -291,6 +491,104 @@ constructor(props){
       if(this.state.solutions){
         for(var i = 0; i < filteredData.length; i++){
           if(filteredData[i]['Primary Domain'] != x.primaryDomain){
+            filteredData.splice(i,1);
+            i = i-1;
+          }
+        }
+      }
+    }
+    if(x.secondaryDomain){
+      multipleFilters = true;
+      console.log(x);
+      console.log(this.props.enterprise);
+      if(this.state.solutions){
+        for(var i = 0; i < filteredData.length; i++){
+          console.log("###", filteredData[i]['Secondary Domain'] !== x.secondaryDomain)
+          if(filteredData[i]['Secondary Domain'] != x.secondaryDomain){
+            filteredData.splice(i,1);
+            i = i-1;
+          }
+        }
+      }
+    }
+    if(x.country){
+      multipleFilters = true;
+      console.log(x);
+      console.log(this.props.enterprise);
+      if(this.state.solutions){
+        for(var i = 0; i < filteredData.length; i++){
+          console.log("###", filteredData[i]['Country'] !== x.country)
+          if(filteredData[i]['Country'] != x.country){
+            filteredData.splice(i,1);
+            i = i-1;
+          }
+        }
+      }
+    }
+    if(x.state){
+      multipleFilters = true;
+      console.log(x);
+      console.log(this.props.enterprise);
+      if(this.state.solutions){
+        for(var i = 0; i < filteredData.length; i++){
+          console.log("###", filteredData[i]['State'] !== x.state)
+          if(filteredData[i]['State'] != x.state){
+            filteredData.splice(i,1);
+            i = i-1;
+          }
+        }
+      }
+    }
+    if(x.city){
+      multipleFilters = true;
+      console.log(x);
+      console.log(this.props.enterprise);
+      if(this.state.solutions){
+        for(var i = 0; i < filteredData.length; i++){
+          console.log("###", filteredData[i]['City'] !== x.city)
+          if(filteredData[i]['City'] != x.city){
+            filteredData.splice(i,1);
+            i = i-1;
+          }
+        }
+      }
+    }
+    if(x.climateZone){
+      multipleFilters = true;
+      console.log(x);
+      console.log(this.props.enterprise);
+      if(this.state.solutions){
+        for(var i = 0; i < filteredData.length; i++){
+          console.log("###", filteredData[i]['Climate Zone'] !== x.climateZone)
+          if(filteredData[i]['Climate Zone'] != x.climateZone){
+            filteredData.splice(i,1);
+            i = i-1;
+          }
+        }
+      }
+    }
+    if(x.scope){
+      multipleFilters = true;
+      console.log(x);
+      console.log(this.props.enterprise);
+      if(this.state.solutions){
+        for(var i = 0; i < filteredData.length; i++){
+          console.log("###", filteredData[i]['Scope of Activities'] !== x.scope)
+          if(filteredData[i]['Scope of Activities'] != x.scope){
+            filteredData.splice(i,1);
+            i = i-1;
+          }
+        }
+      }
+    }
+    if(x.OrgEntType){
+      multipleFilters = true;
+      console.log(x);
+      console.log(this.props.enterprise);
+      if(this.state.solutions){
+        for(var i = 0; i < filteredData.length; i++){
+          console.log("###", filteredData[i]['Primary Domain'] !== x.primaryDomain)
+          if(filteredData[i]['Organizational Entity Type'] != x.OrgEntType){
             filteredData.splice(i,1);
             i = i-1;
           }
@@ -361,6 +659,18 @@ constructor(props){
       }
     }
 
+    for(var i = 0; i < filteredData.length; i++)
+        {
+          for(var k = i+1; k < filteredData.length; k++)
+          {
+            if (filteredData[i].Name.toLowerCase() > filteredData[k].Name.toLowerCase())
+            {
+              var temp = filteredData[i];
+              filteredData[i] = filteredData[k];
+              filteredData[k] = temp;
+            }
+          }
+        }
     return this.getItems(filteredData);
   }
 

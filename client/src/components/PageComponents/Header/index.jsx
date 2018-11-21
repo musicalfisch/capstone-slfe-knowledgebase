@@ -66,6 +66,9 @@ export default function Header({subTitle})
             <a
               href='/Explore'
               style={{marginRight: '15px', textDecoration: 'none', color: 'white', fontWeight: 'bold'}}>Explore</a>
+            <a
+              href='/Map'
+              style={{marginRight: '15px', textDecoration: 'none', color: 'white', fontWeight: 'bold'}}>Map</a>
           </form>
         </subSection>
       </Section>

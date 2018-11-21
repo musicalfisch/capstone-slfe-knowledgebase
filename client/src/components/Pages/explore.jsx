@@ -13,6 +13,8 @@ import { connect } from 'react-redux';
 import Navbar from '../PageComponents/Navbar';
 import { getEnterprises, getField } from '../../actions/enterpriseActions';
 import { getDomains } from '../../actions/enterpriseActions';
+import { getDomainEntries } from '../../actions/domainActions';
+import Map from './map.jsx';
 
 const Page = styled.div`
   display: inline-flex;
@@ -60,7 +62,7 @@ if(this.state.domains)
      <CategoryType
        history={this.props.history}
       styleObject={{ display:'flex', flexDirection:'column', justifyContent:'space-between',alignItems:'center',width:'120px', height:'120px', backgroundColor: '#ffff'}}
-       image={sampleImage} label={this.state.domains[i]}
+       image={this.state.domains[i].image} label={this.state.domains[i].name}
        type="primaryDomain"
    />
 
@@ -118,7 +120,7 @@ getSolutionItems = () => {
 
 }
   componentWillMount(){
-    const domains = this.props.getDomains();
+    const domains = this.props.getDomainEntries();
     domains.then((data) => {
       this.setState({
         domains: data.payload,
@@ -193,10 +195,14 @@ render(){
       {solutionList}
     </div>
 </PageSection>
-<span style={{width:'100%', marginLeft:'24px'}}>
+<span style={{width:'96%', marginLeft:'24px'}}>
   <div style={{marginTop: '50px' }}>
     <SectionTitle label="Featured Solutions" />
   </div>
+    <br/>
+    <div style={{marginBottom: '20px'}}>
+      <Map width={'100%'} height={'500px'}/>
+    </div>
     <div style={{ width:'100%', alignItems:'center', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)'}}>
       {popularList}
     </div>
@@ -212,6 +218,7 @@ render(){
 
 }
 explore.propTypes = {
+  getDomainEntreis: PropTypes.func.isRequired,
   getDomains: PropTypes.func.isRequired,
   getEnterprises: PropTypes.func.isRequired,
   categoryTypes: PropTypes.object,
@@ -223,5 +230,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  {getEnterprises, getDomains, getField}
+  {getEnterprises, getDomains, getField, getDomainEntries}
 ) (explore);

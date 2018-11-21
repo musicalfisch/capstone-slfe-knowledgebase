@@ -40,7 +40,7 @@ render(){
           onClick = {this.clicked}
           style={this.props.styleObject}>
           {this.props.image &&
-            <img src={this.props.image} style={{ width:'100px', height:'100px'}} />
+            <img src={this.props.image} alt="No image in record" style={{ width:'100px', height:'100px'}} />
           }
           <div style={{fontSize: '16px', fontFamily: 'Aerial', marginTop: '2px', marginRight: '5px'}}>
             {this.props.label}
