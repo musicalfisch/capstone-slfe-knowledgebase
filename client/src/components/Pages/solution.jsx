@@ -77,138 +77,138 @@ class solution extends Component {
         <div className="content">
           <Summary img={images} id={this.props.match.params.id} />
           <Tabs>
-                          <div label="Overview">
-                              <h4>Product Description</h4>
-                              <p>
-                                  { singleSolution["General Description"] }
-                              </p>
-                              <h4>Economic Networks</h4>
-                              <p>
-                                  { singleSolution["Economic Networks"] }
-                              </p>
-                              <h4>Associations</h4>
-                              <p>
-                                  { singleSolution.Associations }
-                              </p>
-                              <h4>References</h4>
-                              <p>
-                                  { singleSolution.References }
-                              </p>
-                              <h4>Last Updated</h4>
-                              <p>
-                                  { singleSolution["Last Updated"] }
-                              </p>
-                          </div>
-                          <div label="Details">
-                              <h4>Customer Description</h4>
-                              <p>
-                                  { singleSolution["Customer Description"] }
-                              </p>
-                              <h4>Workforce Description</h4>
-                              <p>
-                                  { singleSolution["Workforce Description"] }
-                              </p>
-                              <h4>Production Description</h4>
-                              <p>
-                                  { singleSolution["Production Description"] }
-                              </p>
-                              <h4>Sourcing Description</h4>
-                              <p>
-                                  { singleSolution["Sourcing Description"] }
-                              </p>
-                              <h4>Supporting Services Description</h4>
-                              <p>
-                                  { singleSolution["Supporting Services Description"] }
-                              </p>
-                              <h4>Distributing Description</h4>
-                              <p>
-                                  { singleSolution["Distributing Description"] }
-                              </p>
-                              <h4>Re-Cyling Description</h4>
-                              <p>
-                                  { singleSolution["Re-Cyling Description"] }
-                              </p>
-                              <h4>Managing Description</h4>
-                              <p>
-                                  { singleSolution["Managing Description"] }
-                              </p>
-                              <h4>Decision Making Description</h4>
-                              <p>
-                                  { singleSolution["Decision Making Description"] }
-                              </p>
-                              <h4>Steering Description</h4>
-                              <p>
-                                  { singleSolution["Steering Description"] }
-                              </p>
-                              <h4>Ownership Description</h4>
-                              <p>
-                                  { singleSolution["Ownership Description"] }
-                              </p>
-                              <h4>Business Model Description</h4>
-                              <p>
-                                  { singleSolution["Business Model Description"] }
-                              </p>
-                          </div>
-                          <div label="Evaluation">
-                              <div className="container">
-                                  <div class="evaluation-info">
-                                      <Accordion atomic={true}>
-                                          <AccordionItem title="Ownership and Decision Making">
-                                              { singleSolution["Ownership and Decision Making Evaluation Text"] }
-                                          </AccordionItem>
-                                          <AccordionItem title="Economic">
-                                              { singleSolution["Economic Performance Evaluation Text"] }
-                                          </AccordionItem>
-                                          <AccordionItem title="Environmental">
-                                              { singleSolution["Environmental Performance Evaluation Text"] }
-                                          </AccordionItem>
-                                          <AccordionItem title="Human and Social">
-                                              { singleSolution["Human and Social Performance Evaluation Text"] }
-                                          </AccordionItem>
-                                          <AccordionItem title="Management">
-                                              { singleSolution["Management Evaluation Text"] }
-                                          </AccordionItem>
-                                          <AccordionItem title="Product Evaluation">
-                                              { singleSolution["Product Evaluation Text"] }
-                                          </AccordionItem>
-                                      </Accordion>
-                                  </div>
-                                  <div class="evaluation-radar-chart">
-                                      <Radar
-                                          width={500}
-                                          height={500}
-                                          padding={70}
-                                          domainMax={10}
-                                          highlighted={null}
-                                          data={{
-                                              variables: [
-                                                  { key: 'ownership', label: 'Ownership and Decision Making' },
-                                                  { key: 'economic', label: 'Economic' },
-                                                  { key: 'environment', label: 'Environmental' },
-                                                  { key: 'social', label: 'Human and Social' },
-                                                  { key: 'management', label: 'Management' },
-                                                  { key: 'evaluation', label: 'Product Evaluation' },
-                                              ],
-                                              sets: [
-                                                  {
-                                                      key: 'me',
-                                                      label: 'My Scores',
-                                                      values: {
-                                                          ownership: singleSolution["Ownership and Decision Making Evaluation Rating"],
-                                                          economic: singleSolution["Economic Performance Evaluation Rating"],
-                                                          environment: singleSolution["Environmental Performance Evaluation Rating"],
-                                                          social: singleSolution["Human and Social Performance Evaluation Rating"],
-                                                          management: singleSolution["Management Evaluation Rating"],
-                                                          evaluation: singleSolution["Product Evaluation Rating"],
-                                                      },
-                                                  }
-                                              ],
-                                          }}
-                                      />
-                                  </div>
-                              </div>
-                          </div>
-                      </Tabs>
+                        <div label="Overview">
+                            <h4>Product Description</h4>
+                            <p>
+                                { singleSolution["General Description"] }
+                            </p>
+                            <h4>Economic Networks</h4>
+                            <p>
+                                { singleSolution["Economic Networks"] }
+                            </p>
+                            <h4>Associations</h4>
+                            <p>
+                                { singleSolution.Associations }
+                            </p>
+                            <h4>References</h4>
+                            <p>
+                                { singleSolution.References }
+                            </p>
+                            <h4>Last Updated</h4>
+                            <p>
+                                { singleSolution["Last Updated"] }
+                            </p>
+                        </div>
+                        <div label="Details">
+                            <h4>Customer Description</h4>
+                            <p>
+                                { singleSolution["Customer Description"] }
+                            </p>
+                            <h4>Workforce Description</h4>
+                            <p>
+                                { singleSolution["Workforce Description"] }
+                            </p>
+                            <h4>Production Description</h4>
+                            <p>
+                                { singleSolution["Production Description"] }
+                            </p>
+                            <h4>Sourcing Description</h4>
+                            <p>
+                                { singleSolution["Sourcing Description"] }
+                            </p>
+                            <h4>Supporting Services Description</h4>
+                            <p>
+                                { singleSolution["Supporting Services Description"] }
+                            </p>
+                            <h4>Distributing Description</h4>
+                            <p>
+                                { singleSolution["Distributing Description"] }
+                            </p>
+                            <h4>Re-Cyling Description</h4>
+                            <p>
+                                { singleSolution["Re-Cyling Description"] }
+                            </p>
+                            <h4>Managing Description</h4>
+                            <p>
+                                { singleSolution["Managing Description"] }
+                            </p>
+                            <h4>Decision Making Description</h4>
+                            <p>
+                                { singleSolution["Decision Making Description"] }
+                            </p>
+                            <h4>Steering Description</h4>
+                            <p>
+                                { singleSolution["Steering Description"] }
+                            </p>
+                            <h4>Ownership Description</h4>
+                            <p>
+                                { singleSolution["Ownership Description"] }
+                            </p>
+                            <h4>Business Model Description</h4>
+                            <p>
+                                { singleSolution["Business Model Description"] }
+                            </p>
+                        </div>
+                        <div label="Evaluation">
+                            <div className="container">
+                                <div class="evaluation-info">
+                                    <Accordion atomic={true}>
+                                        <AccordionItem title="Ownership and Decision Making">
+                                            { singleSolution["Ownership and Decision Making Evaluation Text"] }
+                                        </AccordionItem>
+                                        <AccordionItem title="Economic">
+                                            { singleSolution["Economic Performance Evaluation Text"] }
+                                        </AccordionItem>
+                                        <AccordionItem title="Environmental">
+                                            { singleSolution["Environmental Performance Evaluation Text"] }
+                                        </AccordionItem>
+                                        <AccordionItem title="Human and Social">
+                                            { singleSolution["Human and Social Performance Evaluation Text"] }
+                                        </AccordionItem>
+                                        <AccordionItem title="Management">
+                                            { singleSolution["Management Evaluation Text"] }
+                                        </AccordionItem>
+                                        <AccordionItem title="Product Evaluation">
+                                            { singleSolution["Product Evaluation Text"] }
+                                        </AccordionItem>
+                                    </Accordion>
+                                </div>
+                                <div class="evaluation-radar-chart">
+                                    <Radar
+                                        width={500}
+                                        height={500}
+                                        padding={70}
+                                        domainMax={10}
+                                        highlighted={null}
+                                        data={{
+                                            variables: [
+                                                { key: 'ownership', label: 'Ownership and Decision Making' },
+                                                { key: 'economic', label: 'Economic' },
+                                                { key: 'environment', label: 'Environmental' },
+                                                { key: 'social', label: 'Human and Social' },
+                                                { key: 'management', label: 'Management' },
+                                                { key: 'evaluation', label: 'Product Evaluation' },
+                                            ],
+                                            sets: [
+                                                {
+                                                    key: 'me',
+                                                    label: 'My Scores',
+                                                    values: {
+                                                        ownership: singleSolution["Ownership and Decision Making Evaluation Rating"],
+                                                        economic: singleSolution["Economic Performance Evaluation Rating"],
+                                                        environment: singleSolution["Environmental Performance Evaluation Rating"],
+                                                        social: singleSolution["Human and Social Performance Evaluation Rating"],
+                                                        management: singleSolution["Management Evaluation Rating"],
+                                                        evaluation: singleSolution["Product Evaluation Rating"],
+                                                    },
+                                                }
+                                            ],
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </Tabs>
         </div>
 
         {/*
