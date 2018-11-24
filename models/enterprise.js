@@ -63,8 +63,8 @@ const entSchema = new Schema({
   "Management Evaluation Text": String,
   "Ownership and Decision Making Evaluation Rating": Number,
   "Ownership and Decision Making Evaluation Text": String,
-  "Product Evalution Rating": Number,
-  "Product Evalution Text": String
+  "Product Evaluation Rating": Number,
+  "Product Evaluation Text": String
 },
 {
   versionKey: false

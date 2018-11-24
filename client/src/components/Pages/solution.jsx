@@ -111,23 +111,23 @@ class solution extends Component {
                             <div className="container">
                                 <div class="evaluation-info">
                                     <Accordion atomic={true}>
-                                        <AccordionItem title="Product">
-
+                                        <AccordionItem title="Ownership and Decision Making">
+                                            { singleSolution["Ownership and Decision Making Evaluation Text"] }
+                                        </AccordionItem>
+                                        <AccordionItem title="Economic">
+                                            { singleSolution["Economic Performance Evaluation Text"] }
                                         </AccordionItem>
                                         <AccordionItem title="Environmental">
-
+                                            { singleSolution["Environmental Performance Evaluation Text"] }
                                         </AccordionItem>
-                                        <AccordionItem title="Social">
-
+                                        <AccordionItem title="Human and Social">
+                                            { singleSolution["Human and Social Performance Evaluation Text"] }
                                         </AccordionItem>
                                         <AccordionItem title="Management">
-
+                                            { singleSolution["Management Evaluation Text"] }
                                         </AccordionItem>
-                                        <AccordionItem title="Economics">
-
-                                        </AccordionItem>
-                                        <AccordionItem title="Ownership">
-
+                                        <AccordionItem title="Product Evaluation">
+                                            { singleSolution["Product Evaluation Text"] }
                                         </AccordionItem>
                                     </Accordion>
                                 </div>
@@ -140,24 +140,24 @@ class solution extends Component {
                                         highlighted={null}
                                         data={{
                                             variables: [
-                                                { key: 'resilience', label: 'Product' },
-                                                { key: 'strength', label: 'Environmental' },
-                                                { key: 'adaptability', label: 'Social' },
-                                                { key: 'creativity', label: 'Management' },
-                                                { key: 'openness', label: 'Economics' },
-                                                { key: 'confidence', label: 'Ownership' },
+                                                { key: 'ownership', label: 'Ownership and Decision Making' },
+                                                { key: 'economic', label: 'Economic' },
+                                                { key: 'environment', label: 'Environmental' },
+                                                { key: 'social', label: 'Human and Social' },
+                                                { key: 'management', label: 'Management' },
+                                                { key: 'evaluation', label: 'Product Evaluation' },
                                             ],
                                             sets: [
                                                 {
                                                     key: 'me',
                                                     label: 'My Scores',
                                                     values: {
-                                                        resilience: 4,
-                                                        strength: 6,
-                                                        adaptability: 7,
-                                                        creativity: 2,
-                                                        openness: 8,
-                                                        confidence: 1,
+                                                        ownership: singleSolution["Ownership and Decision Making Evaluation Rating"],
+                                                        economic: singleSolution["Economic Performance Evaluation Rating"],
+                                                        environment: singleSolution["Environmental Performance Evaluation Rating"],
+                                                        social: singleSolution["Human and Social Performance Evaluation Rating"],
+                                                        management: singleSolution["Management Evaluation Rating"],
+                                                        evaluation: singleSolution["Product Evaluation Rating"],
                                                     },
                                                 }
                                             ],
