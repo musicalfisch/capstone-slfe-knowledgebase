@@ -22,7 +22,7 @@ const verticalLayout = styled.div`
 export default function ResultItem({label, img, text, location})
 {
   return(
-    <div style={{marginBottom: '10px',marginLeft: '100px',display: 'flex', borderBottom: '1px solid', flexDirection: 'row', alignItems: 'center'}}>
+    <div style={{marginBottom: '10px', display: 'flex', borderBottom: '1px solid', flexDirection: 'row', alignItems: 'center'}}>
       <div>
       <img style = {{width: '250px', height:'200px'}} src={img}/>
     </div>

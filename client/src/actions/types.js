@@ -1,5 +1,6 @@
 export const GET_ENTERPRISES = 'GET_ENTERPRISES';
 export const GET_DOMAINS = 'GET_DOMAINS';
+export const GET_DOMAIN_ENTRIES = 'GET_DOMAIN_ENTRIES';
 export const GET_SOLUTIONS = 'GET_SOLUTIONS';
 export const GET_BYID = 'GET_BYID';
 export const GET_FIELD = 'GET_FIELD';
