@@ -62,21 +62,18 @@ class solution extends Component {
       }
     }
   };
+    render() {
 
-  render() {
-    const { singleSolution } = this.props.enterpriseData;
-    const images = this.generateSlideShow();
+        const { singleSolution } = this.props.enterpriseData
 
-    document.title = "Solution: " + singleSolution.Name;
+        document.title = "Solution: " + singleSolution.Name;
 
-    //  console.log("HERE!: ", singleSolution['otherImages'][0]);
-
-    return (
-      <div class="solution-page">
-        <Navbar />
-        <div className="content">
-          <Summary img={images} id={this.props.match.params.id} />
-          <Tabs>
+        return (
+            <div class="solution-page">
+                <Navbar />
+                <div className="content">
+                    <Summary img={singleSolution['mainImage']} id={this.props.match.params.id} />
+                    <Tabs>
                         <div label="Overview">
                             <h4>Product Description</h4>
                             <p>
@@ -209,6 +206,13 @@ class solution extends Component {
                             </div>
                         </div>
                     </Tabs>
+<<<<<<< HEAD
+=======
+                </div>
+              </div>
+            </div>
+          </Tabs>
+>>>>>>> 6ac10197d29e08cba6b46dceea4d3edfd06c46a2
         </div>
 
         {/*
