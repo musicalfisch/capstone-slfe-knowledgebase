@@ -1,28 +1,67 @@
-import React, { Component } from 'react'
-import Navbar from '../PageComponents/Navbar'
-import Footer from '../PageComponents/Footer'
-import Summary from '../PageComponents/SolutionSummary'
-import Tabs from '../PageComponents/SolutionTab'
-import Radar from 'react-d3-radar'
-import { Accordion, AccordionItem } from 'react-light-accordion'
-import 'react-light-accordion/demo/css/index.css'
-import { connect } from 'react-redux'
-import { getByID } from '../../actions/enterpriseActions'
-import PropTypes from 'prop-types'
+import React, { Component } from "react";
+import Navbar from "../PageComponents/Navbar";
+import Footer from "../PageComponents/Footer";
+import Summary from "../PageComponents/SolutionSummary";
+import Tabs from "../PageComponents/SolutionTab";
+import Radar from "react-d3-radar";
+import { Accordion, AccordionItem } from "react-light-accordion";
+import "react-light-accordion/demo/css/index.css";
+import { connect } from "react-redux";
+import { getByID } from "../../actions/enterpriseActions";
+import PropTypes from "prop-types";
+import { Slide } from "react-slideshow-image";
 
 class solution extends Component {
+  constructor() {
+    super();
+  }
 
-    constructor() {
-        super();
+  componentDidMount() {
+    console.log("Component will mount");
+    const { match } = this.props;
+    this.props.getByID(match.params.id);
+  }
+
+  generateSlideShow = () => {
+    const { singleSolution } = this.props.enterpriseData;
+    var images = [];
+    if (typeof singleSolution !== "undefined") {
+      if (typeof singleSolution["otherImages"] !== "undefined") {
+        const imageArray = singleSolution["otherImages"];
+
+        if(singleSolution["mainImage"] !== ''){
+          images.push(
+            <div className="each-slide" style={{ maxWidth: "700px" }}>
+              <div
+                style={{
+                  minHeight: "400px",
+                  maxHeight: "500px",
+                  maxWidth: "700px",
+                  backgroundImage: `url(${singleSolution["mainImage"]})`
+                }}
+              />
+            </div>
+          );
+        }
+        for (var i = 0; i < imageArray.length; i++) {
+          images.push(
+            <div className="each-slide">
+              <h4 style={{ marginBottom: "10px" }}> {`${singleSolution["otherImages"][i]['caption']}`}</h4>
+              <div
+                style={{
+                  minHeight: "400px",
+                  maxHeight: "500px",
+                  maxWidth: "700px",
+                  backgroundImage: `url(${singleSolution["otherImages"][i]['img']})`
+                }}
+              />
+            </div>
+          );
+        }
+        return images;
+      }
     }
-
-    componentDidMount() {
-        console.log("Component will mount")
-        const { match } = this.props
-        this.props.getByID(match.params.id)
-        
-    }
-
+  };
     render() {
 
         const { singleSolution } = this.props.enterpriseData
@@ -168,21 +207,47 @@ class solution extends Component {
                         </div>
                     </Tabs>
                 </div>
-                <Footer />
+              </div>
             </div>
-        )
-    }
+          </Tabs>
+        </div>
+
+        {/*
+                  typeof singleSolution["otherImages"] !== 'undefined' &&
+                  <div style={{ marginLeft: '25%',width: '500px'}}>
+                  <Slide {...properties} style={{height: '500px'}}>
+          <div className="each-slide">
+            <div style={{minHeight: '400px',  maxHeight:'500px', width: '750px','backgroundImage': `url(${singleSolution["otherImages"][0]})`}}>
+              <span>Slide 1</span>
+            </div>
+          </div>
+          <div className="each-slide">
+            <div style={{minHeight: '400px', maxHeight:'500px', 'backgroundImage': `url(${singleSolution["otherImages"][1]})`}}>
+              <span>Slide 2</span>
+            </div>
+          </div>
+          <div className="each-slide">
+            <div style={{minHeight: '400px', maxHeight:'500px','backgroundImage': `url(${singleSolution["otherImages"][2]})`}}>
+              <span>Slide 3</span>
+            </div>
+          </div>
+        </Slide>
+      </div>*/}
+        <Footer />
+      </div>
+    );
+  }
 }
 
 solution.PropTypes = {
-    getByID: PropTypes.func.isRequired,
-}
+  getByID: PropTypes.func.isRequired
+};
 
-const mapStateToProps = (state) => ({
-    enterpriseData: state.enterpriseData,
-})
+const mapStateToProps = state => ({
+  enterpriseData: state.enterpriseData
+});
 
 export default connect(
-    mapStateToProps,
-    { getByID }
-) (solution)
+  mapStateToProps,
+  { getByID }
+)(solution);
