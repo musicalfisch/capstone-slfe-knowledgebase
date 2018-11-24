@@ -67,12 +67,13 @@ class solution extends Component {
         const { singleSolution } = this.props.enterpriseData
 
         document.title = "Solution: " + singleSolution.Name;
+         const images = this.generateSlideShow();
 
         return (
             <div class="solution-page">
                 <Navbar />
                 <div className="content">
-                    <Summary img={singleSolution['mainImage']} id={this.props.match.params.id} />
+                    <Summary img={images} id={this.props.match.params.id} />
                     <Tabs>
                         <div label="Overview">
                             <h4>Product Description</h4>
@@ -206,13 +207,6 @@ class solution extends Component {
                             </div>
                         </div>
                     </Tabs>
-<<<<<<< HEAD
-=======
-                </div>
-              </div>
-            </div>
-          </Tabs>
->>>>>>> 6ac10197d29e08cba6b46dceea4d3edfd06c46a2
         </div>
 
         {/*
