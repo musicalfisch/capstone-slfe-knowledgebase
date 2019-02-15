@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import SectionTitle from "../PageComponents/SectionTitle";
-import Header from "../PageComponents/Header";
 import QueryString from "query-string";
 import styled from "styled-components";
 import ResultItem from "../PageComponents/ResultItem";
@@ -27,14 +25,6 @@ const InnerPage = styled.div`
   min-width: fit-content;
   height: 100%;
   marginLeft: 100px;
-`;
-
-const Section = styled.div`
-  display: inline-flex;
-  justify-content: space-betwen;
-  flex-direction: row;
-  margin-top: 24px;
-  height: 50px;
 `;
 
 class Browse extends Component {
@@ -771,7 +761,6 @@ class Browse extends Component {
     const items = [];
     if (filteredData) {
       for (var i = 0; i < filteredData.length; i++) {
-        const lab = filteredData[i]["Name"];
 
         let s = filteredData[i]._id;
         console.log("111111111111111111111111111111");

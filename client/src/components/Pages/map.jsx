@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getEnterprises } from '../../actions/enterpriseActions';
-import ReactDOM from 'react-dom';
 import propTypes from 'prop-types';
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
@@ -34,7 +33,6 @@ class Map extends Component {
   	this.props.getEnterprises();
   }
   componentDidMount() {
-  	const { enterprises } = this.props.enterpriseData;
   	
 		let config = {};
 		config.params = {

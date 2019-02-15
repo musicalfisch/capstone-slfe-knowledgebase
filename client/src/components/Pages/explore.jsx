@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import SectionTitle from "../PageComponents/SectionTitle";
-import Header from "../PageComponents/Header";
-import SearchBar from "../PageComponents/SearchBar";
 import styled from "styled-components";
 import Footer from "../PageComponents/Footer";
 import CategoryType from "../PageComponents/CategoryType";
-import sampleImage from "./production.png";
 import PropTypes from "prop-types";
 import Search from "material-ui-search-bar";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
@@ -80,7 +77,6 @@ class explore extends Component {
     var solutionTypes = [];
     if (this.state.solutionTypes) {
       for (var i = 0; i < this.state.solutionTypes.length; i++) {
-        const lab = this.state.solutionTypes[i]["Name"];
         solutionTypes.push(
           <div style={{ cursor: "pointer", marginRight: "24px" }}>
             <CategoryType
@@ -111,7 +107,6 @@ class explore extends Component {
     var popularItems = [];
     if (this.state.popularSolutions) {
       for (var i = 0; i < this.state.popularSolutions.length; i++) {
-        const lab = this.state.popularSolutions[i].Name;
         popularItems.push(
           <div style={{ padding: "5px" }}>
             <a
@@ -156,8 +151,6 @@ class explore extends Component {
   mapData(array) {}
 
   render() {
-    const enterprises = this.props.enterprise;
-
     const categoryList = this.getCategoryItems();
     const solutionList = this.getSolutionItems();
     const popularList = this.getPopularItems();
