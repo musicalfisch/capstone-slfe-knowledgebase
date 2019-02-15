@@ -140,15 +140,15 @@ class Browse extends Component {
             duplicate = true;
           }
           if (
-            x[param] != event.target.name &&
+            x[param] !== event.target.name &&
             param === event.target.filterType
           ) {
             result[param] = event.target.name;
             duplicate = true;
           }
           if (
-            x[param] != event.target.name &&
-            param != event.target.filterType
+            x[param] !== event.target.name &&
+            param !== event.target.filterType
           ) {
             result[param] = x[param];
           } else {
@@ -185,7 +185,7 @@ class Browse extends Component {
           ) {
             console.log("excluding: ", x[param]);
           } else if (
-            x[param] != event.target.name &&
+            x[param] !== event.target.name &&
             param === event.target.filterType
           ) {
             console.log("LLLAAAALAAAA");
@@ -568,7 +568,7 @@ class Browse extends Component {
       multipleFilters = true;
       if (this.state.solutions) {
         for (var i = 0; i < filteredData.length; i++) {
-          if (filteredData[i]["Primary Domain"] != x.primaryDomain) {
+          if (filteredData[i]["Primary Domain"] !== x.primaryDomain) {
             filteredData.splice(i, 1);
             i = i - 1;
           }
@@ -585,7 +585,7 @@ class Browse extends Component {
             "###",
             filteredData[i]["Secondary Domain"] !== x.secondaryDomain
           );
-          if (filteredData[i]["Secondary Domain"] != x.secondaryDomain) {
+          if (filteredData[i]["Secondary Domain"] !== x.secondaryDomain) {
             filteredData.splice(i, 1);
             i = i - 1;
           }
@@ -599,7 +599,7 @@ class Browse extends Component {
       if (this.state.solutions) {
         for (let i = 0; i < filteredData.length; i++) {
           console.log("###", filteredData[i]["Country"] !== x.country);
-          if (filteredData[i]["Country"] != x.country) {
+          if (filteredData[i]["Country"] !== x.country) {
             filteredData.splice(i, 1);
             i = i - 1;
           }
@@ -613,7 +613,7 @@ class Browse extends Component {
       if (this.state.solutions) {
         for (let i = 0; i < filteredData.length; i++) {
           console.log("###", filteredData[i]["State"] !== x.state);
-          if (filteredData[i]["State"] != x.state) {
+          if (filteredData[i]["State"] !== x.state) {
             filteredData.splice(i, 1);
             i = i - 1;
           }
@@ -627,7 +627,7 @@ class Browse extends Component {
       if (this.state.solutions) {
         for (let i = 0; i < filteredData.length; i++) {
           console.log("###", filteredData[i]["City"] !== x.city);
-          if (filteredData[i]["City"] != x.city) {
+          if (filteredData[i]["City"] !== x.city) {
             filteredData.splice(i, 1);
             i = i - 1;
           }
@@ -641,7 +641,7 @@ class Browse extends Component {
       if (this.state.solutions) {
         for (let i = 0; i < filteredData.length; i++) {
           console.log("###", filteredData[i]["Climate Zone"] !== x.climateZone);
-          if (filteredData[i]["Climate Zone"] != x.climateZone) {
+          if (filteredData[i]["Climate Zone"] !== x.climateZone) {
             filteredData.splice(i, 1);
             i = i - 1;
           }
@@ -658,7 +658,7 @@ class Browse extends Component {
             "###",
             filteredData[i]["Scope of Activities"] !== x.scope
           );
-          if (filteredData[i]["Scope of Activities"] != x.scope) {
+          if (filteredData[i]["Scope of Activities"] !== x.scope) {
             filteredData.splice(i, 1);
             i = i - 1;
           }
@@ -675,7 +675,7 @@ class Browse extends Component {
             "###",
             filteredData[i]["Primary Domain"] !== x.primaryDomain
           );
-          if (filteredData[i]["Organizational Entity Type"] != x.OrgEntType) {
+          if (filteredData[i]["Organizational Entity Type"] !== x.OrgEntType) {
             filteredData.splice(i, 1);
             i = i - 1;
           }
@@ -686,7 +686,7 @@ class Browse extends Component {
       if (multipleFilters) {
         if (this.state.solutions) {
           for (let i = 0; i < filteredData.length; i++) {
-            if (filteredData[i]["Solution Type"] != x.solutionType) {
+            if (filteredData[i]["Solution Type"] !== x.solutionType) {
               filteredData.splice(i, 1);
               i = i - 1;
             }
