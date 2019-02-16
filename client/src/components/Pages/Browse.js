@@ -121,7 +121,7 @@ class Browse extends Component {
       if (this.props.location.search) {
         let result = [];
         var duplicate = false;
-        for (var param in x) {
+        for (let param in x) {
           if (
             x[param] === event.target.name &&
             param === event.target.filterType
@@ -166,7 +166,7 @@ class Browse extends Component {
       } else {
         var result = [];
 
-        for (var param in x) {
+        for (let param in x) {
           console.log("&&&&", x[param], param);
 
           if (
