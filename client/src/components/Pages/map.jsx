@@ -68,10 +68,14 @@ class Map extends Component {
 	    // a TileLayer is used as the "basemap"
 	    const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
 			this.setState({ map: map, tileLayer: tileLayer });
-
+			
+			this.setState({ icon: L.icon({ iconUrl: markerImg }) });
+			
+			/* removed in SP19_SPRINT1 bug_fix on not directly editing state. (Safe? to delete)
 			this.state.icon = L.icon({
 			    iconUrl: markerImg
 			});
+			*/
 			
   	}
   }
