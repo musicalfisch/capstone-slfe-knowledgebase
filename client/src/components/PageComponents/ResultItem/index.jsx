@@ -16,6 +16,7 @@ export default function ResultItem({ label, img, text, location }) {
       {img && (
         <div>
           <img
+	    alt = ""
             style={{
               marginRight: "50px",
               maxWidth: "250px",
