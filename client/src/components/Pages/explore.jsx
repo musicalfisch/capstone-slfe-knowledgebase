@@ -141,8 +141,8 @@ class explore extends Component {
         solutionTypes: data.payload
       });
     });
-    while (this.state.dataArray.loading == false) {
-      if (this.state.dataArray.loading == true) {
+    while (this.state.dataArray.loading === false) {
+      if (this.state.dataArray.loading === true) {
         break;
       }
     }
