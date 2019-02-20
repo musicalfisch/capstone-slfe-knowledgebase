@@ -144,7 +144,8 @@ footer {
   margin: 0rem 2rem;
   display: grid;
   grid-template-columns: 60% 40%;
-  grid-template-areas: "title title"  "images summary"; }
+  grid-template-areas: "title title" 
+ "images summary"; }
 
 .solution-summary .title {
   margin: 0rem 0rem 0rem;
@@ -243,3 +244,11 @@ tr:nth-child(even) {
   color: #009688;
   border: solid #009688;
   border-width: 0px 0px 5px 0px; }
+
+#login_container {
+
+}
+
+#login_bottom {
+
+}
