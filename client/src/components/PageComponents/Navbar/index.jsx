@@ -13,7 +13,7 @@ export default function Navbar()
             <a href="/browse">Result</a>
             <a href="/about">About</a>
             <a href="/map">Map</a>
-            <a href="#"><i className="fa fa-sign-in"></i></a>
+            <a href="/login"><i className="fa fa-sign-in"></i></a>
         </div>
     </div>
   )

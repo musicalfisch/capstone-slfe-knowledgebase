@@ -4,6 +4,7 @@ import './styles/main.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import explore from './components/Pages/explore.jsx';
 import about from './components/Pages/about';
+import login from './components/Pages/login';
 import mapContainer from './components/Pages/mapContainer.jsx';
 import solution from './components/Pages/solution.jsx';
 import { Switch, BrowserRouter, Route } from 'react-router-dom'
@@ -19,6 +20,7 @@ render(
       <Switch>
         <Route path='/browse' component={Browse} />
         <Route path='/about' component={about} />
+	<Route path='/login' component={login} />
         <Route exact path='/' component={explore}/>
         <Route path='/map' component={mapContainer} />
         <Route path='/solution/:id' component={solution} />
