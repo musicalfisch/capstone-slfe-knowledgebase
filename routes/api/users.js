@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-//Domain Model
-const Domain = require('../../models/domain');
+//User Model
+const User = require('../../models/user');
 
 // @route  GET api/domains
 // @desc   Get all domains
