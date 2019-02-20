@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Navbar from '../PageComponents/Navbar'
-import LoginForm from '../PageComponents/LoginForm'
 import Footer from '../PageComponents/Footer'
 
 class login extends Component {
@@ -11,9 +10,9 @@ class login extends Component {
   render() {
     return (
       <div >
-      	<Navbar />
-      	<LoginForm />
-      	<Footer />
+        <Navbar />
+        Start of login page
+      <Footer />
       </div>
     )
   }
