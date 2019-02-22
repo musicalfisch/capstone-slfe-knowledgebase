@@ -4,7 +4,7 @@ class RegisterForm extends Component
 {
 	render() {
 		return(
-			<div id="register_container" className="navbar">
+			<div id="register_container" className="form_input">
 				<form>
 					<label htmlFor="firstname">First Name:</label>
 					<input type="text" id="first_name" name="first_name"/>
@@ -19,7 +19,7 @@ class RegisterForm extends Component
 					<input type="text" id="user" name="user"/>
 
 					<label htmlFor="password">Password:</label>
-					<input type="text" id="password" name="password"/>
+					<input type="password" id="password" name="password"/>
 
 					<div id="register_bottom">
 						<input type="submit" value="register"/>
