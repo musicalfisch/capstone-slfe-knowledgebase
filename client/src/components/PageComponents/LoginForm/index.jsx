@@ -4,7 +4,7 @@ class LoginForm extends Component
 {
 	render() {
 		return(
-			<div id="login_container" className="navbar">
+			<div id="login_container" className="form_input">
 				<form>
 					<label htmlFor="user">User:</label>
 					<input type="text" id="user" name="user"/>
