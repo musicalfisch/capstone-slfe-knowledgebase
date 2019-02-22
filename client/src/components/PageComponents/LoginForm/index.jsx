@@ -12,7 +12,7 @@ class LoginForm extends Component
 					<input type="text" id="password" name="password"/>
 					<div id="login_bottom">
 						<input type="submit" value="Login"/>
-						<a href="#">Register</a>
+						<a href="register">Register</a>
 					</div>
 				</form>
 			</div>
