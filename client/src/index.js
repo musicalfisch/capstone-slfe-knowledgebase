@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Browse from './components/Pages/Browse';
 import DataTest from './components/Pages/DataTest';
+import addSolution from './components/Pages/addSolution';
 //import registerServiceWorker from './registerServiceWorker';
 
 render(
@@ -21,6 +22,7 @@ render(
         <Route path='/about' component={about} />
         <Route exact path='/' component={explore}/>
         <Route path='/map' component={mapContainer} />
+        <Route path='/solution/add' component={addSolution} />
         <Route path='/solution/:id' component={solution} />
         <Route path='/test' component={DataTest}/>
       </Switch>
