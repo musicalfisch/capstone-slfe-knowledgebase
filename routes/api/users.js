@@ -12,4 +12,10 @@ router.get('/', (req, res) => {
     .then(domains => res.json(domains))
 });
 
+router.post('/', (req, res) => {
+	let new_user = new User(req.body);
+	
+	new_user.save().then(user => res.json(user));
+});
+
 module.exports = router;
