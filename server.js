@@ -14,6 +14,9 @@ dotenv.config();
 
 //Bodyparser Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 
 //Connect to Mongo
 mongoose
