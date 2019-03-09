@@ -47,8 +47,8 @@ userSchema.methods.checkPassword = function(enteredPassword, callbackFunction)
   bcrypt.compare(enteredPassword, this.password, function(err, isValid) 
   {
     if (err) 
-    { return callbackFunction(err); }
-    callbackFunction(null, isValid);
+    { return callbackFunction(err, false); }
+    callbackFunction(null, true);
   });
 };
 
