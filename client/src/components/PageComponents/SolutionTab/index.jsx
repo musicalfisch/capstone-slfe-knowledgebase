@@ -6,7 +6,8 @@ class Tabs extends Component {
   static propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
     showCancelBtn: PropTypes.instanceOf(Boolean) || false,
-    showSaveBtn: PropTypes.instanceOf(Boolean) || false
+    showSaveBtn: PropTypes.instanceOf(Boolean) || false,
+    onSave: PropTypes.instanceOf(Function) || function () { }
   }
 
   constructor(props) {
@@ -20,7 +21,27 @@ class Tabs extends Component {
   }
 
   onClickTabItem = (tab) => {
-    this.setState({ activeTab: tab });
+    this.setState({ activeTab: tab }, () => {
+      let currIndex = 0;
+
+      for (let iter = 0; iter < this.props.children.length; iter++) {
+        if (this.props.children[iter].props.label === this.state.activeTab) {
+          currIndex = iter;
+        }
+      }
+  
+      if (currIndex > 0) {
+        this.setState({ showPreviousBtn: true });
+      } else {
+        this.setState({ showPreviousBtn: false });
+      }
+  
+      if (currIndex < this.props.children.length - 1) {
+        this.setState({ showNextBtn: true });
+      } else {
+        this.setState({ showNextBtn: false });
+      }
+    });
   }
 
   onClickPrevBtn = (btn) => {
@@ -35,11 +56,11 @@ class Tabs extends Component {
     let prevIndex = currIndex - 1
 
     if (prevIndex === 0) {
-      this.setState({ showPreviousBtn: false })
+      this.setState({ showPreviousBtn: false });
     }
 
     if (prevIndex < this.props.children.length) {
-      this.setState({ showNextBtn: true })
+      this.setState({ showNextBtn: true });
     }
 
     this.setState({ activeTab: this.props.children[prevIndex].props.label })
@@ -109,7 +130,7 @@ class Tabs extends Component {
         </div> <br />
         <div>
         { this.props.showSaveBtn ? <button type="button">Cancel</button> : null }
-          { this.props.showSaveBtn ? <button type="button">Save</button> : null }
+          { this.props.showSaveBtn ? <button type="button" onClick={this.props.onSave}>Save</button> : null }
         </div>
         
       </div>
