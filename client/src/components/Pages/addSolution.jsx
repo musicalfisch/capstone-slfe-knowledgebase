@@ -30,7 +30,7 @@ class addSolution extends Component {
       ClimateZone: "",
       CityType: "",
       DateFounded: "0",
-      EconomicNetworks: "0",
+      EconomicNetworks: "",
       Associations: "",
       NumberOfEmployees: "",
       References: "",
@@ -59,6 +59,7 @@ class addSolution extends Component {
 
     // TRY
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleInputChange(event) {
@@ -170,6 +171,9 @@ class addSolution extends Component {
               <option value="National">National</option>
             </select>
             <br /><br />
+            <label>Economic Networks</label> <br />
+            <input name="EconomicNetworks" type="text" value={this.state.EconomicNetworks} onChange={this.handleInputChange}></input>
+            <br /><br />
           </div>
           <div label="Details">
             <label>Product Description</label> <br />
@@ -213,7 +217,8 @@ class addSolution extends Component {
             <br /><br />
           </div>
           <div label="Images">
-            <p>Image form goes here</p>
+            <input type="file" accept="image/*"></input>
+            <input type="button" value="Upload"></input>
           </div>
           <div label="References">
           <label>References</label> <br />
