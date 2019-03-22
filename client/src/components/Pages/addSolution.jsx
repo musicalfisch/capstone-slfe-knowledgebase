@@ -25,7 +25,7 @@ class addSolution extends Component {
       Country: "United States",
       State: "AZ",
       City: "Tempe",
-      ScopeOfActivities: "",
+      ScopeOfActivities: "Regional",
       OperationalArea: "",
       ClimateZone: "",
       CityType: "",
@@ -37,6 +37,9 @@ class addSolution extends Component {
       AnnualRevenue: "",
       NumberOfWorkers: "",
       ProductDescription: "",
+      CustomersDescription: "",
+      WorkforceDescription: "",
+      ProductionDescription: "",
       SourcingDescription: "",
       SupportingServicesDescription: "",
       OtherOutputsDescription: "",
@@ -127,8 +130,14 @@ class addSolution extends Component {
             <label>Responsible Organization</label> <br />
             <input name="ResponsibleOrganization" type="text" value={this.state.ResponsibleOrganization} onChange={this.handleInputChange}></input>
             <br /><br />
+            <label>General Description</label> <br />
+            <input name="GeneralDescription" type="text" size="50" value={this.state.GeneralDescription} onChange={this.handleInputChange}></input>
+            <br /><br />
             <label>Short Description</label> <br />
             <input name="ShortDescription" type="text" value={this.state.ShortDescription} onChange={this.handleInputChange}></input>
+            <br /><br />
+            <label>Solution Type</label> <br />
+            <input name="SolutionType" type="text" value={this.state.SolutionType} onChange={this.handleInputChange}></input>
             <br /><br />
             <label>Primary Domain</label> <br />
             <select name="PrimaryDomain" onChange={this.handleInputChange}>
@@ -141,18 +150,75 @@ class addSolution extends Component {
               {categoryList}
             </select>
             <br /><br />
-            <label>Solution Type</label> <br />
-            <input name="SolutionType" type="text" value={this.state.SolutionType} onChange={this.handleInputChange}></input>
-            <br /><br />
             <label>Keyword Descriptors</label> <br />
-            <input name="KeywordDescriptors" type="text" value={this.state.KeywordDescriptors} onChange={this.handleInputChange}></input>
+            <input name="KeywordDescriptors" type="text" value={this.state.KeywordDescriptors} onChange={this.handleInputChange}></input><br />
+            <small>Keywords should be separated by semi-colons</small>
+            <br /><br />
+            <label>Country</label> <br />
+            <input name="Country" type="text" value={this.state.Country} onChange={this.handleInputChange}></input>
+            <br /><br />
+            <label>State/Region</label> <br />
+            <input name="State" type="text" value={this.state.State} onChange={this.handleInputChange}></input>
+            <br /><br />
+            <label>City</label> <br />
+            <input name="City" type="text" value={this.state.City} onChange={this.handleInputChange}></input>
+            <br /><br />
+            <label>Scope of Activities</label> <br />
+            <select name="ScopeOfActivities" value={this.state.ScopeOfActivities} onChange={this.handleInputChange}>
+              <option value="Regional">Regional</option>
+              <option value="Statewide">Statewide</option>
+              <option value="National">National</option>
+            </select>
+            <br /><br />
+          </div>
+          <div label="Details">
+            <label>Product Description</label> <br />
+            <textarea name="ProductDescription" rows="5" cols="50" value={this.state.ProductDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Customer Description</label> <br />
+            <textarea name="CustomerDescription" rows="5" cols="50" value={this.state.CustomerDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Workforce Description</label> <br />
+            <textarea name="WorkforceDescription" rows="5" cols="50" value={this.state.WorkforceDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Production Description</label> <br />
+            <textarea name="ProductionDescription" rows="5" cols="50" value={this.state.ProductionDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Sourcing Description</label> <br />
+            <textarea name="SourcingDescription" rows="5" cols="50" value={this.state.SourcingDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Supporting Services Description</label> <br />
+            <textarea name="SupportingServicesDescription" rows="5" cols="50" value={this.state.SupportingServicesDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Distributing Description</label> <br />
+            <textarea name="DistributingDescription" rows="5" cols="50" value={this.state.DistributingDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Re-Cycling Description</label> <br />
+            <textarea name="RecyclingDescription" rows="5" cols="50" value={this.state.RecyclingDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Managing Description</label> <br />
+            <textarea name="ManagingDescription" rows="5" cols="50" value={this.state.ManagingDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Decision Making Description</label> <br />
+            <textarea name="DecisionMakingDescription" rows="5" cols="50" value={this.state.DecisionMakingDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Steering Description</label> <br />
+            <textarea name="SteeringDescription" rows="5" cols="50" value={this.state.SteeringDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Ownership Description</label> <br />
+            <textarea name="OwnershipDescription" rows="5" cols="50" value={this.state.OwnershipDescription} onChange={this.handleInputChange}></textarea>
+            <br /><br />
+            <label>Business Model Description</label> <br />
+            <textarea name="BusinessModelDescription" rows="5" cols="50" value={this.state.BusinessModelDescription} onChange={this.handleInputChange}></textarea>
             <br /><br />
           </div>
           <div label="Images">
             <p>Image form goes here</p>
           </div>
           <div label="References">
-            <p>Add list of references here</p>
+          <label>References</label> <br />
+            <textarea name="References" rows="5" cols="50" value={this.state.References} onChange={this.handleInputChange}></textarea>
+            <br /><br />
           </div>            
         </Tabs>
       <Footer />
