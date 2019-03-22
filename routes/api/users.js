@@ -35,6 +35,7 @@ router.post('/loginRequest', (req, res) =>
     
 });
 
+<<<<<<< HEAD
 router.post('/newUserRequest', (req, res) =>
 {
   // user info from request.
@@ -54,3 +55,12 @@ router.post('/newUserRequest', (req, res) =>
 
 
 module.exports = router;
+=======
+router.post('/', (req, res) => {
+	let new_user = new User(req.body);
+	
+	new_user.save().then(user => res.json(user));
+});
+
+module.exports = router;
+>>>>>>> db_register
