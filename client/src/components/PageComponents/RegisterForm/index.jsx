@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import { connect } from "react-redux";
+import { addUserFunc } from "../../../actions/userActions";
 
 class RegisterForm extends Component
 {
@@ -52,14 +54,14 @@ class RegisterForm extends Component
 
 	onSubmit(e) {
 		e.preventDefault();
-		console.log(`${this.state.first_name}, ${this.state.last_name}, ${this.state.email_address}, ${this.state.user_name}, ${this.state.password}`)
-		this.setState({
-			first_name: '',
-			last_name: '',
-			email_address: '',
-			user_name: '',
-			password: '',
-		})
+		const apiCall = this.props.addUserFunc(this.state);
+		apiCall.then(data => {
+			console.log(data.payload);
+		});
+		/*
+		apiCall.then(data => {
+			console.log(data.payload);
+		});*/
 	}
 
 	render() {
@@ -91,4 +93,8 @@ class RegisterForm extends Component
 	}
 }
 
-export default RegisterForm
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps, {addUserFunc})(RegisterForm)
