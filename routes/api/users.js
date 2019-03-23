@@ -1,5 +1,8 @@
 const express = require('express');
+var cookieParser = require('cookie-parser');
 const router = express.Router();
+
+router.use(cookieParser());
 
 //User Model
 const User = require('../../models/user');
@@ -24,6 +27,10 @@ router.post('/loginRequest', (req, res) =>
       if(true == isMatch)
       {
         res.json({success: true, message: ''})
+        //create and set cookie
+        res.cookie("userData", {username: user.username, role: user.role});
+        res.send('user data added to cookie');
+        res.send(req.cookies);
       }
       else
       {
@@ -40,7 +47,8 @@ router.post('/newUserRequest', (req, res) =>
   // user info from request.
   const newUser = new User({
     username: req.body.usersName,
-    password: req.body.usersPassword
+    password: req.body.usersPassword,
+    role: 'test'
   });
 
   // verify username is unique.
