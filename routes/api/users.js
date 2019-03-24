@@ -1,5 +1,8 @@
 const express = require('express');
+var cookieParser = require('cookie-parser');
 const router = express.Router();
+
+router.use(cookieParser());
 
 //User Model
 const User = require('../../models/user');
@@ -24,6 +27,10 @@ router.post('/loginRequest', (req, res) =>
       if(true == isMatch)
       {
         res.json({success: true, message: ''})
+        //create and set cookie
+        res.cookie("userData", {username: user.username, role: user.role});
+        res.send('user data added to cookie');
+        res.send(req.cookies);
       }
       else
       {
@@ -32,8 +39,8 @@ router.post('/loginRequest', (req, res) =>
     });
 
   });
-
 });
+
 
 router.post('/newUserRequest', (req, res) => {
 	let new_user = new User(req.body);

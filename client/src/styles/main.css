@@ -144,7 +144,8 @@ footer {
   margin: 0rem 2rem;
   display: grid;
   grid-template-columns: 60% 40%;
-  grid-template-areas: "title title"  "images summary"; }
+  grid-template-areas: "title title" 
+ "images summary"; }
 
 .solution-summary .title {
   margin: 0rem 0rem 0rem;
@@ -325,4 +326,3 @@ tr:nth-child(even) {
   font-size: 7px;
   position: absolute;
 }
-
