@@ -11,13 +11,13 @@ router.post('/loginRequest', (req, res) =>
 {
   console.log("inside loginRequest router.post");
 
-  /*
+
   // user login data from post request
   let usersName = req.body.user_name;
   let usersPassword = req.body.password;
 
   // Search database for username
-  User.find({ user_name: usersName }, function(err, user)
+  User.findOne({ user_name: usersName }, function(err, user)
   {
     if(err)
     {
@@ -25,7 +25,7 @@ router.post('/loginRequest', (req, res) =>
       next();
     }
 
-    User.checkPassword(usersPassword, function(errr, isMatch)
+    user.checkPassword(usersPassword, function(errr, isMatch)
     {
       if(true == isMatch)
       {
@@ -44,7 +44,6 @@ router.post('/loginRequest', (req, res) =>
     });
 
   });
-  */
 });
 
 
