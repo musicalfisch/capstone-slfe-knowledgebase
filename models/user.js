@@ -56,7 +56,11 @@ userSchema.methods.checkPassword = function(enteredPassword, callbackFunction)
   {
     if (err)
     { return callbackFunction(err, false); }
-    callbackFunction(null, true);
+
+    if (isValid)
+    { callbackFunction(null, true); }
+    else
+    { callbackFunction(null, false); }
   });
 };
 
