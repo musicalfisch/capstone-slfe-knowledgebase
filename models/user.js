@@ -49,6 +49,9 @@ userSchema.pre('save', function(next)
 //Method to safely check password is valid for login.
 userSchema.methods.checkPassword = function(enteredPassword, callbackFunction)
 {
+  console.log("checkPassword");
+  console.log("enteredPassword = " + enteredPassword);
+  console.log("this.password = " + this.password);
   bcrypt.compare(enteredPassword, this.password, function(err, isValid)
   {
     if (err)

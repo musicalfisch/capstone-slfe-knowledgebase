@@ -31,9 +31,9 @@ router.post('/loginRequest', (req, res) =>
       {
         res.json({success: true, message: ''})
         //create and set cookie
-        res.cookie("userData", {user_name: user.user_name, role: user.role});
-        res.send('user data added to cookie');
-        res.send(req.cookies);
+        //res.cookie("userData", {user_name: user.user_name, role: user.role});
+        //res.send('user data added to cookie');
+        //res.send(req.cookies);
         console.log("Data matches! Login successful.");
       }
       else
