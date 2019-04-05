@@ -17,6 +17,7 @@ const userSchema = new Schema({
 });
 
 //Middleware to hash password upon changing entry.
+
 userSchema.pre('save', function(next)
 {
   var user = this;
@@ -42,8 +43,8 @@ userSchema.pre('save', function(next)
       next();
     });
   });
-
 });
+
 
 //Method to safely check password is valid for login.
 userSchema.methods.checkPassword = function(enteredPassword, callbackFunction)
