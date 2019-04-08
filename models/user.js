@@ -5,7 +5,7 @@ const SALT_FACTOR = 10;
 
 //Create User Schema
 const userSchema = new Schema({
-  role: { type: String, required:true}
+  role: { type: String },
 	first_name: { type: String, required: true },
 	last_name: { type: String, required: true },
 	email_address: { type: String, required: true },
@@ -17,6 +17,7 @@ const userSchema = new Schema({
 });
 
 //Middleware to hash password upon changing entry.
+
 userSchema.pre('save', function(next)
 {
   var user = this;
@@ -42,17 +43,21 @@ userSchema.pre('save', function(next)
       next();
     });
   });
-
 });
+
 
 //Method to safely check password is valid for login.
 userSchema.methods.checkPassword = function(enteredPassword, callbackFunction)
 {
+  console.log("checkPassword");
+  console.log("enteredPassword = " + enteredPassword);
+  console.log("this.password = " + this.password);
   bcrypt.compare(enteredPassword, this.password, function(err, isValid)
   {
     if (err)
     { return callbackFunction(err, false); }
-    callbackFunction(null, true);
+
+    callbackFunction(null, isValid);
   });
 };
 
