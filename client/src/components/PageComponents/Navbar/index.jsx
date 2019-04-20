@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css"; // this is needed to override existin
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-teal mb-4">
       <div className="container">
         <div className="logo">
           <a href="/" className="logo--link">
@@ -18,16 +18,16 @@ export default function Navbar() {
         <div class="collapse navbar-collapse" id="mobile-nav">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="/browse">
+              <a className="nav-link font-weight-bold" href="/browse">
                 Result
               </a>
             </li>
-            <li className="nav-item">
+            <li className="nav-item font-weight-bold">
               <a className="nav-link" href="/about">
                 About
               </a>
             </li>
-            <li className="nav-item">
+            <li className="nav-item font-weight-bold">
               <a className="nav-link" href="/map">
                 Map
               </a>
