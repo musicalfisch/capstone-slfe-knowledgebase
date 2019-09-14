@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import QueryString from "query-string";
 import styled from "styled-components";
 import ResultItem from "../PageComponents/ResultItem";
@@ -26,6 +27,10 @@ const InnerPage = styled.div`
 `;
 
 class Browse extends Component {
+  static propTypes = {
+    isAuthenticated: PropTypes.bool
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -787,11 +792,22 @@ class Browse extends Component {
 
   render() {
     const checkboxes = this.getCheckBoxs();
+    const { isAuthenticated, user } = this.props.auth;
+
+    let canAddSolution = false;
+
+    if (isAuthenticated) {
+      if (user.role !== 'Member') {
+        canAddSolution = true;
+      }
+    }
 
     return (
       <Page>
         <div style={{ marginLeft: "85%" }}>
-          <a href="/solution/add">Add a Solution</a>
+          { canAddSolution ? (
+            <Link to={'/solution/add'}>Add a Solution</Link>
+          ) : null }
         </div>
         <InnerPage>
           <div style={{ minWidth: "200px" }}>{checkboxes}</div>
@@ -812,7 +828,8 @@ Browse.propTypes = {
   data: PropTypes.object
 };
 const mapStateToProps = state => ({
-  enterprise: state.enterprise
+  enterprise: state.enterprise,
+  auth: state.auth
 });
 export default connect(
   mapStateToProps,
