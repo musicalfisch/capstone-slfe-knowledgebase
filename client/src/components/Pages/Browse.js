@@ -792,9 +792,6 @@ class Browse extends Component {
 
     return (
       <Page>
-        <div style={{ marginBottom: "50px", width: "100%" }}>
-          <Navbar />
-        </div>
         <div style={{ marginLeft: "85%" }}>
           <a href="/solution/add">Add a Solution</a>
         </div>
@@ -804,9 +801,6 @@ class Browse extends Component {
             <Paginate todos={this.state.filteredSolutions} />
           )}
         </InnerPage>
-        <div style={{ marginTop: "50px", width: "100%" }}>
-          <Footer />
-        </div>
       </Page>
     );
   }

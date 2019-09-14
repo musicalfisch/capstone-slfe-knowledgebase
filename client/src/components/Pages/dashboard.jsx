@@ -12,9 +12,7 @@ class dashboard extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <h1>Dashboard</h1>
-        <Footer />
       </div>
     )
   }

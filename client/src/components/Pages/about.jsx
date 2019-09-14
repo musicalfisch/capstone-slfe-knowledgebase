@@ -10,9 +10,7 @@ class about extends Component {
   render() {
     return (
       <div >
-        <Navbar />
         About
-      <Footer />
       </div>
     )
   }

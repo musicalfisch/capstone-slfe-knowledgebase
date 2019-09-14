@@ -10,9 +10,7 @@ class terms_of_service extends Component {
   render() {
     return (
       <div >
-        <Navbar />
         Terms of Service...
-      <Footer />
       </div>
     )
   }

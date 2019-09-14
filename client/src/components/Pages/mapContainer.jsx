@@ -20,9 +20,6 @@ class mapContainer extends Component {
     return (
     	<div style={{display: 'flex', width:'100%'}} >
 	      <Page>
-        <div style={{ width: "100%" }}>
-          <Navbar />
-        </div>
 		    <Map width={'1000px'} height={'300px'}/>
 	      <div style={{padding:'250px'}}/>
 		    </Page>

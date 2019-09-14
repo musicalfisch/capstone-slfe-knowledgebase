@@ -11,9 +11,7 @@ class register extends Component {
   render() {
     return (
       <div >
-      	<Navbar />
       	<RegisterForm />
-      	<Footer />
       </div>
     )
   }

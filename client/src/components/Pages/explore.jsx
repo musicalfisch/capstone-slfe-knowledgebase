@@ -172,10 +172,6 @@ class explore extends Component {
           integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
           crossOrigin="anonymous"
         />
-
-        <div style={{ width: "100%" }}>
-          <Navbar />
-        </div>
         <PageSection>
           <div style={{ width: "75%", marginTop: "20px" }}>
             <div>
@@ -247,9 +243,6 @@ class explore extends Component {
             <Map width={"100%"} height={"500px"} />
           </div>
         </span>
-        <div style={{ width: "100%" }}>
-          <Footer />
-        </div>
       </Page>
     );
   }

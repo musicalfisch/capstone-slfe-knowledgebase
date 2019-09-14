@@ -67,7 +67,6 @@ class solution extends Component {
 
         return (
             <div class="solution-page">
-                <Navbar />
                 <div className="content">
                     <Summary img={images} id={this.props.match.params.id} />
                     <Tabs>
@@ -226,7 +225,6 @@ class solution extends Component {
           </div>
         </Slide>
       </div>*/}
-        <Footer />
       </div>
     );
   }

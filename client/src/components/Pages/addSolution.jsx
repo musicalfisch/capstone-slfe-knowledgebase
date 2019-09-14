@@ -187,7 +187,6 @@ class addSolution extends Component {
 
     return (
       <div >
-        <Navbar />
         <h1>Add New Solution</h1> 
         <br />
         <Tabs showCancelBtn={true} showSaveBtn={true} onSave={this.handleFormSubmit}>
@@ -341,7 +340,6 @@ class addSolution extends Component {
             {referenceUploadList}
           </div>            
         </Tabs>
-      <Footer />
       </div>
     )
   }

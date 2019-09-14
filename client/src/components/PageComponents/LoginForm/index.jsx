@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loginUserFunc } from "../../../actions/userActions";
+import { loginFunc } from "../../../actions/userActions";
+import { withRouter } from 'react-router-dom'
 
 class LoginForm extends Component
 {
@@ -11,14 +12,14 @@ class LoginForm extends Component
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      user_name: '',
+      username: '',
       password: ''
     }
   }
 
-  onChangeUserName(e) {
+  	onChangeUserName(e) {
 		this.setState({
-			user_name: e.target.value
+			username: e.target.value
 		});
 	}
 
@@ -29,14 +30,12 @@ class LoginForm extends Component
 	}
 
   onSubmit(e) {
-    e.preventDefault();
-    console.log("inside onSubmit()");
-    console.log("user=" + this.state.user_name);
-    console.log("password=" + this.state.password);
-    const apiCall = this.props.loginUserFunc(this.state);
-		apiCall.then(data => {
-			console.log(data.payload);
-		});
+	e.preventDefault();
+	
+	const apiCall = this.props.loginFunc({ username: this.state.username, password: this.state.password });
+	apiCall.then(data => {
+		this.props.history.push('/');
+	});
   }
 
   render() {
@@ -93,7 +92,11 @@ class LoginForm extends Component
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+	isAuthenticated: state.auth.isAuthenticated,
+	user: state.user
 });
 
-export default connect(mapStateToProps, {loginUserFunc})(LoginForm)
+export default withRouter(connect(
+	mapStateToProps,
+	{ loginFunc }
+  )(LoginForm));

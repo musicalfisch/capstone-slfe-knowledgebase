@@ -10,9 +10,7 @@ class privacy extends Component {
   render() {
     return (
       <div >
-        <Navbar />
         Privacy Policy
-      <Footer />
       </div>
     )
   }

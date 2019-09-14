@@ -11,9 +11,7 @@ class login extends Component {
   render() {
     return (
       <div >
-      	<Navbar />
       	<LoginForm />
-      	<Footer />
       </div>
     )
   }
