@@ -2,12 +2,24 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { logoutFunc } from "../../../actions/userActions";
 import "bootstrap/dist/css/bootstrap.css"; // this is needed to override existing CSS styling
 
 class Navbar extends Component {
   static propTypes = {
-    auth: PropTypes.bool.isRequired
+    auth: PropTypes.object.isRequired
   };
+
+  constructor(props) {
+		super(props);
+		this.onLogout = this.onLogout.bind(this);
+  }
+  
+  onLogout(e) {
+		e.preventDefault();
+		
+		this.props.logoutFunc();
+	}
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
@@ -25,7 +37,7 @@ class Navbar extends Component {
             </Link>
           </div>
   
-          <div class="collapse navbar-collapse" id="mobile-nav">
+          <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={'/browse'} className="nav-link font-weight-bold">Browse</Link>
@@ -55,7 +67,7 @@ class Navbar extends Component {
                     <i className="fa fa-gear" /> Settings
                   </a>
                   <a className="dropdown-item">
-                    <a href="/login">
+                    <a onClick={this.onLogout}>
                       <i className="fa fa-sign-out" />Logout
                     </a>
                   </a>
@@ -80,5 +92,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  null
+  { logoutFunc }
 )(Navbar);

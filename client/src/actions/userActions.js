@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {ADD_USER, LOGIN_SUCCESS, LOGIN_FAIL,RESPONSE_LOADING} from './types';
+import {ADD_USER, LOAD_USER, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS, RESPONSE_LOADING} from './types';
 
 
 export const loginFunc = (user) => dispatch => {
@@ -25,6 +25,19 @@ export const addUserFunc = (user) => dispatch => {
     type: ADD_USER,
     payload: res.data
   }))
+};
+
+export const loadUser = (user) => dispatch => {
+  dispatch(setResponseLoading());
+  dispatch({
+    type: LOAD_USER
+  })
+};
+
+export const logoutFunc = () => {
+  return {
+    type: LOGOUT_SUCCESS
+  };
 };
 
 export const setResponseLoading = () => {

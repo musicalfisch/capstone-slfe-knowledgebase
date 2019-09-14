@@ -5,8 +5,8 @@ const SALT_FACTOR = 10;
 
 //Create User Schema
 const userSchema = new Schema({
-  username: { type: String, required: true, index: {unique: true}},
-  password: { type: String, required: true},
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
   role: { type: String },
 	first_name: { type: String, required: true },
 	last_name: { type: String, required: true },

@@ -45,7 +45,7 @@ router.post('/login', (req, res) => {
 
 
 router.post('/register', (req, res) => {
-	let new_user = new User(req.body);
+  let new_user = new User(req.body);
 	new_user.save().then(user => res.json(user));
 });
 

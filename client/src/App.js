@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Navbar from './components/PageComponents/Navbar';
 import Footer from './components/PageComponents/Footer'
 import about from './components/Pages/about';
@@ -14,7 +14,14 @@ import addSolution from './components/Pages/addSolution';
 import dashboard from './components/Pages/dashboard';
 
 
+import store from './store';
+import { loadUser } from './actions/userActions';
+
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
+
   render() {
     return (
       <div>
