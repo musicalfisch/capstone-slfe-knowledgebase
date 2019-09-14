@@ -13,8 +13,6 @@ router.post('/login', (req, res) => {
     .then(user => {
       if (!user) return res.status(400).json({ message: 'Incorrect username/password'});
 
-      console.log(req.app.locals.JWT_SECRET)
-
       // Validate password
       user.checkPassword(password, function(err, isMatch) {
         if (isMatch) {
