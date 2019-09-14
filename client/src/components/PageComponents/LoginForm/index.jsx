@@ -5,19 +5,19 @@ import { withRouter } from 'react-router-dom'
 
 class LoginForm extends Component
 {
-  constructor(props) {
-    super(props);
-    this.onChangeUserName = this.onChangeUserName.bind(this);
+	constructor(props) {
+		super(props);
+		this.onChangeUserName = this.onChangeUserName.bind(this);
 		this.onChangePassword = this.onChangePassword.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 
-    this.state = {
-      username: '',
-      password: ''
-    }
-  }
+		this.state = {
+			username: '',
+			password: ''
+		}
+	}
 
-  	onChangeUserName(e) {
+	onChangeUserName(e) {
 		this.setState({
 			username: e.target.value
 		});
@@ -29,14 +29,14 @@ class LoginForm extends Component
 		});
 	}
 
-  onSubmit(e) {
-	e.preventDefault();
-	
-	const apiCall = this.props.loginFunc({ username: this.state.username, password: this.state.password });
-	apiCall.then(data => {
-		this.props.history.push('/');
-	});
-  }
+	onSubmit(e) {
+		e.preventDefault();
+		
+		const apiCall = this.props.loginFunc({ username: this.state.username, password: this.state.password });
+		apiCall.then(data => {
+			this.props.history.push('/');
+		});
+	}
 
   render() {
     return (

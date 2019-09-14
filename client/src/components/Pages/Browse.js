@@ -7,8 +7,6 @@ import PropTypes from "prop-types";
 import { getEnterprises, getField } from "../../actions/enterpriseActions";
 import { connect } from "react-redux";
 import CheckBox from "rc-checkbox";
-import Navbar from "../PageComponents/Navbar";
-import Footer from "../PageComponents/Footer";
 
 const Page = styled.div`
   display: flex;

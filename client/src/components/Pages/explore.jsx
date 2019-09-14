@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import SectionTitle from "../PageComponents/SectionTitle";
 import styled from "styled-components";
-import Footer from "../PageComponents/Footer";
 import CategoryType from "../PageComponents/CategoryType";
 import PropTypes from "prop-types";
 import Search from "material-ui-search-bar";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { connect } from "react-redux";
-import Navbar from "../PageComponents/Navbar";
 import { getEnterprises, getField } from "../../actions/enterpriseActions";
 import { getDomains } from "../../actions/enterpriseActions";
 import { getDomainEntries } from "../../actions/domainActions";

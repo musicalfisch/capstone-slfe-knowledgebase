@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Navbar from '../PageComponents/Navbar'
-import Footer from '../PageComponents/Footer'
 
 class terms_of_service extends Component {
   componentDidMount() {

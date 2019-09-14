@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../PageComponents/Header';
 import styled from 'styled-components';
 import Map from './map.jsx'
-import Navbar from "../PageComponents/Navbar";
 
 const Page = styled.div`
   display: inline-flex;

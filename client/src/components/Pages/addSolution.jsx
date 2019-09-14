@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../PageComponents/Navbar'
 import Tabs from "../PageComponents/SolutionTab";
-import Footer from '../PageComponents/Footer'
 import { connect } from "react-redux";
 import { getDomainEntries } from "../../actions/domainActions";
 import { addSolutionFunc } from "../../actions/enterpriseActions";

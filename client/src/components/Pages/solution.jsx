@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Navbar from "../PageComponents/Navbar";
-import Footer from "../PageComponents/Footer";
 import Summary from "../PageComponents/SolutionSummary";
 import Tabs from "../PageComponents/SolutionTab";
 import Radar from "react-d3-radar";
