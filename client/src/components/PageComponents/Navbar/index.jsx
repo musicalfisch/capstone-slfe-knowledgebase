@@ -45,7 +45,10 @@ export default function Navbar() {
               </a>
               <div className="dropdown-menu">
                 <a className="dropdown-item">
-                  <i className="fa fa-user-circle" /> Profile
+                  <i className="fa fa-user-circle" /> 
+                  <a href="/profile">
+                Profile
+              </a>
                 </a>
                 <a className="dropdown-item">
                   <i className="fa fa-gear" /> Settings
