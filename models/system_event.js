@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//Create User Schema
 const systemEvenSchema = new Schema({
   created_on: { type: Date, default: Date.now() },
   created_by: { type: String, required: true },
