@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   });
 
 router.post('/', (req, res) => {
-    let new_system_event = new User(req.body);
+    let new_system_event = new SystemEvent(req.body);
     new_system_event.save().then(system_event => res.json(system_event));
 });
 
