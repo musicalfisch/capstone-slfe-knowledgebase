@@ -10,8 +10,6 @@ class user_profile_page extends Component {
   render() {
     return (
       <div >
-        <Navbar />
-      <Footer />
       </div>
     )
   }
