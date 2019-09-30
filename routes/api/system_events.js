@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-//User Model
 const SystemEvent = require('../../models/system_event');
 
 router.get('/', (req, res) => {
