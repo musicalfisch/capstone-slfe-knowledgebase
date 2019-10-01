@@ -8,7 +8,7 @@ const systemEvenSchema = new Schema({
   event_type: { type: String, required: true },
   visibility: { type: String, required: true },
   changed_on: { type: Date },
-  comments: { type: String },
+  role: { type: String },
   handled_by: { type: String },
   result: { type: String },
   display: { type: String }
