@@ -44,7 +44,19 @@ class explore extends Component {
 
   getCategoryItems = () => {
     var categoryTypes = [];
+    var sorted_cat = [];
     if (this.state.domains) {
+
+      // The categories must be hard-coded order per Nigel request #190 in Taiga.
+      sorted_cat.push( this.state.domains.find( c => c.name === "Production"));
+      sorted_cat.push( this.state.domains.find( c => c.name === "Processing"));
+      sorted_cat.push( this.state.domains.find( c => c.name === "Distribution"));
+      sorted_cat.push( this.state.domains.find( c => c.name === "Outlets"));
+      sorted_cat.push( this.state.domains.find( c => c.name === "Recycling"));
+      sorted_cat.push( this.state.domains.find( c => c.name === "Integrating"));
+      this.state.domains = sorted_cat;
+
+
       for (var i = 0; i < this.state.domains.length; i++) {
         categoryTypes.push(
           <div style={{ cursor: "pointer" }}>
