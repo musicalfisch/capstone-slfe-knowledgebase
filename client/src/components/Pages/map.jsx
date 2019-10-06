@@ -94,7 +94,7 @@ class Map extends Component {
 				marker.bindPopup('<p><a href="/solution/' + id + '">' + name + '</a></p>').openPopup();
 				markers.addLayer(marker);
 			}
-			if(this.state.map) { // fixing bug #100 in taiga where map does not load and crashes page.
+			if(this.state.map !== null) { // fixing bug #100 in taiga where map does not load and crashes page.
 				this.state.map.addLayer(markers)
 				this.state.map.fitBounds([
 			    [5.499550, -167.276413], //Southwest
