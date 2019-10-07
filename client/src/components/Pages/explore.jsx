@@ -117,6 +117,8 @@ class explore extends Component {
     var popularItems = [];
     if (this.state.popularSolutions) {
       for (var i = 0; i < this.state.popularSolutions.length; i++) {
+
+        // Only show featured solutions
         if(this.state.popularSolutions[i].isFeatured) {
 
           popularItems.push(
@@ -130,10 +132,6 @@ class explore extends Component {
             </div>
           );
         }
-        else {
-          console.log(this.state.popularSolutions[i].Name);
-        }
-
       }
     }
 
