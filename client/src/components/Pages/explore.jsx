@@ -117,16 +117,23 @@ class explore extends Component {
     var popularItems = [];
     if (this.state.popularSolutions) {
       for (var i = 0; i < this.state.popularSolutions.length; i++) {
-        popularItems.push(
-          <div style={{ padding: "5px" }}>
-            <a
-              style={{ color: "blue" }}
-              href={`/solution/${this.state.popularSolutions[i]._id}`}
-            >
-              {this.state.popularSolutions[i].Name}
-            </a>
-          </div>
-        );
+        if(this.state.popularSolutions[i].isFeatured) {
+
+          popularItems.push(
+            <div style={{ padding: "5px" }}>
+              <a
+                style={{ color: "blue" }}
+                href={`/solution/${this.state.popularSolutions[i]._id}`}
+              >
+                {this.state.popularSolutions[i].Name}
+              </a>
+            </div>
+          );
+        }
+        else {
+          console.log(this.state.popularSolutions[i].Name);
+        }
+
       }
     }
 
