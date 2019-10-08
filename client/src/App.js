@@ -9,7 +9,6 @@ import login from './components/Pages/login';
 import register from './components/Pages/register';
 import mapContainer from './components/Pages/mapContainer.jsx';
 import solution from './components/Pages/solution.jsx';
-import DataTest from './components/Pages/DataTest';
 import addSolution from './components/Pages/addSolution';
 import dashboard from './components/Pages/dashboard';
 import user_profile_page from './components/Pages/user_profile_page';
@@ -36,7 +35,6 @@ class App extends Component {
           <Route path='/map' component={mapContainer} />
           <Route path='/solution/add' component={addSolution} />
           <Route path='/solution/:id' component={solution} />
-          <Route path='/test' component={DataTest}/>
           <Route exact path="/dashboard" component={dashboard} />
           <Route path='/profile' component={user_profile_page} />
         </Switch>
