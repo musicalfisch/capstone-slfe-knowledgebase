@@ -3,11 +3,16 @@ import { connect } from "react-redux";
 import { getByID } from "../../../actions/enterpriseActions";
 import PropTypes from "prop-types";
 import { Slide } from "react-slideshow-image";
+import CheckBox from "rc-checkbox";
 
 class SolutionSummary extends Component {
 
   componentDidMount() {
     this.props.getByID(this.props.id);
+  }
+
+  handleFeatureToggle() {
+    console.log("toggle featured.");
   }
 
   render() {
@@ -86,6 +91,17 @@ class SolutionSummary extends Component {
                 <td>
                   <button>Download as PDF</button>
                 </td>
+              </tr>
+              <tr class="item">
+                <label>
+                &nbsp;&nbsp;
+                <CheckBox
+                  name="Featured"
+                  onChange={this.handleFeatureToggle}
+                  enabled={true}
+                />
+                &nbsp; Featured Solution
+                </label>
               </tr>
             </tbody>
           </table>
