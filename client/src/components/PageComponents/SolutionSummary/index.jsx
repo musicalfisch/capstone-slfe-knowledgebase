@@ -1,18 +1,40 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getByID } from "../../../actions/enterpriseActions";
+import { editSolutionFunc } from "../../../actions/enterpriseActions";
 import PropTypes from "prop-types";
 import { Slide } from "react-slideshow-image";
 import CheckBox from "rc-checkbox";
 
 class SolutionSummary extends Component {
 
-  componentDidMount() {
-    this.props.getByID(this.props.id);
+  constructor(props) {
+    super(props);
+    this.handleFeatureToggle = this.handleFeatureToggle.bind(this);
+
+    this.state = {
+      isFeatured : false
+    }
   }
 
-  handleFeatureToggle() {
-    console.log("toggle featured.");
+  componentDidMount() {
+    const apiCall = this.props.getByID(this.props.id);
+    const self = this;
+    apiCall.then(function() {
+      self.setState({
+        isFeatured: self.props.enterpriseData.singleSolution.isFeatured
+      });
+    });
+
+  }
+
+  handleFeatureToggle(e) {
+    this.setState({
+      isFeatured: e.target.checked
+    });
+    this.props.enterpriseData.singleSolution.isFeatured = e.target.checked;
+    const apiCall = this.props.editSolutionFunc(this.props.enterpriseData.singleSolution);
+
   }
 
   render() {
@@ -92,16 +114,19 @@ class SolutionSummary extends Component {
                   <button>Download as PDF</button>
                 </td>
               </tr>
-              <tr class="item">
+              <tr>
+                <td colspan="2">
                 <label>
                 &nbsp;&nbsp;
                 <CheckBox
                   name="Featured"
                   onChange={this.handleFeatureToggle}
                   enabled={true}
+                  checked={this.state.isFeatured}
                 />
                 &nbsp; Featured Solution
                 </label>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -122,5 +147,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getByID }
+  { getByID, editSolutionFunc }
 )(SolutionSummary);
