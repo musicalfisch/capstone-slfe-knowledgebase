@@ -7,6 +7,9 @@ import { Slide } from "react-slideshow-image";
 import CheckBox from "rc-checkbox";
 
 class SolutionSummary extends Component {
+  static propTypes = {
+    isAuthenticated: PropTypes.bool
+  };
 
   constructor(props) {
     super(props);
@@ -44,6 +47,15 @@ class SolutionSummary extends Component {
       arrows: true,
     };
     const { singleSolution } = this.props.enterpriseData;
+    const { isAuthenticated, user } = this.props.auth;
+
+    let canToggleFeatured = false;
+
+    if (isAuthenticated) {
+      if (user.role === 'Administrator') {
+        canToggleFeatured = true;
+      }
+    }
 
     return (
       <div class="solution-summary">
@@ -121,7 +133,7 @@ class SolutionSummary extends Component {
                 <CheckBox
                   name="Featured"
                   onChange={this.handleFeatureToggle}
-                  enabled={true}
+                  disabled={!canToggleFeatured}
                   checked={this.state.isFeatured}
                 />
                 &nbsp; Featured Solution
@@ -142,7 +154,8 @@ SolutionSummary.PropTypes = {
 };
 
 const mapStateToProps = state => ({
-  enterpriseData: state.enterpriseData
+  enterpriseData: state.enterpriseData,
+  auth: state.auth
 });
 
 export default connect(
