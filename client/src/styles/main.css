@@ -310,3 +310,8 @@ tr:nth-child(even) {
   top: 18px;
   font-size: 7px;
   position: absolute; }
+
+.each-slide div {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
