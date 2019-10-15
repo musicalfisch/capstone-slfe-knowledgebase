@@ -199,22 +199,32 @@ class explore extends Component {
             </div>
           </div>
         </PageSection>
-        <PageSection>
-          <div style={{ marginTop: "50px" }}>
-            <SectionTitle label="Primary Domains: " />
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              marginRight: "10px",
-              width: "100%"
-            }}
-          >
-            {categoryList}
-          </div>
-        </PageSection>
+        <br />
+        <Container>
+          <Row>
+            <Col sm="12" md={{ size: 6, offset: 3 }}>
+              <section className="food-domains-title">
+                <div className="title">
+                  <h1>
+                    <p class="text-success">Food Economy Domains</p>
+                  </h1>
+                </div>
+              </section>
+            </Col>
+          </Row>
+        </Container>
+        <br />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            marginRight: "10px",
+            width: "100%"
+          }}
+        >
+          {categoryList}
+        </div>
         <br />
         <Container>
           <Row>
