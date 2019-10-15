@@ -77,7 +77,7 @@ class Paginate extends Component {
     return (
       <Page>
         <div>
-          <ul>
+          <ul Style="list-style-type: none;">
             {currentTodos.map((todo, index) => {
               return <li key={index}>{todo}</li>;
             })}
