@@ -206,7 +206,7 @@ class explore extends Component {
               <section className="food-domains-title">
                 <div className="title">
                   <h1>
-                    <p class="text-success">Food Economy Domains</p>
+                    <p class="text-success">Food Economy Domain</p>
                   </h1>
                 </div>
               </section>
