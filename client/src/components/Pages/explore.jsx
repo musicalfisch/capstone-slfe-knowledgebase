@@ -101,36 +101,6 @@ class explore extends Component {
     return categoryTypes;
   };
 
-  getSolutionItems = () => {
-    var solutionTypes = [];
-    if (this.state.solutionTypes) {
-      for (var i = 0; i < this.state.solutionTypes.length; i++) {
-        solutionTypes.push(
-          <div style={{ cursor: "pointer", marginRight: "24px" }}>
-            <CategoryType
-              history={this.props.history}
-              styleObject={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                textAlign: "center",
-                alignItems: "center",
-                width: "120px",
-                height: "120px",
-                backgroundColor: "#ffff"
-              }}
-              type="solutionType"
-              image=""
-              label={this.state.solutionTypes[i]}
-            />
-          </div>
-        );
-      }
-    }
-
-    return solutionTypes;
-  };
-
   getPopularItems = () => {
     var popularItems = [];
     console.log(this.state.popularSolutions);
@@ -205,7 +175,6 @@ class explore extends Component {
 
   render() {
     const categoryList = this.getCategoryItems();
-    const solutionList = this.getSolutionItems();
     const popularList = this.getPopularItems();
 
     return (
@@ -246,22 +215,7 @@ class explore extends Component {
             {categoryList}
           </div>
         </PageSection>
-        <PageSection>
-          <div style={{ marginTop: "50px" }}>
-            <SectionTitle label="Solution Types: " />
-          </div>
-          <div
-            style={{
-              width: "100%",
-              alignItems: "center",
-              display: "grid",
-              gridRowGap: "10px",
-              gridTemplateColumns: "repeat(6, 1fr)"
-            }}
-          >
-            {solutionList}
-          </div>
-        </PageSection>
+        <br />
         <Container>
           <Row>
             <Col sm="12" md={{ size: 6, offset: 3 }}>
