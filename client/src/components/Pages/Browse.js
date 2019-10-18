@@ -738,6 +738,7 @@ class Browse extends Component {
               typeof singleSolution["Keyword Descriptors"] !== 'undefined' &&
               singleSolution["Keyword Descriptors"].toLowerCase().match(x.searchTerm.toLowerCase())
             ) ||
+            singleSolution["Location"].toLowerCase().match(x.searchTerm.toLowerCase()) ||
             singleSolution["Country"].toLowerCase().match(x.searchTerm.toLowerCase()) ||
             singleSolution["State"].toLowerCase().match(x.searchTerm.toLowerCase()) ||
             singleSolution["City"].toLowerCase().match(x.searchTerm.toLowerCase())
@@ -748,7 +749,7 @@ class Browse extends Component {
         }
       }
     }
-    
+
     for (let i = 0; i < filteredData.length; i++) {
       for (var k = i + 1; k < filteredData.length; k++) {
         if (
