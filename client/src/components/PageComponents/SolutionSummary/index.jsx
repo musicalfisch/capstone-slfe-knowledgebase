@@ -94,11 +94,11 @@ class SolutionSummary extends Component {
               </tr>
               <tr>
                 <td class="item">Area</td>
-                <td>Very small</td>
+                <td>{singleSolution["Operational Area"]}</td>
               </tr>
               <tr>
                 <td class="item">Climate</td>
-                <td>Temperature</td>
+                <td>{singleSolution["Climate Zone"]}</td>
               </tr>
               <tr>
                 <td class="item">City</td>
