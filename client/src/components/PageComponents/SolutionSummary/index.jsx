@@ -110,11 +110,11 @@ class SolutionSummary extends Component {
               </tr>
               <tr>
                 <td class="item">Economic</td>
-                <td>N/A</td>
+                <td>{singleSolution["Economic Networks"]}</td>
               </tr>
               <tr>
                 <td class="item">Other</td>
-                <td>N/A</td>
+                <td>{singleSolution["Other Outputs Description"]}</td>
               </tr>
               <tr>
                 <td class="item">Description</td>
