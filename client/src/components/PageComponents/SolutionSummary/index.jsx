@@ -180,12 +180,14 @@ class SolutionSummary extends Component {
                 <td class="item">Number of Workers</td>
                 <td>{singleSolution["Number of Employees"]}</td>
               </tr>
+              {/* This is not used for anything right now, and can be confusing.
               <tr>
                 <td class="item"></td>
                 <td>
                   <button>Download as PDF</button>
                 </td>
               </tr>
+              */}
               <tr>
                 <td colspan="2">
                 <label>
