@@ -798,7 +798,7 @@ class Browse extends Component {
   /* Calculates text for Solution Result Page Header*/
   getResultPageHeaderDomainText = () => {
     const x = QueryString.parse(this.props.location.search);
-    var returnText = "Showing results for ";
+    let returnText = "Showing results for ";
     if (x.primaryDomain) 
     {
       returnText = returnText + "solutions in the " + String(x.primaryDomain) + " domain";
