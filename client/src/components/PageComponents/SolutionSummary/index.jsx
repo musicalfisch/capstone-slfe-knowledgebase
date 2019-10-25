@@ -66,7 +66,7 @@ class SolutionSummary extends Component {
           <div>
             <Slide
               {...properties}
-              style={{ maxWidth: "700px", maxHeight: "500px" }}
+              style={{ maxWidth: "500px", maxHeight: "300px" }}
             >
               {this.props.img}
             </Slide>
@@ -74,6 +74,10 @@ class SolutionSummary extends Component {
         )}
         <div className="summary">
           <table>
+            <colgroup>
+              <col style={{width:"30%"}} />
+              <col style={{width:"70%"}} />
+            </colgroup>
             <tbody>
               <tr>
                 <th colspan="2" class="title">
