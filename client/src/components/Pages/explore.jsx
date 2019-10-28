@@ -192,7 +192,7 @@ class explore extends Component {
     return (
       <Page>
         <PageSection>
-          <div style={{ width: "75%", marginTop: "20px" }}>
+          <div style={{ width: "75%", marginTop: "20px"}}>
             <div>
               <SectionTitle label="Search" />
               <MuiThemeProvider>
@@ -212,9 +212,11 @@ class explore extends Component {
           </div>
         </PageSection>
         <br />
-        <h1 class="text-success" style={{ textAlign: "center" }}>
+        <div style={{ paddingLeft: "27px" }}>
+          <h1 class="text-success" style={{ textAlign: "left" }}>
           Food Economy Domain
         </h1>
+        </div>
         <br />
         <div
           style={{
