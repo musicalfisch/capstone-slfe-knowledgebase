@@ -213,9 +213,9 @@ class explore extends Component {
         </PageSection>
         <br />
         <div style={{ paddingLeft: "27px" }}>
-          <h1 class="text-success" style={{ textAlign: "left" }}>
+          <h2 class="text-success" style={{ textAlign: "left" }}>
           Food Economy Domain
-        </h1>
+        </h2>
         </div>
         <br />
         <div
@@ -231,9 +231,9 @@ class explore extends Component {
         </div>
         <br />
         <div style={{ paddingLeft: "27px" }}>
-          <h1 class="text-success" style={{ textAlign: "left" }}>
+          <h2 class="text-success" style={{ textAlign: "left" }}>
             Featured Solutions
-          </h1>
+          </h2>
         </div>
 
         <div
