@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Navbar from '../PageComponents/Navbar'
 import Footer from '../PageComponents/Footer'
 
-class terms_of_service extends Component {
+class tempAdminPage extends Component {
   componentDidMount() {
-    document.title = "SLFE - Terms of Service";
+    document.title = "SLFE - Temp Admin Page";
   }
 
   render() {
@@ -15,4 +15,4 @@ class terms_of_service extends Component {
   }
 }
 
-export default terms_of_service;
+export default tempAdminPage;

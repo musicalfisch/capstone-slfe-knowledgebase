@@ -13,6 +13,7 @@ import addSolution from './components/Pages/addSolution';
 import dashboard from './components/Pages/dashboard';
 import user_profile_page from './components/Pages/user_profile_page';
 import notifications_page from './components/Pages/notifications';
+import tempAdminPage from './components/Pages/tempAdminPage';
 
 
 import store from './store';
@@ -39,6 +40,7 @@ class App extends Component {
           <Route exact path="/dashboard" component={dashboard} />
           <Route path='/profile' component={user_profile_page} />
           <Route path='/notifications' compenent={notifications_page} />
+          <Route path='/tempadminpage' compenent={tempAdminPage} />
         </Switch>
         <Footer />
       </div>
